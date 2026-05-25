@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geologia — Appunti (Prof. Tondi, UNICAM)</title>
+<style>
+:root {
+  --bg: #1a1a2e;
+  --text: #e0e0e0;
+  --heading: #f0c060;
+  --accent: #4a9eff;
+  --link: #ffd700;
+  --card-bg: #16213e;
+  --aside-bg: #0f3460;
+  --border: #2a2a4a;
+  --code-bg: #0d1117;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 16px 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { color: var(--heading); font-weight: 600; }
+
+nav#indice {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--aside-bg);
+  border-bottom: 2px solid var(--accent);
+  padding: 12px 20px;
+  max-height: 40vh; overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+nav#indice h2 { color: var(--heading); font-size: 1.1rem; margin-bottom: 8px; }
+nav#indice ol { padding-left: 20px; column-count: 2; column-gap: 20px; }
+nav#indice li { margin: 3px 0; font-size: 0.9rem; break-inside: avoid; }
+nav#indice a { color: var(--accent); }
+
+main { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+header.hero {
+  text-align: center; padding: 40px 20px 30px;
+  border-bottom: 1px solid var(--border); margin-bottom: 30px;
+}
+header.hero h1 { color: var(--heading); font-size: 1.8rem; margin-bottom: 8px; }
+header.hero p { color: var(--accent); font-size: 1rem; opacity: 0.85; }
+.exam-badge {
+  display: inline-block; margin-top: 12px;
+  background: #b22; color: #fff; padding: 6px 16px;
+  border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+}
+
+section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+section:last-child { border-bottom: none; }
+
+h2 {
+  color: var(--heading); font-size: 1.5rem;
+  margin-bottom: 16px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+h3 { color: var(--accent); font-size: 1.2rem; margin: 20px 0 10px; }
+h4 { color: #ccc; font-size: 1rem; margin: 14px 0 8px; }
+
+p { margin: 8px 0; }
+ul, ol { margin: 8px 0 8px 24px; }
+li { margin: 4px 0; }
+
+aside {
+  background: var(--aside-bg);
+  border-left: 3px solid var(--accent);
+  padding: 10px 16px; margin: 16px 0;
+  font-size: 0.9rem; border-radius: 0 8px 8px 0;
+  opacity: 0.9;
+}
+
+.image-container {
+  margin: 20px 0; text-align: center;
+  border-radius: 8px; overflow: hidden;
+  background: var(--card-bg); padding: 8px;
+}
+.image-container img {
+  max-width: 100%; height: auto; cursor: pointer;
+  border-radius: 6px; transition: transform 0.2s;
+}
+.image-container img:hover { transform: scale(1.02); }
+.image-container .caption {
+  font-size: 0.85rem; color: #aaa; margin-top: 6px;
+}
+
+.placeholder-img {
+  display: block; background: var(--aside-bg);
+  color: var(--accent); text-align: center;
+  padding: 40px 20px; border-radius: 8px;
+  font-style: italic; font-size: 0.9rem;
+  border: 2px dashed var(--border); margin: 16px 0;
+}
+
+/* Lightbox */
+#lightbox {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.92); z-index: 1000;
+  justify-content: center; align-items: center; cursor: pointer;
+}
+#lightbox.active { display: flex; }
+#lightbox img { max-width: 95%; max-height: 90vh; border-radius: 8px; cursor: default; }
+#lightbox .close {
+  position: absolute; top: 20px; right: 30px;
+  color: #fff; font-size: 2rem; cursor: pointer;
+  width: 44px; height: 44px; text-align: center; line-height: 44px;
+  background: rgba(255,255,255,0.15); border-radius: 50%;
+}
+#lightbox .close:hover { background: rgba(255,255,255,0.3); }
+
+/* Flash Cards Carousel */
+.flashcards-wrapper {
+  margin-top: 24px; position: relative;
+  background: var(--card-bg); border-radius: 12px;
+  padding: 20px 40px;
+}
+.flashcards-wrapper h4 {
+  color: var(--heading); margin-bottom: 12px; text-align: center;
+}
+.carousel-container {
+  overflow: hidden; position: relative;
+  min-height: 180px; display: flex; align-items: center;
+}
+.carousel-track {
+  display: flex; transition: transform 0.35s ease;
+  gap: 16px;
+}
+.flashcard {
+  min-width: 260px; max-width: 260px; height: 160px;
+  perspective: 800px; cursor: pointer; flex-shrink: 0;
+}
+.flashcard-inner {
+  width: 100%; height: 100%; position: relative;
+  transition: transform 0.5s; transform-style: preserve-3d;
+  border-radius: 10px;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.card-front, .card-back {
+  position: absolute; width: 100%; height: 100%;
+  backface-visibility: hidden; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 16px; font-size: 0.9rem;
+}
+.card-front {
+  background: var(--aside-bg);
+  border: 2px solid var(--accent);
+  color: var(--text); font-weight: 600;
+}
+.card-back {
+  background: #1a3a5c;
+  border: 2px solid var(--heading);
+  transform: rotateY(180deg); color: var(--text);
+}
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.1); border: 1px solid var(--accent);
+  color: var(--accent); font-size: 1.5rem; width: 36px; height: 36px;
+  border-radius: 50%; cursor: pointer; z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.carousel-arrow:hover { background: rgba(255,255,255,0.25); }
+.carousel-arrow:disabled { opacity: 0.3; cursor: default; }
+.carousel-arrow.prev { left: 4px; }
+.carousel-arrow.next { right: 4px; }
+.carousel-dots {
+  display: flex; justify-content: center; gap: 8px; margin-top: 12px;
+}
+.carousel-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #555; border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active { background: var(--accent); }
+
+@media (max-width: 600px) {
+  nav#indice ol { column-count: 1; }
+  main { padding: 12px; }
+  section { margin-bottom: 24px; }
+  h2 { font-size: 1.3rem; }
+  .flashcard { min-width: 220px; max-width: 220px; height: 140px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="indice">
+  <h2> Indice</h2>
+  <ol>
+    <li><a href="#fondamenti">1. Fondamenti della Geologia</a></li>
+    <li><a href="#sistema-solare">2. Sistema Solare e Pianeta Terra</a></li>
+    <li><a href="#tempo-geologico">3. Tempo Geologico</a></li>
+    <li><a href="#interno-terrestre">4. Struttura Interna della Terra</a></li>
+    <li><a href="#tettonica-placche">5. Tettonica delle Placche</a></li>
+    <li><a href="#minerali">6. Minerali</a></li>
+    <li><a href="#rocce-ignee">7. Rocce Ignee (Magmatiche)</a></li>
+    <li><a href="#rocce-sedimentarie">8. Rocce Sedimentarie</a></li>
+    <li><a href="#rocce-metamorfiche">9. Rocce Metamorfiche</a></li>
+    <li><a href="#deformazione">10. Deformazione delle Rocce: Faglie</a></li>
+    <li><a href="#vulcani-terremoti">11. Vulcani e Terremoti</a></li>
+    <li><a href="#esame">12. Guida all'Esame</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<header class="hero">
+  <h1> Appunti di Geologia</h1>
+  <p>Prof. Emanuele Tondi — Università di Camerino (UNICAM)</p>
+  <p>Corso: Fondamenti di Geologia (6 CFU) — Scienze Geologiche L-SGTA</p>
+  <div class="exam-badge"> Esame orale: 28 maggio 2026, ore 12:00</div>
+</header>
+
+<!-- ========== SEZIONE 1: FONDAMENTI ========== -->
+<section id="fondamenti">
+  <h2>1. Fondamenti della Geologia</h2>
+
+  <h3>Definizione</h3>
+  <p>La <strong>geologia</strong> è la scienza che tratta della <strong>composizione</strong>, della <strong>struttura</strong> e della <strong>storia evolutiva</strong> degli strati interni ed esterni della Terra, <em>e dei processi che l'hanno plasmata</em>.</p>
+
+  <p>Non si limita alla descrizione: oltre a classificare ciò che si osserva (una roccia, una catena montuosa), la geologia spiega <strong>perché</strong> quell'oggetto ha quelle caratteristiche e qual è il processo genetico che lo ha formato.</p>
+
+  <aside> Termine usato per la prima volta da Ulisse Aldrovandi nel 1603. Il fondatore della geologia moderna è James Hutton (Teoria della Terra).</aside>
+
+  <h3>Plutonismo vs Nettunismo</h3>
+  <p>Hutton introdusse il <strong>plutonismo</strong>: le rocce si formano per consolidamento del magma (da Plutone, dio degli inferi). Si opponeva al <strong>nettunismo</strong>, che attribuiva origine divina (Nettuno) alla formazione delle rocce.</p>
+
+  <h3>Attualismo e Uniformitarismo</h3>
+  <p>Principio cardine della geologia: i processi che osserviamo <strong>oggi</strong> (erosione, sedimentazione, terremoti, vulcanismo) sono gli stessi che hanno operato nel passato. Possiamo usare le velocità attuali per ricostruire la storia geologica («il presente è la chiave del passato»).</p>
+
+  <p>L'attualismo si oppone al <strong>catastrofismo</strong> (eventi improvvisi e unici) e al <strong>creazionismo</strong> (le specie create dal nulla).</p>
+
+  <h3>Il Metodo Scientifico</h3>
+  <p>Il metodo scientifico (o <strong>metodo galileiano</strong> / induttivo) si articola in step:</p>
+  <ol>
+    <li><strong>Osservazione</strong> — tutto parte dall'essere curiosi e osservare un fenomeno</li>
+    <li><strong>Esperimento</strong> — si perturba un sistema per riprodurre l'osservazione</li>
+    <li><strong>Correlazione delle misure</strong> — si quantifica la perturbazione (pressione, umidità, temperatura…)</li>
+    <li><strong>Modello fisico/concettuale</strong> — si capisce il meccanismo</li>
+    <li><strong>Modello matematico</strong> — la formula che riproduce il fenomeno. Senza questa la teoria non è accettata</li>
+    <li><strong>Teoria</strong> — è valida finché spiega tutte le osservazioni; può essere aggiornata o sostituita se emergono nuove evidenze</li>
+  </ol>
+
+  <aside> Einstein impiegò 20 anni per passare dal modello concettuale della gravitazione universale al modello matematico!</aside>
+
+  <h3>Teoria di Gaia</h3>
+  <p>Proposta da <strong>James Lovelock</strong>, considera il pianeta Terra come un <strong>unico sistema integrato</strong> in cui le componenti minerale, vegetale e animale interagiscono fortemente. Il pianeta mostra proprietà simili a quelle di un organismo vivente: <strong>omeostasi</strong>, <strong>autoregolazione</strong>, <strong>retroazione</strong>.</p>
+
+  <h3>Teoria della Deriva dei Continenti (Wegener)</h3>
+  <p>All'inizio del '900, <strong>Alfred Wegener</strong> pubblicò la teoria della deriva dei continenti, mettendo insieme evidenze già esistenti:</p>
+  <ul>
+    <li>Similitudine delle linee di costa dei continenti (puzzle)</li>
+    <li>Evidenze biologiche (stessi fossili su continenti separati)</li>
+    <li>Evidenze mineralogiche e composizionali</li>
+  </ul>
+  <p>I <strong>due punti deboli</strong> della sua teoria: (1) all'epoca non era dimostrabile il movimento dei continenti; (2) Wegener non aveva una spiegazione convincente su <em>chi</em> spostasse i continenti.</p>
+  <p>La grande svolta arrivò dopo la Seconda Guerra Mondiale, con l'avvento della tecnologia (sonar, magnetometri, GPS), portando alla moderna <strong>tettonica delle placche</strong>.</p>
+
+  <div class="flashcards-wrapper" id="fc-fondamenti">
+    <h4> Flash Cards — Fondamenti</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-fondamenti" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-fondamenti">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la geologia?</div><div class="card-back">Scienza che studia composizione, struttura, storia evolutiva della Terra e i processi che l'hanno plasmata.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Chi è il padre della geologia moderna?</div><div class="card-back">James Hutton, con la sua "Teoria della Terra" e l'introduzione del plutonismo.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa dice il principio dell'attualismo?</div><div class="card-back">I processi geologici attuali sono gli stessi del passato; il presente è la chiave per interpretare la storia della Terra.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quali sono gli step del metodo scientifico?</div><div class="card-back">Osservazione → Esperimento → Correlazione misure → Modello fisico → Modello matematico → Teoria.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quali erano i punti deboli della teoria di Wegener?</div><div class="card-back">1) Non era dimostrabile il movimento dei continenti (no GPS). 2) Non spiegava chi/che cosa spostasse i continenti.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la teoria di Gaia?</div><div class="card-back">Teoria di James Lovelock: la Terra è un sistema integrato con proprietà simili a un organismo (omeostasi, autoregolazione).</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-fondamenti"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 2: SISTEMA SOLARE ========== -->
+<section id="sistema-solare">
+  <h2>2. Sistema Solare e Pianeta Terra</h2>
+
+  <h3>Formazione del Sistema Solare</h3>
+  <p>Il Sistema Solare si è formato circa <strong>4,6 miliardi di anni fa</strong> da una nebulosa di gas interstellari in contrazione. La temperatura iniziale era molto bassa, con abbondanza di <strong>idrogeno ed elio</strong>.</p>
+  <p>Il Sole è una stella di <strong>seconda generazione</strong> (popolazione I): deriva dall'esplosione di una stella precedente, quindi contiene più elementi pesanti. Se fosse stata di prima generazione, non ci sarebbero pianeti rocciosi.</p>
+
+  <h3>Accensione del Sole e differenziazione planetaria</h3>
+  <p>Nella parte centrale della nebulosa, l'aumento di densità innescò le <strong>reazioni termonucleari</strong> (fusione idrogeno → elio), accendendo la stella. L'onda d'urto risultante:</p>
+  <ul>
+    <li>Spostò gli <strong>elementi leggeri</strong> verso l'esterno → pianeti gassosi (Giove, Saturno)</li>
+    <li>Lasciò gli <strong>elementi pesanti</strong> vicino al Sole → pianeti rocciosi terrestri (Mercurio, Venere, Terra, Marte)</li>
+  </ul>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Solar_system_scale.jpg/800px-Solar_system_scale.jpg" alt="Pianeti del Sistema Solare in scala" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Pianeti del Sistema Solare in scala dimensionale (non di distanza).</p>
+  </div>
+
+  <h3>Dati fisici della Terra</h3>
+  <ul>
+    <li><strong>Diametro equatoriale:</strong> ~12.756 km</li>
+    <li><strong>Diametro polare:</strong> ~12.714 km (schiacciamento di soli ~42 km — trascurabile a occhio!)</li>
+    <li><strong>Raggio medio:</strong> 6.371 km</li>
+    <li><strong>Accelerazione di gravità:</strong> 9,8 m/s² (l'effetto che percepiamo come il <em>peso</em>)</li>
+    <li><strong>Velocità di fuga:</strong> ~11.000 m/s (necessaria per andare in orbita)</li>
+    <li><strong>Età:</strong> ~4,54 miliardi di anni</li>
+  </ul>
+
+  <aside> La Terra non è grande come sembra: il diametro è solo 12 volte la lunghezza dell'Italia! Le perturbazioni umane hanno un impatto reale su un pianeta finito.</aside>
+
+  <div class="flashcards-wrapper" id="fc-sistema">
+    <h4> Flash Cards — Sistema Solare</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-sistema" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-sistema">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quanti anni ha il Sistema Solare?</div><div class="card-back">Circa 4,6 miliardi di anni.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché i pianeti rocciosi sono vicini al Sole?</div><div class="card-back">L'onda d'urto dell'accensione solare ha spinto gli elementi leggeri lontano; quelli pesanti (roccia) sono rimasti vicini.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Qual è l'accelerazione di gravità sulla Terra?</div><div class="card-back">9,8 m/s² — è l'effetto che percepiamo come il nostro peso.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Il Sole è di prima o seconda generazione?</div><div class="card-back">Seconda generazione (popolazione I) — contiene elementi pesanti da stelle precedenti.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">La Terra è schiacciata ai poli?</div><div class="card-back">Sì, ma di soli ~42 km su 12.756 — praticamente impercettibile. È una sfera quasi perfetta.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-sistema"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 3: TEMPO GEOLOGICO ========== -->
+<section id="tempo-geologico">
+  <h2>3. Tempo Geologico</h2>
+
+  <p>La Terra ha <strong>4,54 miliardi di anni</strong>. Il tempo geologico è il «calendario del passato» che registra gli eventi della storia terrestre. Le rocce che permettono questa datazione sono principalmente le <strong>rocce sedimentarie</strong>, che si depositano a strati e catturano informazioni sull'ambiente di formazione.</p>
+
+  <h3>Gerarchia del tempo geologico</h3>
+  <ul>
+    <li><strong>Eoni</strong> (i più lunghi) → Ere → Periodi → Epoche → Età (le più corte)</li>
+    <li>Ogni unità contiene quelle inferiori (gli eoni contengono le ere, le ere i periodi, ecc.)</li>
+    <li>Più si scende nella gerarchia, maggiore è la <strong>risoluzione temporale</strong></li>
+  </ul>
+
+  <h3>I quattro Eoni</h3>
+  <ul>
+    <li><strong>Adeano</strong> — 4,5 → 4,0 Ga. «Eone nascosto»: quasi nessuna informazione</li>
+    <li><strong>Archeano</strong> — 4,0 → 2,5 Ga. Prime forme di vita procariote</li>
+    <li><strong>Proterozoico</strong> — 2,5 Ga → 541 Ma. Vita primordiale più complessa</li>
+    <li><strong>Fanerozoico</strong> — 541 Ma → oggi. Vita visibile, è suddiviso in ere: <strong>Paleozoico</strong>, <strong>Mesozoico</strong>, <strong>Cenozoico</strong></li>
+  </ul>
+
+  <h3>Principio di sovrapposizione stratigrafica</h3>
+  <p>Nelle rocce sedimentarie, gli strati più in basso sono più antichi di quelli in alto (i sedimenti si depositano dall'alto). Questo principio può essere contraddetto da intrusioni magmatiche (una roccia ignea intrusiva può essere più recente delle rocce che la sovrastano).</p>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Grand_Canyon_geologic_column.jpg/800px-Grand_Canyon_geologic_column.jpg" alt="Strati del Grand Canyon" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Strati sedimentari del Grand Canyon — esempio classico di sovrapposizione stratigrafica.</p>
+  </div>
+
+  <h3>Registrazione degli eventi</h3>
+  <p>Ogni strato sedimentario registra le condizioni ambientali del periodo: chimismo degli oceani, composizione dell'atmosfera, eventi catastrofici. Esempio: a 65 Ma, uno straterello su tutti gli oceani contiene <strong>sferule di vetro</strong> dall'impatto del meteorite che estinse i dinosauri.</p>
+
+  <h3>La Carta Cronostratigrafica Internazionale</h3>
+  <p>Standard globale accettato dalla Commissione Internazionale di Stratigrafia. Tre colonne su quattro riguardano gli ultimi 500 milioni di anni: le informazioni sono concentrate nei tempi più recenti, non perché nel passato non sia successo nulla, ma perché abbiamo più dati.</p>
+
+  <aside>Attenzione: «Era giurassica» è SBAGLIATO. Giurassico è un PERIODO dell'era Mesozoica. Jurassic Park dovrebbe chiamarsi «Periodo Giurassico»!</aside>
+
+  <div class="flashcards-wrapper" id="fc-tempo">
+    <h4> Flash Cards — Tempo Geologico</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-tempo" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-tempo">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Gerarchia del tempo geologico?</div><div class="card-back">Eoni → Ere → Periodi → Epoche → Età (dal più lungo al più corto).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quali sono i 4 eoni?</div><div class="card-back">Adeano, Archeano, Proterozoico, Fanerozoico.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Principio di sovrapposizione?</div><div class="card-back">Nelle rocce sedimentarie gli strati più in basso sono più antichi di quelli in alto.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché il Fanerozoico ha più suddivisioni?</div><div class="card-back">Non perché tutto sia successo negli ultimi 500 Ma, ma perché abbiamo molte più informazioni fossili e stratigrafiche.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quando si sono estinti i dinosauri?</div><div class="card-back">65 milioni di anni fa (limite Cretacico-Paleogene), fine del Mesozoico.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-tempo"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 4: INTERNO TERRESTRE ========== -->
+<section id="interno-terrestre">
+  <h2>4. Struttura Interna della Terra</h2>
+
+  <p>L'interno del pianeta si classifica secondo <strong>due criteri</strong>: composizione chimica e comportamento reologico.</p>
+
+  <h3>Classificazione composizionale (chimica)</h3>
+  <ul>
+    <li><strong>Crosta</strong> (0–35/70 km):
+      <ul>
+        <li><em>Crosta continentale:</em> 35 km media, ricca di Si, Al, O (elementi leggeri). Rocce come graniti.</li>
+        <li><em>Crosta oceanica:</em> 5–10 km, più ricca di Fe e Mg (elementi pesanti). Rocce come basalti.</li>
+        <li><em>Discontinuità di Mohorovičić (Moho):</em> separa crosta da mantello.</li>
+      </ul>
+    </li>
+    <li><strong>Mantello</strong> (fino a 2.900 km):
+      <ul>
+        <li>Composto quasi esclusivamente da <strong>olivina</strong> (Fe, Mg, Si, O).</li>
+        <li>Aumentano progressivamente Fe e Mg rispetto a Si e Al.</li>
+        <li><em>Discontinuità di Gutenberg</em> a 2.900 km: separa mantello da nucleo.</li>
+      </ul>
+    </li>
+    <li><strong>Nucleo esterno</strong> (2.900–5.155 km): <strong>liquido</strong>, composto da Fe + elementi leggeri (S, Ni).</li>
+    <li><strong>Nucleo interno</strong> (5.155–6.371 km): <strong>solido</strong>, quasi esclusivamente Fe (la pressione è troppo alta per formare minerali).</li>
+  </ul>
+  <p><em>Discontinuità di Lehmann</em> a 5.155 km: separa nucleo esterno da nucleo interno.</p>
+
+  <h3>Classificazione reologica (comportamento fisico)</h3>
+  <ul>
+    <li><strong>Litosfera</strong> (0–100/150 km): rigida, fredda. Include crosta + parte del mantello superiore. È frammentata in placche tettoniche.</li>
+    <li><strong>Astenosfera</strong> (100–350/400 km): calda, plastica, parzialmente fusa. Si comporta come un fluido viscoso. La litosfera «galleggia» su di essa.</li>
+    <li><strong>Mesosfera</strong> (400–2.900 km): solida, ma a temperature elevatissime.</li>
+    <li><strong>Nucleo esterno</strong>: liquido.</li>
+    <li><strong>Nucleo interno</strong>: solido.</li>
+  </ul>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Earth-crust-cutaway-english.svg/800px-Earth-crust-cutaway-english.svg" alt="Struttura interna della Terra" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Struttura interna della Terra: crosta, mantello, nucleo esterno (liquido), nucleo interno (solido).</p>
+  </div>
+
+  <aside> La crosta inferiore continentale ha composizione simile alla crosta oceanica. Per la classificazione reologica, nucleo esterno e nucleo interno mantengono gli stessi nomi della classificazione chimica perché il passaggio solido→liquido è già una differenza reologica.</aside>
+
+  <div class="flashcards-wrapper" id="fc-interno">
+    <h4> Flash Cards — Interno Terrestre</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-interno" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-interno">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quali sono le due classificazioni dell'interno terrestre?</div><div class="card-back">Composizionale (chimica): crosta, mantello, nucleo. Reologica (fisica): litosfera, astenosfera, mesosfera, nucleo.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Differenza crosta continentale vs oceanica?</div><div class="card-back">Continentale: più spessa (35 km), ricca Si/Al/O (leggeri). Oceanica: sottile (5-10 km), ricca Fe/Mg (pesanti, più densa).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la litosfera?</div><div class="card-back">Strato rigido superficiale (0-150 km) che include crosta + mantello superiore. È frammentata in placche tettoniche.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché l'astenosfera è più calda?</div><div class="card-back">Probabilmente per decadimento di elementi radioattivi che producono calore. È plastica e parzialmente fusa.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Di cosa è fatto il nucleo terrestre?</div><div class="card-back">Interno: Fe solido (pressione impedisce fusione). Esterno: Fe liquido + elementi leggeri (S, Ni). Più del 60% della massa terrestre è Fe!</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quali sono le principali discontinuità?</div><div class="card-back">Moho (crosta-mantello, ~35 km), Gutenberg (mantello-nucleo, 2900 km), Lehmann (nucleo esterno-interno, 5155 km).</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-interno"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 5: TETTONICA DELLE PLACCHE ========== -->
+<section id="tettonica-placche">
+  <h2>5. Tettonica delle Placche</h2>
+
+  <h3>Dalla deriva dei continenti alla tettonica</h3>
+  <p>La teoria della deriva dei continenti di Wegener si è evoluta nella moderna <strong>tettonica delle placche</strong> grazie alle evidenze raccolte dopo la Seconda Guerra Mondiale: espansione dei fondali oceanici, anomalie magnetiche, distribuzione dei terremoti e dei vulcani, e soprattutto il GPS che dimostra lo spostamento misurabile (4-5 cm/anno).</p>
+
+  <h3>Tipi di margini di placca</h3>
+  <ul>
+    <li><strong>Margini divergenti (costruttivi):</strong> le placche si allontanano. Si forma nuova crosta oceanica. Esempi: dorsali medio-oceaniche, Rift Valley africana, Islanda. Associati a <strong>faglie dirette (normali)</strong> e sforzo estensionale.</li>
+    <li><strong>Margini convergenti (distruttivi):</strong> le placche si scontrano. Subduzione della placca più densa. Si formano catene montuose (orogenesi). Esempi: Ande, Himalaya, Appennini. Associati a <strong>faglie inverse</strong> e sforzo compressivo.</li>
+    <li><strong>Margini trasformi (conservativi):</strong> le placche scorrono orizzontalmente l'una accanto all'altra. Esempio: Faglia di Sant'Andrea (California). Associati a <strong>faglie trascorrenti (strike-slip)</strong>.</li>
+  </ul>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Tectonic_plate_boundaries.png/800px-Tectonic_plate_boundaries.png" alt="Margini di placca" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Tipi di margini di placca: divergenti (a sinistra), convergenti (centro), trasformi (destra).</p>
+  </div>
+
+  <h3>Il motore: la litosfera sull'astenosfera</h3>
+  <p>La litosfera (rigida, fredda, leggera) «galleggia» sull'astenosfera (calda, plastica, più densa). È come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia per il movimento delle placche.</p>
+
+  <div class="flashcards-wrapper" id="fc-placche">
+    <h4> Flash Cards — Tettonica delle Placche</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-placche" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-placche">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini divergenti: cosa sono?</div><div class="card-back">Le placche si allontanano. Sforzo estensionale. Si forma nuova crosta oceanica. Faglie dirette.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini convergenti: cosa producono?</div><div class="card-back">Le placche si scontrano. Subduzione. Si formano catene montuose. Faglie inverse. Sforzo compressivo.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini trasformi: esempio famoso?</div><div class="card-back">Faglia di Sant'Andrea in California. Le placche scorrono orizzontalmente (faglie strike-slip).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché la litosfera si muove?</div><div class="card-back">Galleggia sull'astenosfera plastica. I moti convettivi del mantello forniscono l'energia.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa dimostra il movimento delle placche oggi?</div><div class="card-back">Il GPS: i continenti si spostano di 4-5 cm/anno, misurabile in tempo reale.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-placche"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 6: MINERALI ========== -->
+<section id="minerali">
+  <h2>6. Minerali</h2>
+
+  <h3>Gerarchia: Elementi → Minerali → Rocce</h3>
+  <p><strong>Elemento chimico</strong> = atomo con specifico numero di protoni/neutroni/elettroni (es. Si, O, Fe).</p>
+  <p><strong>Minerale</strong> = solido cristallino naturale, inorganico, con composizione chimica definita e reticolo cristallino ordinato. Esempio: salgemma (NaCl) — il sale disciolto in acqua non è un minerale; lo diventa quando cristallizza.</p>
+  <p><strong>Roccia</strong> = aggregato naturale di minerali.</p>
+
+  <aside> Ci sono ~100 elementi chimici, migliaia di minerali possibili, ma in pratica i minerali comuni sono pochissimi: bastano 7 minerali a rappresentare il 91% di tutti i minerali della crosta!</aside>
+
+  <h3>Distribuzione dei minerali</h3>
+  <ul>
+    <li><strong>Silicati:</strong> 91% del totale (contengono silicio Si)</li>
+    <li><strong>Feldspati:</strong> 51% dei silicati (ortoclasio + plagioclasio)</li>
+    <li><strong>Quarzo:</strong> 12% dei silicati</li>
+    <li><strong>Pirosseni:</strong> 11%</li>
+    <li><strong>Anfiboli:</strong> 5%</li>
+    <li><strong>Miche:</strong> 5% (muscovite + biotite)</li>
+    <li><strong>Argille:</strong> 4%</li>
+    <li><strong>Olivina:</strong> 3%</li>
+  </ul>
+  <p>Tutti gli altri minerali (magnetite, calcite, dolomite + migliaia di altri): solo il <strong>5,5%</strong> del totale.</p>
+
+  <h3>Minerali principali e loro riconoscimento</h3>
+
+  <h4>Feldspati (51% dei silicati)</h4>
+  <ul>
+    <li><strong>Ortoclasio (K-feldspato):</strong> KAlSi₃O₈. Colore <strong>rosa</strong> (es. Monte Rosa è un batolite granitico ricco di ortoclasio). Tipico della crosta continentale.</li>
+    <li><strong>Plagioclasio:</strong> (Na,Ca)AlSi₃O₈. Colore <strong>bianco latte</strong> (es. Monte Bianco è ricco di plagioclasio).</li>
+  </ul>
+  <p>Entrambi sono minerali <strong>leggeri</strong> (no Fe, no Mg → crosta continentale).</p>
+
+  <h4>Quarzo (12%)</h4>
+  <ul>
+    <li>SiO₂ — la formula più semplice. Tende al trasparente/grigiastro (non bianco latte).</li>
+    <li><strong>Durezza 7</strong> (scala di Mohs) → riga il vetro e il ferro (martello da geologo).</li>
+    <li>NON contiene Fe/Mg: è il minerale tipico della <strong>crosta continentale</strong>. NON si trova nel mantello.</li>
+  </ul>
+
+  <h4>Pirosseni e Anfiboli</h4>
+  <ul>
+    <li><strong>Pirosseno:</strong> scuro/nero, ricco di Fe e Mg. Tipico della crosta oceanica. Formula complessa con Mg, Fe, Si, O.</li>
+    <li><strong>Anfibolo:</strong> meno scuro del pirosseno, a volte verdognolo. Contiene Fe, Mg + Ca, Si, O, H.</li>
+  </ul>
+
+  <h4>Miche</h4>
+  <ul>
+    <li>Caratteristica distintiva: <strong>abito lamellare</strong> — si sfogliano, sono piatte, riflettono la luce.</li>
+    <li><strong>Biotite:</strong> scura (contiene Fe e Mg) → più pesante, comune in crosta oceanica.</li>
+    <li><strong>Muscovite:</strong> chiara/trasparente (NO Fe/Mg) → più leggera, comune in crosta continentale.</li>
+  </ul>
+
+  <h4>Olivina (3%)</h4>
+  <ul>
+    <li>(Mg,Fe)₂SiO₄. Colore verde scuro. È il minerale <strong>PIÙ ricco di Fe e Mg</strong> in assoluto.</li>
+    <li>Tipico della crosta oceanica e soprattutto del <strong>mantello</strong> (quasi esclusivamente olivina).</li>
+    <li>È «il quarzo al contrario»: massimo Fe/Mg, minimo Si.</li>
+  </ul>
+
+  <h4>Argille</h4>
+  <ul>
+    <li>Silicati idrati (contengono H₂O). Molto piccole (visibili solo al microscopio elettronico).</li>
+    <li>Derivano dall'<strong>alterazione</strong> di silicati preesistenti (un feldspato che acquisisce acqua diventa argilla).</li>
+  </ul>
+
+  <h4>Minerali non silicati</h4>
+  <ul>
+    <li><strong>Magnetite:</strong> Fe₃O₄. Pesante, scura. Crosta oceanica e zone ricche di Fe.</li>
+    <li><strong>Calcite:</strong> CaCO₃. Reagisce con HCl (effervescenza). Durezza 3 (NON riga il vetro). I calcari appenninici sono fatti di calcite.</li>
+    <li><strong>Dolomite:</strong> CaMg(CO₃)₂. Doppio carbonato di Ca e Mg. NON reagisce con HCl. Le Dolomiti come montagne. Deriva spesso da trasformazione della calcite.</li>
+  </ul>
+
+  <h3>Regola pratica per il riconoscimento macroscopico</h3>
+  <p><strong>Colore + peso</strong> (a parità di dimensioni del campione):</p>
+  <ul>
+    <li>Roccia <strong>chiara e leggera</strong> → ricca di Si (quarzo, feldspati) → crosta continentale</li>
+    <li>Roccia <strong>scura e pesante</strong> → ricca di Fe e Mg (olivina, pirosseno, biotite) → crosta oceanica</li>
+  </ul>
+  <p><strong>Durezza:</strong> il quarzo (7) riga il vetro; la calcite (3) no. <strong>Acido cloridrico:</strong> la calcite reagisce, la dolomite no.</p>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mineraly.sk_-_kremen.jpg/800px-Mineraly.sk_-_kremen.jpg" alt="Cristallo di quarzo" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Cristallo di quarzo (SiO₂) — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
+  </div>
+
+  <div class="flashcards-wrapper" id="fc-minerali">
+    <h4> Flash Cards — Minerali</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-minerali" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-minerali">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Gerarchia: Elemento → Minerale → Roccia?</div><div class="card-back">Elemento = atomo. Minerale = solido cristallino con composizione definita. Roccia = aggregato di minerali.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Quali sono i minerali più abbondanti?</div><div class="card-back">Silicati 91%. Feldspati 51% dei silicati. Quarzo 12%. Pirosseni 11%. Anfiboli 5%. Miche 5%. Olivina 3%.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come distinguere quarzo da calcite?</div><div class="card-back">Quarzo: durezza 7 (riga vetro e ferro). Calcite: durezza 3 (non riga vetro) + reagisce con HCl.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché Monte Rosa è rosa e Monte Bianco è bianco?</div><div class="card-back">Monte Rosa: granito ricco di ortoclasio (rosa). Monte Bianco: granito ricco di plagioclasio (bianco latte).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Dov'è più abbondante l'olivina?</div><div class="card-back">Nel mantello terrestre (quasi esclusivamente composto da olivina). È ricchissima di Fe e Mg.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come riconoscere la mica?</div><div class="card-back">Abito lamellare: si sfoglia, è piatta, riflette la luce. Biotite = scura (Fe/Mg). Muscovite = chiara (no Fe/Mg).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Calcite vs Dolomite?</div><div class="card-back">Calcite (CaCO₃): reagisce con HCl. Dolomite (CaMg(CO₃)₂): NON reagisce con HCl. Le Dolomiti sono ricche di dolomite.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-minerali"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 7: ROCCE IGNEE ========== -->
+<section id="rocce-ignee">
+  <h2>7. Rocce Ignee (Magmatiche)</h2>
+
+  <p>Le <strong>rocce ignee</strong> (o magmatiche) derivano dal <strong>raffreddamento e consolidamento del magma</strong>. La classificazione si basa su due criteri principali.</p>
+
+  <h3>Criterio 1: Tessitura (ambiente di raffreddamento)</h3>
+  <ul>
+    <li><strong>Intrusive (plutoniche):</strong> raffreddamento <strong>lento</strong> in profondità → cristalli grandi, ben visibili a occhio nudo (grana >1 mm). Esempio: <strong>granito</strong> (da «grani» = grani visibili). Tessitura <strong>olocristallina</strong>.</li>
+    <li><strong>Effusive (vulcaniche):</strong> raffreddamento <strong>rapido</strong> in superficie → cristalli piccoli o assenti (grana fine, afanitica). Esempio: <strong>basalto</strong>, <strong>pomice</strong> (con bolle di gas).</li>
+  </ul>
+
+  <h3>Criterio 2: Composizione (contenuto in silice e minerali)</h3>
+  <ul>
+    <li><strong>Felsiche (acide):</strong> ricche di Si (>65% SiO₂). Minerali chiari: quarzo, feldspati. Colore chiaro, peso minore. Esempi: granito (intrusiva), riolite (effusiva).</li>
+    <li><strong>Intermedie:</strong> contenuto intermedio di Si. Esempi: diorite (intrusiva), andesite (effusiva).</li>
+    <li><strong>Mafiche (basiche):</strong> povere di Si, ricche di Fe e Mg. Minerali scuri: pirosseno, olivina. Colore scuro, peso maggiore. Esempi: gabbro (intrusiva), basalto (effusiva).</li>
+    <li><strong>Ultramafiche:</strong> estremamente povere di Si, massimo Fe/Mg. Esempio: peridotite (mantello).</li>
+  </ul>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Granite_aberdeen.jpg/800px-Granite_aberdeen.jpg" alt="Campione di granito" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Granito: roccia intrusiva con cristalli ben visibili di quarzo (grigio), feldspato (bianco/rosa) e mica (lamelle scure).</p>
+  </div>
+
+  <h3>Come si forma il magma?</h3>
+  <p>Tre meccanismi principali:</p>
+  <ol>
+    <li><strong>Decompressione:</strong> in margini divergenti, l'assottigliamento litosferico riduce la pressione → fusione (es. dorsali oceaniche, Islanda).</li>
+    <li><strong>Aggiunta di acqua:</strong> nelle zone di subduzione, l'acqua trascinata in profondità abbassa il punto di fusione del mantello (es. Ande).</li>
+    <li><strong>Aumento di temperatura:</strong> risalita di materiale caldo dal mantello profondo (plume, hot spot).</li>
+  </ol>
+
+  <aside> La serie di Bowen spiega l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
+
+  <div class="flashcards-wrapper" id="fc-ignee">
+    <h4> Flash Cards — Rocce Ignee</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-ignee" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-ignee">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Rocce intrusive vs effusive?</div><div class="card-back">Intrusive: raffreddamento lento in profondità, cristalli grandi (granito). Effusive: raffreddamento rapido in superficie, cristalli piccoli (basalto).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa significa "felsico"?</div><div class="card-back">Roccia ricca di feldspati e silice (SiO₂ >65%). Chiara, leggera. Es. granito (intrusivo), riolite (effusiva).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa significa "mafico"?</div><div class="card-back">Roccia ricca di Mg e Fe (magnesio + ferro). Scura, pesante. Es. basalto (effusivo), gabbro (intrusivo).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si forma il magma nei margini divergenti?</div><div class="card-back">Per decompressione: l'assottigliamento litosferico riduce la pressione → il materiale caldo fonde.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si forma il magma nelle zone di subduzione?</div><div class="card-back">L'acqua trascinata in profondità abbassa il punto di fusione del mantello → fusione → vulcani (es. Ande).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la serie di Bowen?</div><div class="card-back">Ordine di cristallizzazione: olivina per prima (alta T), quarzo per ultimo (bassa T). L'olivina è l'ultima a fondere.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-ignee"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 8: ROCCE SEDIMENTARIE ========== -->
+<section id="rocce-sedimentarie">
+  <h2>8. Rocce Sedimentarie</h2>
+
+  <p>Le <strong>rocce sedimentarie</strong> sono <strong>sedimenti litificati</strong> (da «lithos» = roccia). Derivano da materiali trasportati e accumulati da agenti energetici (acqua, vento, ghiaccio) o da precipitazione chimica da soluzioni.</p>
+
+  <h3>Quattro tipi principali (dal più al meno diffuso)</h3>
+
+  <h4>1. Rocce Particellari Epiclastiche</h4>
+  <p>Derivano dalla degradazione di rocce preesistenti → formazione di <strong>clasti</strong> (frammenti) → trasporto → accumulo → litificazione. Il processo è governato da meccanismi <strong>idrodinamici</strong>.</p>
+  <p>Classificate per <strong>granulometria</strong> (dimensione dei clasti):</p>
+  <ul>
+    <li><strong>Conglomerato / Breccia:</strong> clasti >2 mm. Conglomerato: clasti arrotondati (lunghi trasporti). Breccia: clasti spigolosi (poco trasporto).</li>
+    <li><strong>Arenaria:</strong> clasti 2–0,0625 mm. Sensazione ruvida al tatto (come carta vetro), grani visibili.</li>
+    <li><strong>Siltite:</strong> clasti 0,0625–0,004 mm.</li>
+    <li><strong>Argillite:</strong> clasti <0,004 mm. Liscia, compatta, grani NON visibili.</li>
+  </ul>
+
+  <h4>2. Rocce Particellari Allochimiche</h4>
+  <p>Formate dall'accumulo di <strong>particelle biogeniche</strong> (gusci di plancton, coralli, conchiglie) che precipitano sul fondale oceanico. I gusci sono calcarei (CaCO₃) o silicei (SiO₂). Il plancton è piccolissimo ma abbondantissimo e si accumula per decine di milioni di anni. Esempio: <strong>calcari</strong> appenninici.</p>
+
+  <h4>3. Rocce Cristalline (chimiche)</h4>
+  <p>Derivano dalla <strong>precipitazione chimica</strong> di sali disciolti in acqua (mari, laghi, fiumi). Esempi:</p>
+  <ul>
+    <li><strong>Evaporiti:</strong> salgemma (NaCl), gesso — per evaporazione dell'acqua</li>
+    <li><strong>Travertino:</strong> precipitazione di CaCO₃ da acque termali o di grotta</li>
+  </ul>
+
+  <h4>4. Rocce Residuali (organogene)</h4>
+  <ul>
+    <li><strong>Carbone, torba:</strong> accumulo e compattazione di materiale organico vegetale in ambienti poveri di ossigeno</li>
+    <li><strong>Suoli:</strong> classificati nelle sedimentarie</li>
+  </ul>
+
+  <h3>Importanza delle rocce sedimentarie</h3>
+  <p>Sono il «<strong>libro della storia della Terra</strong>». Ogni strato registra le condizioni ambientali (chimismo oceani, atmosfera, clima). La <strong>formazione</strong> è l'unità litostratigrafica cartografabile: ogni formazione si distingue per tipo di roccia e ha una sua età (inizio e fine). Esempio: a 65 Ma, uno straterello su tutti gli oceani contiene sferule dell'impatto meteoritico.</p>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Sandstone_formation%2C_Tennessee.jpg/800px-Sandstone_formation%2C_Tennessee.jpg" alt="Formazione di arenaria" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Arenaria: roccia sedimentaria epiclastica con grani visibili (sensazione ruvida).</p>
+  </div>
+
+  <div class="flashcards-wrapper" id="fc-sedimentarie">
+    <h4> Flash Cards — Rocce Sedimentarie</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-sedimentarie" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-sedimentarie">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce sedimentarie?</div><div class="card-back">Sedimenti litificati: materiali trasportati da acqua/vento/ghiaccio e accumulati, poi trasformati in roccia. O precipitati chimicamente.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Differenza conglomerato vs breccia?</div><div class="card-back">Conglomerato: clasti arrotondati (lunghi trasporti). Breccia: clasti spigolosi (poco trasporto). Entrambi con clasti >2 mm.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce allochimiche?</div><div class="card-back">Rocce formate da accumulo di gusci di plancton (calcarei o silicei) sul fondale oceanico. Es. calcari appenninici.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le evaporiti?</div><div class="card-back">Rocce da precipitazione chimica per evaporazione dell'acqua: salgemma (NaCl), gesso.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché le rocce sedimentarie sono importanti?</div><div class="card-back">Sono il "libro della storia della Terra": ogni strato registra le condizioni ambientali dell'epoca.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è una formazione in geologia?</div><div class="card-back">Unità litostratigrafica cartografabile, con un tipo di roccia specifico e una sua età (inizio e fine).</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-sedimentarie"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 9: ROCCE METAMORFICHE ========== -->
+<section id="rocce-metamorfiche">
+  <h2>9. Rocce Metamorfiche</h2>
+
+  <p>Le <strong>rocce metamorfiche</strong> derivano dalla trasformazione di rocce preesistenti (ignee, sedimentarie o già metamorfiche) a causa di <strong>variazioni di temperatura e pressione</strong>, senza passare per la fusione completa (se fondono diventerebbero magmatiche).</p>
+
+  <h3>Caratteristiche distintive</h3>
+  <ul>
+    <li>Presenza di <strong>foliazione</strong> (scistosità, bande, lineazioni) — i minerali si riorientano perpendicolarmente allo sforzo</li>
+    <li>Ricristallizzazione allo stato solido</li>
+    <li>Strutture a bande (nei gneiss) o lamellari (negli scisti)</li>
+  </ul>
+
+  <h3>Esempi di rocce metamorfiche</h3>
+  <ul>
+    <li><strong>Marmo:</strong> deriva da calcari sedimentari metamorfosati. È carbonato di calcio cristallino (calcite). Il «marmo nero» deve il colore a inclusioni di idrocarburi fossili. Usato in edilizia e arte.</li>
+    <li><strong>Ardesia:</strong> deriva da argilliti. Grana finissima, si sfalda in lamine piatte.</li>
+    <li><strong>Gneiss:</strong> struttura a bande alternate chiare e scure.</li>
+    <li><strong>Scisti:</strong> scistosità evidente, grana da media a grossolana.</li>
+    <li><strong>Filladi:</strong> grana fine, lucentezza sericea.</li>
+  </ul>
+
+  <h3>Tipi di metamorfismo</h3>
+  <ul>
+    <li><strong>Regionale:</strong> grandi aree sottoposte a pressioni e temperature elevate (orogenesi). Es: Alpi, Appennini.</li>
+    <li><strong>Di contatto:</strong> locale, intorno a intrusioni magmatiche (aureola metamorfica).</li>
+  </ul>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Marble_quarry_at_Carrara.jpg/800px-Marble_quarry_at_Carrara.jpg" alt="Cava di marmo di Carrara" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Cava di marmo a Carrara: roccia metamorfica da calcare sedimentario, usata per scultura ed edilizia.</p>
+  </div>
+
+  <div class="flashcards-wrapper" id="fc-metamorfiche">
+    <h4> Flash Cards — Rocce Metamorfiche</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-metamorfiche" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-metamorfiche">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce metamorfiche?</div><div class="card-back">Rocce trasformate da T e P elevate, senza fusione completa. Con foliazione, scistosità, ricristallizzazione.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Da cosa deriva il marmo?</div><div class="card-back">Da calcari sedimentari metamorfosati. È calcite cristallina. Il marmo nero contiene idrocarburi fossili.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la foliazione?</div><div class="card-back">Orientazione preferenziale dei minerali perpendicolarmente allo sforzo. Tipica delle rocce metamorfiche (scistosità, bande).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Differenza tra gneiss e scisto?</div><div class="card-back">Gneiss: bande alternate chiare/scure. Scisto: scistosità evidente. Fillade: grana fine, aspetto sericeo.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Metamorfismo regionale vs di contatto?</div><div class="card-back">Regionale: grandi aree in orogenesi. Di contatto: locale, intorno a intrusioni magmatiche (aureola).</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-metamorfiche"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 10: DEFORMAZIONE ========== -->
+<section id="deformazione">
+  <h2>10. Deformazione delle Rocce: Faglie</h2>
+
+  <p>Quando la litosfera è sottoposta a <strong>sforzo</strong> (ai margini delle placche), le rocce si deformano. La risposta deformativa dipende dalla <strong>profondità</strong> (quindi dalla temperatura).</p>
+
+  <h3>Deformazione fragile vs duttile</h3>
+  <ul>
+    <li><strong>Fragile (superficiale, 0–10/15 km):</strong> bassa T, la roccia si <strong>rompe</strong> → fratture, faglie. È il dominio dei terremoti.</li>
+    <li><strong>Duttile/plastica (profondità >15–20 km):</strong> alta T (ogni km = +30°C), la roccia si deforma <strong>senza rompersi</strong>, fluisce come il pongo. Dominio delle pieghe.</li>
+    <li>Tra i due domini c'è una <strong>zona di transizione</strong>.</li>
+  </ul>
+
+  <aside> Il mantello è solido nonostante temperature di fusione altissime perché l'enorme pressione impedisce l'aumento di volume necessario per la fusione.</aside>
+
+  <h3>Le Faglie</h3>
+  <p>Una <strong>faglia</strong> è una frattura (discontinuità) lungo la quale si realizza un <strong>movimento parallelo alla superficie di frattura</strong> (movimento di taglio).</p>
+
+  <h4>Elementi di una faglia</h4>
+  <ul>
+    <li><strong>Piano di faglia:</strong> la superficie di rottura, generalmente inclinata.</li>
+    <li>Si definisce con due linee: <strong>direzione (strike)</strong> — orizzontale; <strong>immersione (dip)</strong> — perpendicolare allo strike.</li>
+    <li><strong>Tetto (hanging wall):</strong> blocco SOPRA il piano di faglia.</li>
+    <li><strong>Letto (footwall):</strong> blocco SOTTO il piano di faglia.</li>
+  </ul>
+
+  <h4>Classificazione delle faglie</h4>
+
+  <p><strong>Faglie Dip-Slip</strong> (movimento lungo il dip/immersione):</p>
+  <ul>
+    <li><strong>Faglia Diretta (Normale):</strong> il tetto SCENDE rispetto al letto. Risposta a <strong>sforzo estensionale</strong>. Effetti: allungamento orizzontale + assottigliamento verticale. Associata a <strong>margini divergenti</strong> — forma bacini e oceani.</li>
+    <li><strong>Faglia Inversa:</strong> il tetto SALE rispetto al letto. Risposta a <strong>sforzo compressivo</strong>. Effetti: raccorciamento orizzontale + ispessimento verticale. Associata a <strong>margini convergenti</strong> — forma catene montuose.</li>
+  </ul>
+
+  <p><strong>Faglie Strike-Slip (trascorrenti):</strong> movimento orizzontale lungo la direzione. Tipiche dei <strong>margini trasformi</strong>. Esempio: Faglia di Sant'Andrea.</p>
+
+  <h4>Riconoscimento su carta geologica</h4>
+  <p>Quando le faglie sono vecchie ed erose, non si vede la scarpata originale. Si riconoscono osservando quali rocce (più antiche o più recenti) sono a contatto:</p>
+  <ul>
+    <li><strong>Faglia diretta:</strong> tetto (blocco sopra) ha rocce PIÙ RECENTI del letto (blocco sotto)</li>
+    <li><strong>Faglia inversa:</strong> tetto ha rocce PIÙ ANTICHE del letto</li>
+  </ul>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Fault_types.svg/800px-Fault_types.svg" alt="Tipi di faglie" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Tipi di faglie: normale/diretta (a sinistra), inversa (centro), trascorrente/strike-slip (destra).</p>
+  </div>
+
+  <div class="flashcards-wrapper" id="fc-deformazione">
+    <h4> Flash Cards — Deformazione e Faglie</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-deformazione" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-deformazione">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Deformazione fragile vs duttile?</div><div class="card-back">Fragile: superficiale (<15 km), rottura, faglie. Duttile: profondo (>15 km), deformazione plastica senza rottura, come il pongo.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è una faglia?</div><div class="card-back">Frattura con movimento parallelo alla superficie di rottura (taglio). Può generare terremoti.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Faglia diretta (normale): caratteristiche?</div><div class="card-back">Tetto scende rispetto al letto. Sforzo estensionale. Allungamento orizzontale. Margini divergenti. Forma bacini e oceani.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Faglia inversa: caratteristiche?</div><div class="card-back">Tetto sale rispetto al letto. Sforzo compressivo. Raccorciamento orizzontale. Margini convergenti. Forma catene montuose.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come riconoscere faglia diretta vs inversa su carta?</div><div class="card-back">Diretta: tetto ha rocce più recenti del letto. Inversa: tetto ha rocce più antiche del letto.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono tetto e letto?</div><div class="card-back">Tetto = blocco SOPRA il piano di faglia. Letto = blocco SOTTO il piano di faglia. NON il blocco più alto o più basso!</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Faglie strike-slip: cosa sono?</div><div class="card-back">Faglie con movimento orizzontale lungo la direzione. Tipiche dei margini trasformi. Es. Faglia di Sant'Andrea.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-deformazione"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 11: VULCANI E TERREMOTI ========== -->
+<section id="vulcani-terremoti">
+  <h2>11. Vulcani e Terremoti</h2>
+
+  <h3>Vulcani</h3>
+  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
+  <ul>
+    <li><strong>Margini divergenti:</strong> vulcanismo effusivo basaltico (es. Islanda sulla dorsale medio-atlantica). Magma per decompressione. Lave fluide.</li>
+    <li><strong>Margini convergenti:</strong> vulcanismo esplosivo andesitico (es. Ande, Giappone). Magma per idratazione (acqua dalla placca in subduzione). Lave viscose → eruzioni esplosive.</li>
+    <li><strong>Hot spot (punti caldi):</strong> intraplacca. Risalita di materiale dal mantello profondo (plume). Es. Hawaii, Yellowstone.</li>
+  </ul>
+
+  <h3>Prodotti vulcanici</h3>
+  <ul>
+    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
+    <li><strong>Piroclastiti:</strong> materiale frammentario espulso (ceneri, lapilli, bombe).</li>
+    <li><strong>Pomice:</strong> vetro vulcanico ricco di bolle di gas, leggerissima.</li>
+    <li><strong>Scorie:</strong> simili alla pomice ma più scure e pesanti, ricche di Fe/Mg.</li>
+  </ul>
+
+  <h3>Terremoti</h3>
+  <p>Un <strong>terremoto</strong> è una vibrazione del terreno dovuta al <strong>passaggio di onde sismiche</strong>, generate dalla rottura improvvisa di rocce lungo una faglia (rilascio di energia accumulata dallo sforzo tettonico).</p>
+  <p>Caratteristiche:</p>
+  <ul>
+    <li>Il punto di rottura in profondità è l'<strong>ipocentro</strong>; la proiezione in superficie è l'<strong>epicentro</strong>.</li>
+    <li>I terremoti non si possono <strong>prevedere</strong> (né quando, né dove esattamente). Si può solo stimare la <strong>pericolosità sismica</strong> di un'area.</li>
+    <li>La <strong>magnitudo</strong> misura l'energia rilasciata (scala Richter/magnitudo momento).</li>
+    <li>L'<strong>intensità</strong> (scala MCS) misura gli effetti in superficie.</li>
+  </ul>
+
+  <p><strong>L'accelerazione del suolo</strong> è l'effetto più distruttivo: la gravità (9,8 m/s²) è sopportata da edifici progettati per carichi verticali; un terremoto produce accelerazioni orizzontali per cui le strutture non sono progettate.</p>
+
+  <h3>Terremoti e faglie</h3>
+  <ul>
+    <li><strong>Faglie dirette:</strong> il movimento è a favore di gravità → maggiore fratturazione</li>
+    <li><strong>Faglie inverse:</strong> il movimento è contro gravità → la compressione mantiene la roccia più compatta</li>
+    <li>Entrambe generano terremoti; il termine «gravity quake» non è strettamente scientifico ma descrittivo del meccanismo a favore di gravità delle faglie dirette</li>
+  </ul>
+
+  <h3>Sismicità in Italia e nel Mediterraneo</h3>
+  <p>Il Mediterraneo è una <strong>zona sismicamente attiva</strong> per la convergenza tra placca africana ed euroasiatica. L'Appennino è una catena in compressione, con faglie inverse e dirette (queste ultime nei bacini intramontani). I beni culturali italiani sono particolarmente esposti al rischio sismico.</p>
+
+  <div class="placeholder-img">[IMMAGINE: Schema di eruzione vulcanica con camera magmatica, condotto, cratere e prodotti vulcanici]</div>
+
+  <div class="flashcards-wrapper" id="fc-vulcani">
+    <h4> Flash Cards — Vulcani e Terremoti</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-vulcani" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-vulcani">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Dove si trovano i vulcani?</div><div class="card-back">Ai margini delle placche: divergenti (basaltico-effusivo), convergenti (esplosivo-andesitico) e hot spot intraplacca (Hawaii).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le pillow lavas?</div><div class="card-back">Lave a cuscino: si formano quando la lava erutta sott'acqua, assumendo forme arrotondate.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è un terremoto?</div><div class="card-back">Vibrazione del terreno per passaggio di onde sismiche, generate dalla rottura di rocce lungo una faglia.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">I terremoti si possono prevedere?</div><div class="card-back">NO. Non si può prevedere né quando né dove. Si può solo stimare la pericolosità sismica di un'area.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché l'accelerazione del suolo è pericolosa?</div><div class="card-back">Gli edifici sono progettati per carichi verticali (gravità). I terremoti producono accelerazioni orizzontali non previste.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Differenza magnitudo vs intensità?</div><div class="card-back">Magnitudo: energia rilasciata alla sorgente. Intensità: effetti in superficie (scala MCS).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché il Mediterraneo è sismico?</div><div class="card-back">Convergenza tra placca africana ed euroasiatica. L'Italia è zona di collisione attiva con faglie e terremoti.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-vulcani"></div>
+  </div>
+</section>
+
+<!-- ========== SEZIONE 12: GUIDA ESAME ========== -->
+<section id="esame">
+  <h2>12. Guida all'Esame</h2>
+
+  <h3>Formato</h3>
+  <ul>
+    <li>Tipo: <strong>orale</strong></li>
+    <li>Data: <strong>28 maggio 2026, ore 12:00</strong></li>
+    <li>Docente: Prof. Emanuele Tondi — Ordinario di Geologia Strutturale, Prorettore UNICAM</li>
+  </ul>
+
+  <h3>Svolgimento tipico</h3>
+  <ol>
+    <li>Il professore consegna al candidato <strong>2 campioni di rocce</strong> (già viste durante le esercitazioni)</li>
+    <li>15-20 minuti per osservare e descrivere i campioni</li>
+    <li>Il candidato prende appunti scritti (può anche non scrivere nulla)</li>
+    <li>L'orale parte dalla descrizione del campione</li>
+  </ol>
+
+  <h3>Cosa fare durante l'esame</h3>
+  <p><strong>NON sparare subito il nome della roccia.</strong> Il nome è l'<em>ultima</em> cosa da dare. L'esame valuta il <strong>ragionamento geologico</strong>:</p>
+  <ol>
+    <li><strong>Osservazione:</strong> colore, peso (a parità di dimensioni), presenza di cristalli visibili, struttura, eventuale foliazione, clasti</li>
+    <li><strong>Deduzione sui minerali:</strong> chiaro/leggero → ricco Si (cro-continentale); scuro/pesante → ricco Fe/Mg (cro-oceanica)</li>
+    <li><strong>Classificazione macro-gruppo:</strong> ignea? sedimentaria? metamorfica?</li>
+    <li><strong>Sotto-classificazione:</strong> intrusiva vs effusiva; epiclastica vs allochimica vs cristallina; foliata vs non foliata</li>
+    <li><strong>Processo genetico:</strong> come si è formata? In che contesto geodinamico?</li>
+    <li>Solo alla fine: dare il <strong>nome</strong> della roccia (se non si sa il nome esatto non è un errore grave, se il ragionamento è corretto)</li>
+  </ol>
+
+  <h3>Parametri principali di riconoscimento</h3>
+  <ul>
+    <li><strong>Tessitura:</strong> grana grossa (intrusiva) vs fine/assente (effusiva); presenza clasti (sedimentaria); foliazione (metamorfica)</li>
+    <li><strong>Colore + peso:</strong> chiaro/leggero vs scuro/pesante → contenuto Si vs Fe/Mg</li>
+    <li><strong>Durezza:</strong> riga il vetro? (quarzo sì, calcite no)</li>
+    <li><strong>Reazione HCl:</strong> calcite effervesce, dolomite no</li>
+    <li><strong>Rugosità:</strong> ruvida/carta vetro = arenaria; liscia = argillite o calcare</li>
+    <li><strong>Peso:</strong> la pomice galleggia in acqua (piena di bolle di gas)</li>
+  </ul>
+
+  <aside> Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
+
+  <h3>Argomenti chiave per l'orale</h3>
+  <ul>
+    <li>Classificazione delle rocce (ignee → sedimentarie → metamorfiche)</li>
+    <li>Minerali principali: riconoscimento e distribuzione crosta continentale vs oceanica</li>
+    <li>Tettonica delle placche (margini e sforzi associati)</li>
+    <li>Faglie: classificazione, sforzi, effetti sulla massa rocciosa</li>
+    <li>Deformazione fragile vs duttile (ruolo di T e P)</li>
+    <li>Terremoti e vulcani (relazione con le faglie e i margini)</li>
+    <li>Struttura interna della Terra (doppia classificazione)</li>
+    <li>Metodo scientifico, attualismo, tempo geologico</li>
+  </ul>
+
+  <div class="flashcards-wrapper" id="fc-esame">
+    <h4> Flash Cards — Guida Esame</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-esame" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-esame">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si svolge l'esame di Tondi?</div><div class="card-back">Orale. 2 campioni di roccia, 15-20 min per descriverli. Si parte dalla descrizione per arrivare alla classificazione. Il nome della roccia è l'ultima cosa da dare.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione (colore, peso, cristalli) → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come distinguere roccia continentale da oceanica?</div><div class="card-back">Chiara e leggera = continentale (Si, Al). Scura e pesante = oceanica (Fe, Mg).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Riconoscimento rocce sedimentarie?</div><div class="card-back">Clasti visibili (arenaria: ruvida). Se liscia e compatta: calcare o argillite. Se reagisce con HCl: calcite.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Argomenti più importanti per Tondi?</div><div class="card-back">Tettonica placche, faglie (classificazione), deformazione fragile vs duttile. È un geologo strutturale: enfasi su queste cose.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Se sbaglio il nome della roccia?</div><div class="card-back">Non è grave se il ragionamento geologico è corretto. Il nome è l'ultima cosa. L'esame valuta il percorso, non la risposta secca.</div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" data-carousel="fc-esame"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <span class="close" onclick="closeLightbox(event)">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+// === LIGHTBOX ===
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (e && e.target.tagName === 'IMG' && e.target.id === 'lightbox-img') return;
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// === FLASH CARDS CAROUSEL ===
+document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
+  const carouselId = wrapper.querySelector('.carousel-track').parentElement.parentElement.id;
+  const track = wrapper.querySelector('.carousel-track');
+  const cards = track.querySelectorAll('.flashcard');
+  const prevBtn = wrapper.querySelector('.carousel-arrow.prev');
+  const nextBtn = wrapper.querySelector('.carousel-arrow.next');
+  const dotsContainer = wrapper.querySelector('.carousel-dots');
+
+  let currentIndex = 0;
+  const cardWidth = cards.length > 0 ? cards[0].offsetWidth + 16 : 276;
+
+  // Create dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateUI() {
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= cards.length - 1;
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function goTo(i) {
+    currentIndex = Math.max(0, Math.min(i, cards.length - 1));
+    updateUI();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+  nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+  // Card flip on click
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't flip if clicking arrow buttons
+      if (e.target.closest('.carousel-arrow')) return;
+      card.classList.toggle('flipped');
+    });
+  });
+
+  updateUI();
+});
+
+// === SMOOTH SCROLL ===
+document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
