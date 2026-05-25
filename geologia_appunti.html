@@ -600,7 +600,7 @@ aside {
 }
 
 
-/* === FAKE PLAYER (nel riassunto) === */
+/* === FAKE PLAYER === */
 .fake-player {
   display: flex; align-items: center; gap: 10px;
   background: rgba(30,215,96,0.07);
@@ -612,9 +612,8 @@ aside {
 .fake-player:hover { background: rgba(30,215,96,0.14); }
 .fake-player.active { background: rgba(30,215,96,0.16); border-color: rgba(30,215,96,0.4); }
 .fp-play {
-  width: 32px; height: 32px; border-radius: 50%;
-  border: none; background: #1ed760; color: #1a1410;
-  font-size: 14px; flex-shrink: 0;
+  width: 32px; height: 32px; border-radius: 50%; border: none;
+  background: #1ed760; color: #1a1410; font-size: 14px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
 .fp-waveform {
@@ -630,7 +629,7 @@ aside {
 @keyframes fp-wave { 0%,100% { height: 4px; } 50% { height: 16px; } }
 .fp-dur { font-size: 0.72rem; color: #a09078; flex-shrink: 0; }
 
-/* === STICKY FOOTER PLAYER === */
+/* === STICKY FOOTER === */
 #sticky-player {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
   background: #1a1410; border-top: 2px solid #d4a853;
@@ -655,10 +654,7 @@ aside {
 .sp-close { color: #a09078; font-size: 0.9rem; }
 .sp-seek-row { display: flex; align-items: center; gap: 6px; }
 .sp-time { font-size: 0.65rem; color: #a09078; min-width: 30px; text-align: center; }
-.sp-seek {
-  flex: 1; height: 4px; background: rgba(212,168,83,0.12);
-  border-radius: 2px; cursor: pointer;
-}
+.sp-seek { flex: 1; height: 4px; background: rgba(212,168,83,0.12); border-radius: 2px; cursor: pointer; }
 .sp-seek-fill { height: 100%; background: #d4a853; border-radius: 2px; width: 0%; }
 </style>
 </head>
@@ -777,6 +773,7 @@ aside {
   </div>
 </section>
 
+
 <section id="fondamenti">
   <h2>1. Fondamenti della Geologia</h2>
 
@@ -879,61 +876,6 @@ aside {
   <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:18px"></span></div>
   <span class="fp-dur">1:16</span>
 </div>
-<div class="fake-player" data-chapter="2" data-audio="audio/riassunto_s02.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:5px"></span></div>
-  <span class="fp-dur">1:12</span>
-</div>
-<div class="fake-player" data-chapter="3" data-audio="audio/riassunto_s03.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:17px"></span></div>
-  <span class="fp-dur">1:05</span>
-</div>
-<div class="fake-player" data-chapter="4" data-audio="audio/riassunto_s04.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:9px"></span></div>
-  <span class="fp-dur">1:05</span>
-</div>
-<div class="fake-player" data-chapter="5" data-audio="audio/riassunto_s05.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:6px"></span></div>
-  <span class="fp-dur">1:08</span>
-</div>
-<div class="fake-player" data-chapter="6" data-audio="audio/riassunto_s06.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span></div>
-  <span class="fp-dur">1:09</span>
-</div>
-<div class="fake-player" data-chapter="7" data-audio="audio/riassunto_s07.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span></div>
-  <span class="fp-dur">1:10</span>
-</div>
-<div class="fake-player" data-chapter="8" data-audio="audio/riassunto_s08.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:12px"></span></div>
-  <span class="fp-dur">1:11</span>
-</div>
-<div class="fake-player" data-chapter="9" data-audio="audio/riassunto_s09.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:19px"></span></div>
-  <span class="fp-dur">1:03</span>
-</div>
-<div class="fake-player" data-chapter="10" data-audio="audio/riassunto_s10.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span></div>
-  <span class="fp-dur">1:19</span>
-</div>
-<div class="fake-player" data-chapter="11" data-audio="audio/riassunto_s11.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:6px"></span></div>
-  <span class="fp-dur">1:15</span>
-</div>
-<div class="fake-player" data-chapter="12" data-audio="audio/riassunto_s12.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:7px"></span></div>
-  <span class="fp-dur">1:15</span>
-</div>
 <h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>In questo capitolo scoprirai che la geologia non si limita a descrivere rocce e montagne: è la scienza che ti spiega perché il pianeta ha esattamente queste caratteristiche e quali processi lo hanno plasmato in 4,5 miliardi di anni. Il termine fu coniato da Ulisse Aldrovandi nel 1603, ma il vero padre della geologia moderna è James Hutton, che introdusse il plutonismo — l'idea che le rocce si formino dal consolidamento del magma — contrapponendosi al nettunismo che attribuiva tutto a origini divine.</p><p>Il concetto chiave da portarti a casa è il principio dell'attualismo: i processi che osserviamo oggi (erosione, sedimentazione, terremoti, vulcanismo) sono gli stessi che hanno operato nel passato. «Il presente è la chiave del passato». Questo principio generò un'accesa diatriba sull'età della Terra: la Chiesa proponeva circa 6.000 anni, i fisici come Lord Kelvin stimavano tempi più lunghi ma ancora insufficienti, mentre i geologi sostenevano che l'età dovesse essere enormemente maggiore. La diatriba si risolse solo con la scoperta della radioattività.</p><p>Il capitolo ti guida attraverso il metodo scientifico galileiano e ti presenta due teorie fondamentali: la teoria di Gaia di James Lovelock, che considera la Terra come un unico sistema integrato capace di autoregolarsi, e la deriva dei continenti di Alfred Wegener, che mise insieme evidenze biologiche, mineralogiche e la corrispondenza delle linee di costa. La teoria di Wegener aveva due punti deboli — mancava la dimostrazione del movimento e la spiegazione del motore — ma pose le basi per la moderna tettonica delle placche.</p>
 </div>
@@ -972,6 +914,7 @@ aside {
   </ul>
 
   <h3>Dati fisici della Terra</h3>
+  
 
 <div class="card">
 <h4>Il Sole e il Sistema Solare</h4>
@@ -997,8 +940,14 @@ aside {
 
   <aside> La Terra non è grande come sembra: il diametro è solo 12 volte la lunghezza dell'Italia! Le perturbazioni umane hanno un impatto reale su un pianeta finito.</aside>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="2" data-audio="audio/riassunto_s02.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:5px"></span></div>
+  <span class="fp-dur">1:12</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Il Sistema Solare si è formato circa 4,6 miliardi di anni fa da una nebulosa di gas interstellari in contrazione. Il concetto chiave da portarti a casa è che il Sole è una stella di seconda generazione, popolazione I: deriva dall'esplosione di una stella precedente e quindi contiene elementi pesanti. Se fosse stato di prima generazione, semplicemente non esisterebbero pianeti rocciosi come la Terra. Attenzione alla nomenclatura controintuitiva: Popolazione I uguale recente e ricca di metalli; Popolazione II uguale antica e povera di metalli.</p><p>L'accensione del Sole avvenne quando nella parte centrale della nebulosa l'aumento di densità innescò le reazioni termonucleari di fusione. L'onda d'urto risultante spostò gli elementi leggeri verso l'esterno formando i pianeti gassosi e lasciò gli elementi pesanti vicino al Sole, dando origine ai pianeti rocciosi terrestri. L'intero processo di formazione fu rapidissimo: pochi milioni di anni contro i 4,6 miliardi di età attuale.</p><p>Il capitolo ti fornisce anche dati fondamentali sulla Terra: il diametro equatoriale è di circa 12.756 km, l'accelerazione di gravità è 9,8 metri al secondo quadrato. Un dato che cambia la prospettiva: il diametro terrestre è solo 12 volte la lunghezza dell'Italia. Infine, impara i confini del Sistema Solare: la fascia degli asteroidi tra Marte e Giove e l'eliopausa, il confine dell'eliosfera che ci protegge dai raggi cosmici.</p>
 </div>
 
@@ -1039,6 +988,7 @@ aside {
     <li><strong>Proterozoico</strong> — 2,5 Ga → 541 Ma. Vita primordiale più complessa</li>
     <li><strong>Fanerozoico</strong> — 541 Ma → oggi. Vita visibile, è suddiviso in ere: <strong>Paleozoico</strong>, <strong>Mesozoico</strong>, <strong>Cenozoico</strong></li>
   </ul>
+
 
   <div class="timeline">
     <div class="timeline-item">
@@ -1097,8 +1047,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <aside>Attenzione: «Era giurassica» è SBAGLIATO. Giurassico è un PERIODO dell'era Mesozoica. Jurassic Park dovrebbe chiamarsi «Periodo Giurassico»!</aside>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="3" data-audio="audio/riassunto_s03.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:17px"></span></div>
+  <span class="fp-dur">1:05</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Il tempo geologico è il calendario del passato. La Terra ha 4,54 miliardi di anni, e le rocce che ci permettono di datare questa immensa storia sono principalmente le rocce sedimentarie, che si depositano a strati e catturano informazioni sull'ambiente di formazione. La gerarchia da memorizzare è: Eoni, Ere, Periodi, Epoche, Età, dal più lungo al più corto.</p><p>I quattro eoni raccontano l'intera storia del pianeta. L'Adeano è l'eone nascosto, senza quasi informazioni. L'Archeano vede le prime forme di vita procariote. Il Proterozoico porta vita più complessa e l'ossigeno atmosferico. Il Fanerozoico è l'eone della vita visibile, suddiviso in Paleozoico, Mesozoico e Cenozoico.</p><p>Il principio fondamentale è quello di sovrapposizione stratigrafica: nelle rocce sedimentarie gli strati più in basso sono più antichi di quelli in alto. Attenzione: questo principio non vale per le intrusioni magmatiche! Il concetto chiave: la carta cronostratigrafica internazionale ha tre colonne su quattro dedicate agli ultimi 500 milioni di anni non perché nel passato non sia successo nulla, ma per un bias di completezza dei dati. Attenzione all'esame: Giurassico è un PERIODO, non un'era. L'era è il Mesozoico. Dire era giurassica è come chiamare anno febbraio: si sbaglia categoria.</p>
 </div>
 
@@ -1122,6 +1078,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 <!-- ========== SEZIONE 4: INTERNO TERRESTRE ========== -->
 <section id="interno-terrestre">
   <h2>4. Struttura Interna della Terra</h2>
+
 
   <div class="mirror-compare">
     <div class="mirror-side continentale">
@@ -1204,8 +1161,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <aside> La crosta inferiore continentale ha composizione simile alla crosta oceanica. Per la classificazione reologica, nucleo esterno e nucleo interno mantengono gli stessi nomi della classificazione chimica perché il passaggio solido→liquido è già una differenza reologica.</aside>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="4" data-audio="audio/riassunto_s04.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:9px"></span></div>
+  <span class="fp-dur">1:05</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>La struttura interna della Terra si classifica secondo due criteri distinti che devi assolutamente tenere separati. Il primo è il criterio composizionale, chimico: dall'esterno verso l'interno trovi la crosta, da zero a 35-70 km, il mantello fino a 2.900 km, composto quasi esclusivamente da olivina, il nucleo esterno liquido da 2.900 a 5.155 km, e il nucleo interno solido fino a 6.371 km. Le discontinuità che separano questi strati hanno nomi precisi: Mohorovičić tra crosta e mantello, Gutenberg tra mantello e nucleo, Lehmann tra nucleo esterno e interno.</p><p>Il secondo criterio, quello reologico, descrive come si comportano i materiali: la litosfera, da zero a 100-150 km, è lo strato rigido e freddo, frammentato in placche tettoniche. Sotto di essa l'astenosfera è calda, plastica e parzialmente fusa: è il cuscinetto su cui la litosfera galleggia. Il concetto chiave da portarti a casa: litosfera e astenosfera sono classificazioni reologiche, non chimiche. Ricorda: la crosta continentale è spessa circa 35 km, ricca di silicio e alluminio, fatta di rocce chiare e leggere come i graniti. La crosta oceanica è sottile, 5-10 km, ricca di ferro e magnesio, con rocce scure e pesanti come i basalti.</p>
 </div>
 
@@ -1264,8 +1227,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
 <h3>Il motore: la litosfera sull'astenosfera</h3>
   <p>La litosfera (rigida, fredda, leggera) «galleggia» sull'astenosfera (calda, plastica, più densa). È come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia per il movimento delle placche.</p>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="5" data-audio="audio/riassunto_s05.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:6px"></span></div>
+  <span class="fp-dur">1:08</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>La tettonica delle placche è la teoria unificante di tutta la geologia moderna. Tutto nasce dall'intuizione di Wegener sulla deriva dei continenti, poi confermata dopo la Seconda Guerra Mondiale da evidenze schiaccianti: l'espansione dei fondali oceanici, le anomalie magnetiche, la distribuzione di terremoti e vulcani, e oggi il GPS che misura spostamenti di 4-5 cm all'anno in tempo reale.</p><p>Il pianeta è ricoperto da placche tettoniche che interagiscono tra loro in tre modi fondamentali. Ai margini divergenti le placche si allontanano: lo sforzo è estensionale, si forma nuova crosta oceanica e prevalgono le faglie dirette. Pensa alle dorsali medio-oceaniche. Ai margini convergenti le placche si scontrano: la più densa sprofonda in subduzione, lo sforzo è compressivo, dominano le faglie inverse, e si formano catene montuose come Ande, Himalaya e Appennini. Ai margini trasformi le placche scorrono orizzontalmente l'una accanto all'altra con faglie trascorrenti: l'esempio perfetto è la Faglia di Sant'Andrea in California.</p><p>Il motore di tutto questo? La litosfera rigida e fredda galleggia sull'astenosfera plastica e più densa, come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia che spinge le placche. Ricorda: ogni tipo di margine è associato a un regime tettonico specifico e a un tipo di faglia caratteristico. Padroneggiare questa tripartizione è la chiave per capire terremoti, vulcani e orogenesi.</p>
 </div>
 
@@ -1428,8 +1397,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
   </div> — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
   </div>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="6" data-audio="audio/riassunto_s06.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span></div>
+  <span class="fp-dur">1:09</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>I minerali sono i mattoni fondamentali del pianeta. Partiamo dalla gerarchia: un elemento chimico è un atomo con un preciso numero di protoni, neutroni ed elettroni. Un minerale è un solido cristallino naturale, inorganico, con composizione chimica definita e reticolo cristallino ordinato. Una roccia è un aggregato naturale di minerali.</p><p>Il dato da memorizzare subito: i silicati rappresentano il novantuno per cento di tutti i minerali della crosta terrestre. Di questi, i feldspati da soli fanno il cinquantuno per cento, seguiti da quarzo, pirosseni, anfiboli, miche, argille e olivina. Impara a riconoscerli: il quarzo ha durezza sette e riga vetro e ferro. L'olivina è il suo opposto: verde scuro, ricchissima di ferro e magnesio, compone quasi interamente il mantello. Le miche si riconoscono dall'abito lamellare, si sfogliano: biotite scura con ferro e magnesio, muscovite chiara.</p><p>Tra i non silicati, la calcite è fondamentale: durezza tre, non riga il vetro, ma reagisce con HCl producendo effervescenza. La dolomite invece no. La regola pratica per il campo: roccia chiara e leggera uguale ricca di silicio, crosta continentale. Roccia scura e pesante uguale ricca di ferro e magnesio, crosta oceanica. Colore, peso, test di durezza e HCl: con questi quattro strumenti sei già in grado di classificare la maggior parte dei campioni.</p>
 </div>
 
@@ -1471,6 +1446,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
       <div class="branch-leaf"><strong>Ultramafiche</strong>Massimo Fe/Mg. Peridotite (mantello).</div>
     </div>
   </div>
+
 
   <p>Le <strong>rocce ignee</strong> (o magmatiche) derivano dal <strong>raffreddamento e consolidamento del magma</strong>. La classificazione si basa su due criteri principali.</p>
 
@@ -1574,8 +1550,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Pomice: vetro vulcanico ricco di bolle di gas. Galleggia in acqua.</p>
   </div> l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="7" data-audio="audio/riassunto_s07.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span></div>
+  <span class="fp-dur">1:10</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Le rocce ignee nascono dal raffreddamento e consolidamento del magma. Il concetto chiave da portarti a casa è che le classifichiamo con due criteri: la tessitura e la composizione. La tessitura ti dice dove il magma si è raffreddato: se il raffreddamento è lento, in profondità, ottieni rocce intrusive come il granito, con cristalli grandi e ben visibili. Se è rapido, in superficie dopo un'eruzione, ottieni rocce effusive come il basalto, a grana fine. Esiste anche la tessitura porfirica, con fenocristalli immersi in una massa di fondo, che rivela un raffreddamento in due fasi.</p><p>Il secondo criterio è la composizione, che dipende dal contenuto di silice: andiamo dalle rocce felsiche, chiare e ricche di silice, passando per le intermedie, fino alle mafiche, scure e ricche di ferro e magnesio, e alle ultramafiche come la peridotite del mantello. Ricorda la regola fondamentale: quarzo e olivina sono incompatibili, non possono coesistere nella stessa roccia. La sequenza delle intrusive va dal granito alla peridotite. Importante anche la distinzione tra magma, fuso nella crosta, e lava, dopo l'eruzione. I graniti che vediamo oggi in montagna sono affiorati per sollevamento tettonico ed erosione, non per eruzione. Infine, la serie di Bowen ti spiega l'ordine di cristallizzazione: l'olivina è la prima a cristallizzare ad alta temperatura, il quarzo l'ultimo.</p>
 </div>
 
@@ -1675,6 +1657,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li><strong>Argillite:</strong> clasti <0,004 mm. Liscia, compatta, grani NON visibili.</li>
   </ul>
 
+  
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Conglomerate_Rock.jpg" alt="Conglomerato" onclick="openLightbox(this.src)" loading="lazy">
     <p class="caption">Conglomerato: clasti arrotondati >2 mm. Trasporto prolungato.</p>
@@ -1718,8 +1701,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Arenaria: roccia sedimentaria epiclastica con grani visibili (sensazione ruvida).</p>
   </div>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="8" data-audio="audio/riassunto_s08.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:12px"></span></div>
+  <span class="fp-dur">1:11</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Le rocce sedimentarie sono il vero libro della storia della Terra. Nascono da sedimenti che, dopo essere stati trasportati, si accumulano e si trasformano in roccia attraverso la diagenesi, che si articola in due fasi: prima la compattazione, il peso degli strati sovrastanti schiaccia i sedimenti espellendo l'acqua, poi la cementazione, i sali disciolti precipitano e legano le particelle. Il concetto chiave è che una roccia sedimentaria ha sempre due componenti chimicamente distinte: le particelle e il cemento. Nella tessitura riconosciamo scheletro, matrice e cemento.</p><p>Le rocce sedimentarie si dividono in quattro grandi famiglie. Le più diffuse sono le epiclastiche, che derivano dalla degradazione di rocce preesistenti e si classificano per granulometria: conglomerati, arenarie, siltiti e argilliti. Poi ci sono le allochimiche, formate dall'accumulo lentissimo di gusci di plancton sui fondali oceanici. Le chimiche da precipitazione diretta come evaporiti e travertino. Infine le organogene come carbone e torba.</p><p>Un'altra idea fondamentale è il gradiente oceano-continente: in mare aperto si depositano solo allochimiche, avvicinandosi al continente compaiono marne, vicino alla costa dominano le epiclastiche. I tempi di accumulo cambiano radicalmente: cento metri di roccia allochimica possono rappresentare cinquanta milioni di anni, cento metri di arenaria si depositano in pochi anni. Ricorda anche la maturità delle arenarie: quelle immature, scure e ricche di minerali femici, si dilatano col calore e si fessurano facilmente.</p>
 </div>
 
@@ -1774,6 +1763,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li><strong>Filladi:</strong> grana fine, lucentezza sericea.</li>
   </ul>
 
+  
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gneiss_1_%2816310656713%29.jpg" alt="Gneiss" onclick="openLightbox(this.src)" loading="lazy">
     <p class="caption">Gneiss: roccia metamorfica a bande alternate chiare e scure.</p>
@@ -1803,8 +1793,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Cava di marmo a Carrara: roccia metamorfica da calcare sedimentario, usata per scultura ed edilizia.</p>
   </div>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="9" data-audio="audio/riassunto_s09.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:19px"></span></div>
+  <span class="fp-dur">1:03</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Le rocce metamorfiche sono il risultato di una trasformazione spettacolare: rocce preesistenti che, sottoposte a temperature e pressioni elevate, cambiano aspetto e minerali senza però fondere del tutto. Se fondessero diventerebbero magmatiche, e questo è il confine da non superare. La parola chiave qui è foliazione: i minerali, sotto sforzo, si riorientano perpendicolarmente alla pressione, creando bande e strutture lamellari che sono la firma distintiva del metamorfismo.</p><p>Il grado metamorfico ti dice quanto è stata intensa la trasformazione: a basso grado prevalgono cambiamenti tessiturali, i cristalli si deformano ma la composizione chimica resta la stessa. Ad alto grado avviene una ricristallizzazione allo stato solido con formazione di minerali completamente nuovi. Il marmo deriva da calcari sedimentari cotti ad alta temperatura: è calcite cristallina. Il marmo nero deve il suo colore a inclusioni di idrocarburi fossili. Lo gneiss, con le sue caratteristiche bande alternate chiare e scure, richiede sia alta temperatura che alta pressione. L'ardesia nasce da argilliti e si sfalda in lamine perfette.</p><p>Distingui due tipi di metamorfismo: quello regionale, che interessa enormi aree durante la formazione delle catene montuose come Alpi e Appennini, e quello di contatto, più locale, che si sviluppa intorno alle intrusioni magmatiche formando un'aureola metamorfica.</p>
 </div>
 
@@ -1859,6 +1855,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
   </div>
 
+
   <p>Quando la litosfera è sottoposta a <strong>sforzo</strong> (ai margini delle placche), le rocce si deformano. La risposta deformativa dipende dalla <strong>profondità</strong> (quindi dalla temperatura).</p>
 
     <div class="image-container">
@@ -1910,6 +1907,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <h4>Classificazione delle faglie</h4>
 
+
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Normal_fault_diagram.gif" alt="Diagramma faglia normale" onclick="openLightbox(this.src)" loading="lazy">
     <p class="caption">Diagramma animato di faglia normale (diretta).</p>
@@ -1935,8 +1933,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Tipi di faglie: normale/diretta (a sinistra), inversa (centro), trascorrente/strike-slip (destra).</p>
   </div>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="10" data-audio="audio/riassunto_s10.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span></div>
+  <span class="fp-dur">1:19</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>In questo capitolo affrontiamo uno dei temi centrali del corso: come e perché le rocce si deformano. Il concetto chiave da portarti a casa è che la profondità decide tutto. La temperatura aumenta di circa trenta gradi per ogni chilometro che scendi nella crosta, il gradiente geotermico, e questo cambia radicalmente il comportamento della roccia. Nei primi dieci-quindici chilometri la roccia è fragile: si rompe, generando fratture e faglie, ed è qui che nascono i terremoti. Scendendo oltre i quindici-venti chilometri, la roccia diventa duttile: si piega senza rompersi. L'analogia del pongo è perfetta: freddo si spezza, scaldato tra le mani si deforma.</p><p>Ed eccoci alle protagoniste: le faglie. Una faglia è una frattura lungo cui i due blocchi scorrono parallelamente al piano di rottura. Il tetto è il blocco sopra il piano di faglia, il letto è il blocco sotto. Nelle faglie dirette il tetto scende rispetto al letto: sono la risposta a uno sforzo estensionale e le trovi ai margini divergenti. Nelle faglie inverse il tetto sale: sforzo compressivo, margini convergenti, catene montuose. Poi ci sono le trascorrenti, con movimento orizzontale, tipiche dei margini trasformi.</p><p>Per distinguere una faglia diretta da una inversa su carta geologica, guardi quali rocce sono a contatto: se il tetto ha rocce più recenti del letto è diretta, se ha rocce più antiche è inversa. Infine, un collegamento importante: quando faglie dirette assottigliano l'intera litosfera, la pressione alla base cala e il materiale fonde per decompressione. È così che si produce magma lungo le dorsali oceaniche.</p>
 </div>
 
@@ -2019,7 +2023,12 @@ esempio classico di sovrapposizione stratigrafica.</p>
   <p>Il Mediterraneo è una <strong>zona sismicamente attiva</strong> per la convergenza tra placca africana ed euroasiatica. L'Appennino è una catena in compressione, con faglie inverse e dirette (queste ultime nei bacini intramontani). I beni culturali italiani sono particolarmente esposti al rischio sismico.</p>
 
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="11" data-audio="audio/riassunto_s11.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:6px"></span></div>
+  <span class="fp-dur">1:15</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Vulcani e terremoti non sono fenomeni casuali: sono il linguaggio con cui la Terra rilascia energia, e seguono una grammatica precisa dettata dalla tettonica delle placche. I vulcani si concentrano in tre contesti. Ai margini divergenti, come l'Islanda, trovi vulcanismo effusivo basaltico: lave fluide e scure, magma prodotto per decompressione. Ai margini convergenti, Ande e Giappone, il vulcanismo è esplosivo andesitico: la placca in subduzione rilascia acqua che abbassa il punto di fusione del mantello. Infine gli hot spot intraplacca, come Hawaii e Yellowstone.</p><p>I prodotti vulcanici vanno dalle lave basaltiche fluide alle piroclastiti, ceneri, lapilli e bombe, passando per la leggerissima pomice. Non dimenticare le pillow lavas, le lave a cuscino che si formano quando il magma erutta sott'acqua.</p><p>Passiamo ai terremoti: una vibrazione del terreno generata dal passaggio di onde sismiche, prodotte dalla rottura improvvisa di rocce lungo una faglia. L'ipocentro è il punto di rottura in profondità, l'epicentro la sua proiezione in superficie. I terremoti non si possono prevedere. Distingui la magnitudo, energia rilasciata alla sorgente, dall'intensità, che misura gli effetti in superficie con la scala MCS. L'effetto più distruttivo è l'accelerazione orizzontale del suolo. Il Mediterraneo è sismicamente attivo per la convergenza tra placca africana ed euroasiatica. L'Appennino è una catena viva, con faglie attive che mettono a rischio anche il nostro patrimonio di Beni Culturali.</p>
 </div>
 
@@ -2107,8 +2116,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li>Metodo scientifico, attualismo, tempo geologico</li>
   </ul>
 
+  
   <div class="riassunto-box">
-  <h4>📎 Riassunto — Il sito ti spiega</h4>
+  <div class="fake-player" data-chapter="12" data-audio="audio/riassunto_s12.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:7px"></span></div>
+  <span class="fp-dur">1:15</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>Eccoci alla sezione che ti interessa di più: come si affronta l'esame di Tondi. Il Prof. Tondi è un geologo strutturale e non vuole sentirti sparare il nome della roccia a bruciapelo. Vuole il ragionamento geologico. Il nome è l'ultima cosa che devi dire, e se lo sbagli ma il percorso è corretto, non è un dramma. L'esame non è un quiz.</p><p>Ecco il Metodo Tondi in sei passi. Primo: osserva. Descrivi colore, peso, cristalli visibili, struttura, foliazione, clasti. Secondo: deduci la composizione mineraria. Chiaro e leggero uguale silicio, crosta continentale. Scuro e pesante uguale ferro e magnesio, crosta oceanica. Terzo: colloca la roccia in un macro-gruppo. Quarto: sotto-classifica. Quinto: spiega il processo genetico e il contesto geodinamico. Sesto: solo ora, dai il nome della roccia.</p><p>Nella pratica, ricevi due campioni, hai quindici-venti minuti per osservarli, poi l'orale parte dalla loro descrizione. I parametri da padroneggiare sono tessitura, colore e peso, lucentezza, sfaldatura, durezza, reazione all'HCl e rugosità. Tondi apprezza i collegamenti interdisciplinari. Gli argomenti su cui insisterà di più? Tettonica delle placche, classificazione delle faglie, deformazione fragile vs duttile. Preparati bene su questi tre pilastri e avrai fatto il grosso del lavoro.</p>
 </div>
 
@@ -2240,6 +2255,7 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
 });
 </script>
 
+
 <div id="sticky-player">
   <div class="sp-top">
     <span class="sp-title" id="sp-title">📎 Capitolo 1 — Fondamenti</span>
@@ -2272,119 +2288,92 @@ var chapters = [
   {num:11,title:"Vulcani e Terremoti",file:"audio/riassunto_s11.ogg",dur:"1:15"},
   {num:12,title:"Guida all'Esame",file:"audio/riassunto_s12.ogg",dur:"1:15"},
 ];
-var spAudio = null, spIdx = -1, spPlaying = false;
+var spAudio=null,spIdx=-1,spPlaying=false;
 
-var spEl = document.getElementById('sticky-player');
-var spTitle = document.getElementById('sp-title');
-var spPlayBtn = document.getElementById('sp-play');
-var spPrev = document.getElementById('sp-prev');
-var spNext = document.getElementById('sp-next');
-var spClose = document.getElementById('sp-close');
-var spSeek = document.getElementById('sp-seek');
-var spFill = document.getElementById('sp-fill');
-var spCur = document.getElementById('sp-cur');
-var spTot = document.getElementById('sp-tot');
-var spDl = document.getElementById('sp-dl');
+var spEl=document.getElementById("sticky-player");
+var spTitle=document.getElementById("sp-title");
+var spPlayBtn=document.getElementById("sp-play");
+var spPrev=document.getElementById("sp-prev");
+var spNext=document.getElementById("sp-next");
+var spClose=document.getElementById("sp-close");
+var spSeek=document.getElementById("sp-seek");
+var spFill=document.getElementById("sp-fill");
+var spCur=document.getElementById("sp-cur");
+var spTot=document.getElementById("sp-tot");
+var spDl=document.getElementById("sp-dl");
 
-function fmt(secs) {
-  if (isNaN(secs) || secs < 0) return '0:00';
-  return Math.floor(secs/60) + ':' + String(Math.floor(secs%60)).padStart(2,'0');
-}
+function fmt(s){if(isNaN(s)||s<0)return"0:00";return Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0");}
 
-function loadSp(idx) {
-  if (idx < 0 || idx >= 12) return;
-  if (spAudio) { spAudio.pause(); spAudio = null; }
-  spIdx = idx;
-  var ch = chapters[idx];
-  spTitle.textContent = '📎 Capitolo ' + ch.num + ' — ' + ch.title;
-  spPrev.disabled = (idx === 0);
-  spNext.disabled = (idx === 11);
-  spFill.style.width = '0%';
-  spCur.textContent = '0:00';
-  spTot.textContent = ch.dur;
-  spDl.href = ch.file;
-  spAudio = new Audio(ch.file);
-  spAudio.ontimeupdate = function() {
-    if (spAudio.duration) {
-      spFill.style.width = (spAudio.currentTime / spAudio.duration * 100) + '%';
-      spCur.textContent = fmt(spAudio.currentTime);
+function loadSp(idx){
+  if(idx<0||idx>=12)return;
+  if(spAudio){spAudio.pause();spAudio=null;}
+  spIdx=idx;
+  var ch=chapters[idx];
+  spTitle.textContent="📎 Capitolo "+ch.num+" — "+ch.title;
+  spPrev.disabled=(idx===0);
+  spNext.disabled=(idx===11);
+  spFill.style.width="0%";spCur.textContent="0:00";spTot.textContent=ch.dur;
+  spDl.href=ch.file;
+  spAudio=new Audio(ch.file);
+  spAudio.ontimeupdate=function(){
+    if(spAudio.duration){
+      spFill.style.width=(spAudio.currentTime/spAudio.duration*100)+"%";
+      spCur.textContent=fmt(spAudio.currentTime);
     }
   };
-  spAudio.onended = function() {
-    if (spIdx < 11) { loadSp(spIdx + 1); playSp(); syncFakePlayers(); }
-    else { stopSp(); }
+  spAudio.onended=function(){
+    if(spIdx<11){loadSp(spIdx+1);playSp();syncAll();}
+    else{stopSp();}
   };
-  spAudio.onerror = function() { stopSp(); };
-  spAudio.onloadedmetadata = function() {
-    spTot.textContent = fmt(spAudio.duration);
-  };
+  spAudio.onerror=function(){stopSp();};
+  spAudio.onloadedmetadata=function(){spTot.textContent=fmt(spAudio.duration);};
 }
 
-function playSp() {
-  if (!spAudio) return;
-  spEl.classList.add('on');
-  spAudio.play();
-  spPlaying = true;
-  spPlayBtn.textContent = '⏸';
-  syncFakePlayers();
+function playSp(){
+  if(!spAudio)return;
+  spEl.classList.add("on");spAudio.play();spPlaying=true;
+  spPlayBtn.textContent="⏸";syncAll();
 }
-
-function pauseSp() {
-  if (!spAudio) return;
-  spAudio.pause();
-  spPlaying = false;
-  spPlayBtn.textContent = '▶';
-  syncFakePlayers();
+function pauseSp(){
+  if(!spAudio)return;
+  spAudio.pause();spPlaying=false;
+  spPlayBtn.textContent="▶";syncAll();
 }
-
-function stopSp() {
-  if (spAudio) { spAudio.pause(); spAudio = null; }
-  spPlaying = false; spIdx = -1;
-  spPlayBtn.textContent = '▶';
-  spFill.style.width = '0%'; spCur.textContent = '0:00';
-  spEl.classList.remove('on');
-  syncFakePlayers();
+function stopSp(){
+  if(spAudio){spAudio.pause();spAudio=null;}
+  spPlaying=false;spIdx=-1;spPlayBtn.textContent="▶";
+  spFill.style.width="0%";spCur.textContent="0:00";
+  spEl.classList.remove("on");syncAll();
 }
-
-function syncFakePlayers() {
-  document.querySelectorAll('.fake-player').forEach(function(el) {
-    var c = parseInt(el.dataset.chapter);
-    if (c === spIdx + 1 && spPlaying) {
-      el.classList.add('active');
-      el.querySelector('.fp-play').textContent = '⏸';
-    } else {
-      el.classList.remove('active');
-      el.querySelector('.fp-play').textContent = '▶';
+function syncAll(){
+  document.querySelectorAll(".fake-player").forEach(function(el){
+    var c=parseInt(el.dataset.chapter);
+    if(c===spIdx+1&&spPlaying){
+      el.classList.add("active");
+      el.querySelector(".fp-play").textContent="⏸";
+    }else{
+      el.classList.remove("active");
+      el.querySelector(".fp-play").textContent="▶";
     }
   });
 }
 
-// Fake player clicks
-document.querySelectorAll('.fake-player').forEach(function(el) {
-  el.addEventListener('click', function() {
-    var c = parseInt(el.dataset.chapter) - 1;
-    if (spIdx === c && spPlaying) {
-      pauseSp();
-    } else {
-      loadSp(c);
-      playSp();
-    }
+document.querySelectorAll(".fake-player").forEach(function(el){
+  el.addEventListener("click",function(){
+    var c=parseInt(el.dataset.chapter)-1;
+    if(spIdx===c&&spPlaying){pauseSp();}
+    else{loadSp(c);playSp();}
   });
 });
 
-// Sticky footer buttons
-spPlayBtn.addEventListener('click', function() {
-  if (spPlaying) pauseSp(); else playSp();
-});
-spPrev.addEventListener('click', function() { loadSp(spIdx - 1); playSp(); });
-spNext.addEventListener('click', function() { loadSp(spIdx + 1); playSp(); });
-spClose.addEventListener('click', stopSp);
-
-// Seek
-spSeek.addEventListener('click', function(e) {
-  if (!spAudio || !spAudio.duration) return;
-  var pct = (e.clientX - spSeek.getBoundingClientRect().left) / spSeek.offsetWidth;
-  spAudio.currentTime = pct * spAudio.duration;
+spPlayBtn.addEventListener("click",function(){if(spPlaying)pauseSp();else playSp();});
+spPrev.addEventListener("click",function(){loadSp(spIdx-1);playSp();});
+spNext.addEventListener("click",function(){loadSp(spIdx+1);playSp();});
+spClose.addEventListener("click",stopSp);
+spSeek.addEventListener("click",function(e){
+  if(!spAudio||!spAudio.duration)return;
+  var pct=(e.clientX-spSeek.getBoundingClientRect().left)/spSeek.offsetWidth;
+  spAudio.currentTime=pct*spAudio.duration;
 });
 </script>
 </body>
