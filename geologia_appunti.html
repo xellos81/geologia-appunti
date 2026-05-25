@@ -600,36 +600,66 @@ aside {
 }
 
 
-/* === RIASSUNTO PLAYER === */
-.rap {
+/* === FAKE PLAYER (nel riassunto) === */
+.fake-player {
   display: flex; align-items: center; gap: 10px;
   background: rgba(30,215,96,0.07);
   border: 1px solid rgba(30,215,96,0.18);
   border-radius: 14px; padding: 8px 12px;
-  margin: 0 0 12px 0; max-width: 420px;
+  margin: 0 0 12px 0; max-width: 380px;
+  cursor: pointer; transition: background 0.2s;
 }
-.rap-play {
+.fake-player:hover { background: rgba(30,215,96,0.14); }
+.fake-player.active { background: rgba(30,215,96,0.16); border-color: rgba(30,215,96,0.4); }
+.fp-play {
   width: 32px; height: 32px; border-radius: 50%;
   border: none; background: #1ed760; color: #1a1410;
-  font-size: 14px; cursor: pointer; flex-shrink: 0;
+  font-size: 14px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.rap-play:hover { background: #1fdf64; }
-.rap-seek-wrap { flex: 1; display: flex; align-items: center; gap: 6px; }
-.rap-time { font-size: 0.68rem; color: #a09078; min-width: 32px; text-align: center; }
-.rap-seek {
-  flex: 1; height: 5px; background: rgba(30,215,96,0.12);
-  border-radius: 3px; cursor: pointer; position: relative;
+.fp-waveform {
+  display: flex; align-items: center; gap: 2px; height: 24px; flex: 1;
 }
-.rap-seek-fill {
-  height: 100%; background: #1ed760; border-radius: 3px;
-  width: 0%;
+.fp-bar {
+  width: 2px; background: #1ed760; border-radius: 1px; opacity: 0.4;
 }
-.rap-dl {
-  color: #1ed760; font-size: 1rem; text-decoration: none;
-  flex-shrink: 0; opacity: 0.5; transition: opacity 0.2s;
+.fake-player.active .fp-bar { opacity: 0.8; animation: fp-wave 0.7s ease-in-out infinite; }
+.fake-player.active .fp-bar:nth-child(2n) { animation-delay: 0.1s; }
+.fake-player.active .fp-bar:nth-child(3n) { animation-delay: 0.2s; }
+.fake-player.active .fp-bar:nth-child(5n) { animation-delay: 0.3s; }
+@keyframes fp-wave { 0%,100% { height: 4px; } 50% { height: 16px; } }
+.fp-dur { font-size: 0.72rem; color: #a09078; flex-shrink: 0; }
+
+/* === STICKY FOOTER PLAYER === */
+#sticky-player {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: #1a1410; border-top: 2px solid #d4a853;
+  padding: 10px 14px; display: none; flex-direction: column; gap: 6px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
 }
-.rap-dl:hover { opacity: 1; }
+#sticky-player.on { display: flex; }
+.sp-top { display: flex; align-items: center; gap: 8px; }
+.sp-title {
+  font-size: 0.78rem; color: #c4b8a5; flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+.sp-ctrl { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.sp-btn {
+  background: none; border: none; color: #e8cd8a; font-size: 1.1rem;
+  cursor: pointer; padding: 2px 4px; border-radius: 4px;
+}
+.sp-btn:hover { color: #fff; background: rgba(212,168,83,0.1); }
+.sp-btn:disabled { opacity: 0.25; cursor: default; }
+.sp-btn-play { font-size: 1.3rem; }
+.sp-close { color: #a09078; font-size: 0.9rem; }
+.sp-seek-row { display: flex; align-items: center; gap: 6px; }
+.sp-time { font-size: 0.65rem; color: #a09078; min-width: 30px; text-align: center; }
+.sp-seek {
+  flex: 1; height: 4px; background: rgba(212,168,83,0.12);
+  border-radius: 2px; cursor: pointer;
+}
+.sp-seek-fill { height: 100%; background: #d4a853; border-radius: 2px; width: 0%; }
 </style>
 </head>
 <body>
@@ -844,113 +874,65 @@ aside {
   </div>
 
   <div class="riassunto-box">
-  <div class="rap" data-chapter="1" data-audio="audio/riassunto_s01.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:16</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s01.ogg" download title="Scarica audio">⬇</a>
+  <div class="fake-player" data-chapter="1" data-audio="audio/riassunto_s01.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:18px"></span></div>
+  <span class="fp-dur">1:16</span>
 </div>
-<div class="rap" data-chapter="2" data-audio="audio/riassunto_s02.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:12</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s02.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="2" data-audio="audio/riassunto_s02.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:5px"></span></div>
+  <span class="fp-dur">1:12</span>
 </div>
-<div class="rap" data-chapter="3" data-audio="audio/riassunto_s03.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:05</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s03.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="3" data-audio="audio/riassunto_s03.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:17px"></span></div>
+  <span class="fp-dur">1:05</span>
 </div>
-<div class="rap" data-chapter="4" data-audio="audio/riassunto_s04.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:05</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s04.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="4" data-audio="audio/riassunto_s04.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:9px"></span></div>
+  <span class="fp-dur">1:05</span>
 </div>
-<div class="rap" data-chapter="5" data-audio="audio/riassunto_s05.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:08</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s05.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="5" data-audio="audio/riassunto_s05.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:6px"></span></div>
+  <span class="fp-dur">1:08</span>
 </div>
-<div class="rap" data-chapter="6" data-audio="audio/riassunto_s06.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:09</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s06.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="6" data-audio="audio/riassunto_s06.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span></div>
+  <span class="fp-dur">1:09</span>
 </div>
-<div class="rap" data-chapter="7" data-audio="audio/riassunto_s07.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:10</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s07.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="7" data-audio="audio/riassunto_s07.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span></div>
+  <span class="fp-dur">1:10</span>
 </div>
-<div class="rap" data-chapter="8" data-audio="audio/riassunto_s08.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:11</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s08.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="8" data-audio="audio/riassunto_s08.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:12px"></span></div>
+  <span class="fp-dur">1:11</span>
 </div>
-<div class="rap" data-chapter="9" data-audio="audio/riassunto_s09.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:03</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s09.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="9" data-audio="audio/riassunto_s09.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:19px"></span></div>
+  <span class="fp-dur">1:03</span>
 </div>
-<div class="rap" data-chapter="10" data-audio="audio/riassunto_s10.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:19</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s10.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="10" data-audio="audio/riassunto_s10.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span></div>
+  <span class="fp-dur">1:19</span>
 </div>
-<div class="rap" data-chapter="11" data-audio="audio/riassunto_s11.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:15</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s11.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="11" data-audio="audio/riassunto_s11.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:6px"></span></div>
+  <span class="fp-dur">1:15</span>
 </div>
-<div class="rap" data-chapter="12" data-audio="audio/riassunto_s12.ogg">
-  <button class="rap-play">▶</button>
-  <div class="rap-seek-wrap">
-    <span class="rap-time rap-current">0:00</span>
-    <div class="rap-seek"><div class="rap-seek-fill"></div></div>
-    <span class="rap-time rap-total">1:15</span>
-  </div>
-  <a class="rap-dl" href="audio/riassunto_s12.ogg" download title="Scarica audio">⬇</a>
+<div class="fake-player" data-chapter="12" data-audio="audio/riassunto_s12.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:7px"></span></div>
+  <span class="fp-dur">1:15</span>
 </div>
 <h4>📎 Riassunto — Il sito ti spiega</h4>
   <p>In questo capitolo scoprirai che la geologia non si limita a descrivere rocce e montagne: è la scienza che ti spiega perché il pianeta ha esattamente queste caratteristiche e quali processi lo hanno plasmato in 4,5 miliardi di anni. Il termine fu coniato da Ulisse Aldrovandi nel 1603, ma il vero padre della geologia moderna è James Hutton, che introdusse il plutonismo — l'idea che le rocce si formino dal consolidamento del magma — contrapponendosi al nettunismo che attribuiva tutto a origini divine.</p><p>Il concetto chiave da portarti a casa è il principio dell'attualismo: i processi che osserviamo oggi (erosione, sedimentazione, terremoti, vulcanismo) sono gli stessi che hanno operato nel passato. «Il presente è la chiave del passato». Questo principio generò un'accesa diatriba sull'età della Terra: la Chiesa proponeva circa 6.000 anni, i fisici come Lord Kelvin stimavano tempi più lunghi ma ancora insufficienti, mentre i geologi sostenevano che l'età dovesse essere enormemente maggiore. La diatriba si risolse solo con la scoperta della radioattività.</p><p>Il capitolo ti guida attraverso il metodo scientifico galileiano e ti presenta due teorie fondamentali: la teoria di Gaia di James Lovelock, che considera la Terra come un unico sistema integrato capace di autoregolarsi, e la deriva dei continenti di Alfred Wegener, che mise insieme evidenze biologiche, mineralogiche e la corrispondenza delle linee di costa. La teoria di Wegener aveva due punti deboli — mancava la dimostrazione del movimento e la spiegazione del motore — ma pose le basi per la moderna tettonica delle placche.</p>
@@ -2258,43 +2240,151 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
 });
 </script>
 
+<div id="sticky-player">
+  <div class="sp-top">
+    <span class="sp-title" id="sp-title">📎 Capitolo 1 — Fondamenti</span>
+    <div class="sp-ctrl">
+      <button class="sp-btn" id="sp-prev" title="Precedente">⏮</button>
+      <button class="sp-btn sp-btn-play" id="sp-play">▶</button>
+      <button class="sp-btn" id="sp-next" title="Successivo">⏭</button>
+      <button class="sp-btn sp-close" id="sp-close" title="Chiudi">✕</button>
+    </div>
+  </div>
+  <div class="sp-seek-row">
+    <span class="sp-time" id="sp-cur">0:00</span>
+    <div class="sp-seek" id="sp-seek"><div class="sp-seek-fill" id="sp-fill"></div></div>
+    <span class="sp-time" id="sp-tot">0:00</span>
+  </div>
+  <a id="sp-dl" href="#" download style="font-size:0.7rem;color:#a09078;text-decoration:none;margin-top:2px">⬇ Scarica audio</a>
+</div>
 <script>
-document.querySelectorAll('.rap').forEach(p => {
-  var file = p.dataset.audio;
-  var btn = p.querySelector('.rap-play');
-  var seek = p.querySelector('.rap-seek');
-  var fill = p.querySelector('.rap-seek-fill');
-  var cur = p.querySelector('.rap-current');
-  var a = null, on = false;
+var chapters = [
+  {num:1,title:"Fondamenti della Geologia",file:"audio/riassunto_s01.ogg",dur:"1:16"},
+  {num:2,title:"Sistema Solare e Pianeta Terra",file:"audio/riassunto_s02.ogg",dur:"1:12"},
+  {num:3,title:"Tempo Geologico",file:"audio/riassunto_s03.ogg",dur:"1:05"},
+  {num:4,title:"Struttura Interna della Terra",file:"audio/riassunto_s04.ogg",dur:"1:05"},
+  {num:5,title:"Tettonica delle Placche",file:"audio/riassunto_s05.ogg",dur:"1:08"},
+  {num:6,title:"Minerali",file:"audio/riassunto_s06.ogg",dur:"1:09"},
+  {num:7,title:"Rocce Ignee",file:"audio/riassunto_s07.ogg",dur:"1:10"},
+  {num:8,title:"Rocce Sedimentarie",file:"audio/riassunto_s08.ogg",dur:"1:11"},
+  {num:9,title:"Rocce Metamorfiche",file:"audio/riassunto_s09.ogg",dur:"1:03"},
+  {num:10,title:"Deformazione e Faglie",file:"audio/riassunto_s10.ogg",dur:"1:19"},
+  {num:11,title:"Vulcani e Terremoti",file:"audio/riassunto_s11.ogg",dur:"1:15"},
+  {num:12,title:"Guida all'Esame",file:"audio/riassunto_s12.ogg",dur:"1:15"},
+];
+var spAudio = null, spIdx = -1, spPlaying = false;
 
-  function upd() {
-    if (!a || !a.duration) return;
-    fill.style.width = (a.currentTime / a.duration * 100) + '%';
-    cur.textContent = Math.floor(a.currentTime/60) + ':' + String(Math.floor(a.currentTime%60)).padStart(2,'0');
-  }
+var spEl = document.getElementById('sticky-player');
+var spTitle = document.getElementById('sp-title');
+var spPlayBtn = document.getElementById('sp-play');
+var spPrev = document.getElementById('sp-prev');
+var spNext = document.getElementById('sp-next');
+var spClose = document.getElementById('sp-close');
+var spSeek = document.getElementById('sp-seek');
+var spFill = document.getElementById('sp-fill');
+var spCur = document.getElementById('sp-cur');
+var spTot = document.getElementById('sp-tot');
+var spDl = document.getElementById('sp-dl');
 
-  btn.onclick = function() {
-    if (on) { a.pause(); on = false; btn.textContent = '\u25B6'; return; }
-    document.querySelectorAll('.rap').forEach(function(o) {
-      if (o !== p && o._a) { o._a.pause(); o.querySelector('.rap-play').textContent = '\u25B6'; }
-    });
-    if (!a) {
-      a = new Audio(file);
-      a.ontimeupdate = upd;
-      a.onended = function() { on = false; btn.textContent = '\u25B6'; fill.style.width = '0%'; cur.textContent = '0:00'; };
-      a.onloadedmetadata = function() {
-        p.querySelector('.rap-total').textContent = Math.floor(a.duration/60) + ':' + String(Math.floor(a.duration%60)).padStart(2,'0');
-      };
-      p._a = a;
+function fmt(secs) {
+  if (isNaN(secs) || secs < 0) return '0:00';
+  return Math.floor(secs/60) + ':' + String(Math.floor(secs%60)).padStart(2,'0');
+}
+
+function loadSp(idx) {
+  if (idx < 0 || idx >= 12) return;
+  if (spAudio) { spAudio.pause(); spAudio = null; }
+  spIdx = idx;
+  var ch = chapters[idx];
+  spTitle.textContent = '📎 Capitolo ' + ch.num + ' — ' + ch.title;
+  spPrev.disabled = (idx === 0);
+  spNext.disabled = (idx === 11);
+  spFill.style.width = '0%';
+  spCur.textContent = '0:00';
+  spTot.textContent = ch.dur;
+  spDl.href = ch.file;
+  spAudio = new Audio(ch.file);
+  spAudio.ontimeupdate = function() {
+    if (spAudio.duration) {
+      spFill.style.width = (spAudio.currentTime / spAudio.duration * 100) + '%';
+      spCur.textContent = fmt(spAudio.currentTime);
     }
-    a.play(); on = true; btn.textContent = '\u23F8';
   };
+  spAudio.onended = function() {
+    if (spIdx < 11) { loadSp(spIdx + 1); playSp(); syncFakePlayers(); }
+    else { stopSp(); }
+  };
+  spAudio.onerror = function() { stopSp(); };
+  spAudio.onloadedmetadata = function() {
+    spTot.textContent = fmt(spAudio.duration);
+  };
+}
 
-  seek.onclick = function(e) {
-    if (!a || !a.duration) return;
-    a.currentTime = ((e.clientX - seek.getBoundingClientRect().left) / seek.offsetWidth) * a.duration;
-    upd();
-  };
+function playSp() {
+  if (!spAudio) return;
+  spEl.classList.add('on');
+  spAudio.play();
+  spPlaying = true;
+  spPlayBtn.textContent = '⏸';
+  syncFakePlayers();
+}
+
+function pauseSp() {
+  if (!spAudio) return;
+  spAudio.pause();
+  spPlaying = false;
+  spPlayBtn.textContent = '▶';
+  syncFakePlayers();
+}
+
+function stopSp() {
+  if (spAudio) { spAudio.pause(); spAudio = null; }
+  spPlaying = false; spIdx = -1;
+  spPlayBtn.textContent = '▶';
+  spFill.style.width = '0%'; spCur.textContent = '0:00';
+  spEl.classList.remove('on');
+  syncFakePlayers();
+}
+
+function syncFakePlayers() {
+  document.querySelectorAll('.fake-player').forEach(function(el) {
+    var c = parseInt(el.dataset.chapter);
+    if (c === spIdx + 1 && spPlaying) {
+      el.classList.add('active');
+      el.querySelector('.fp-play').textContent = '⏸';
+    } else {
+      el.classList.remove('active');
+      el.querySelector('.fp-play').textContent = '▶';
+    }
+  });
+}
+
+// Fake player clicks
+document.querySelectorAll('.fake-player').forEach(function(el) {
+  el.addEventListener('click', function() {
+    var c = parseInt(el.dataset.chapter) - 1;
+    if (spIdx === c && spPlaying) {
+      pauseSp();
+    } else {
+      loadSp(c);
+      playSp();
+    }
+  });
+});
+
+// Sticky footer buttons
+spPlayBtn.addEventListener('click', function() {
+  if (spPlaying) pauseSp(); else playSp();
+});
+spPrev.addEventListener('click', function() { loadSp(spIdx - 1); playSp(); });
+spNext.addEventListener('click', function() { loadSp(spIdx + 1); playSp(); });
+spClose.addEventListener('click', stopSp);
+
+// Seek
+spSeek.addEventListener('click', function(e) {
+  if (!spAudio || !spAudio.duration) return;
+  var pct = (e.clientX - spSeek.getBoundingClientRect().left) / spSeek.offsetWidth;
+  spAudio.currentTime = pct * spAudio.duration;
 });
 </script>
 </body>
