@@ -9,30 +9,26 @@
 
 :root {
   --bg: #1a1410;
-  --bg-glass: rgba(60, 45, 30, 0.45);
-  --text: #f5f0eb;
   --gold: #d4a853;
   --gold-light: #e8cd8a;
-  --accent: #c49b45;
-  --card-bg: #2d2218;
-  --card-front: #3d2e1c;
-  --card-back: #4a3520;
-  --aside-bg: rgba(45, 34, 24, 0.7);
-  --border: #5c442b;
-  --body-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --text: #f5f0eb;
+  --body-font: 'Inter', system-ui, sans-serif;
   --heading-font: 'Playfair Display', Georgia, serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: radial-gradient(ellipse at 50% 0%, #2d2218 0%, #1a1410 70%);
+  background: #1a1410;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(212,168,83,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(139,100,50,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, #2d2218 0%, #1a1410 70%);
   color: var(--text);
   font-family: var(--body-font);
   font-size: 16px;
   font-weight: 300;
   line-height: 1.8;
-  -webkit-text-size-adjust: 100%;
   min-height: 100vh;
 }
 
@@ -42,80 +38,219 @@ a:hover { color: var(--gold); }
 strong { color: var(--gold); font-weight: 500; }
 em { color: var(--gold-light); font-style: italic; }
 
-/* INDICE - glass */
-nav#indice {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(26, 20, 16, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(212, 168, 83, 0.25);
-  padding: 16px 24px;
-  max-height: 40vh; overflow-y: auto;
+/* ========================================
+   NAVBAR
+   ======================================== */
+.navbar {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(18, 12, 8, 0.92);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(212,168,83,0.18);
+  padding: 10px 20px;
+  height: 56px;
 }
-nav#indice h2 {
-  font-family: var(--heading-font);
-  color: var(--gold);
+.navbar-brand {
+  display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+}
+.navbar-brand .logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--gold), #8b6430);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
   font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
 }
-nav#indice ol { padding-left: 20px; column-count: 2; column-gap: 24px; }
-nav#indice li { margin: 2px 0; font-size: 0.85rem; break-inside: avoid; }
-nav#indice a { color: #d4c5b2; font-weight: 400; }
-nav#indice a:hover { color: var(--gold-light); text-decoration: none; }
-
-main { max-width: 780px; margin: 0 auto; padding: 24px 20px 60px; }
-
-/* HERO */
-header.hero {
-  text-align: center;
-  padding: 60px 20px 40px;
-  margin-bottom: 36px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 168, 83, 0.15);
-  border-radius: 16px;
-}
-header.hero h1 {
+.navbar-brand span {
   font-family: var(--heading-font);
   color: var(--gold-light);
-  font-size: 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.navbar-links {
+  display: flex; align-items: center; gap: 4px;
+  overflow-x: auto; flex: 1;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.navbar-links::-webkit-scrollbar { display: none; }
+.navbar-links a {
+  display: block; padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem; font-weight: 400;
+  color: #c4b8a5;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.navbar-links a:hover,
+.navbar-links a.active {
+  background: rgba(212,168,83,0.12);
+  color: var(--gold-light);
+  text-decoration: none;
+}
+.navbar-links a.coming-soon {
+  opacity: 0.45;
+  cursor: default;
+  font-size: 0.72rem;
+  font-style: italic;
+}
+.navbar-countdown {
+  flex-shrink: 0;
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(180,60,40,0.15);
+  border: 1px solid rgba(180,60,40,0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #f08070;
+}
+.navbar-countdown .cd-days {
+  color: #ff9080;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.navbar-hamburger {
+  display: none;
+  background: none; border: none;
+  color: var(--gold-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+@media (max-width: 768px) {
+  .navbar-links { display: none; }
+  .navbar-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute; top: 56px; left: 0; right: 0;
+    background: rgba(18,12,8,0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(212,168,83,0.2);
+    padding: 12px;
+    max-height: 60vh; overflow-y: auto;
+  }
+  .navbar-links.open a {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+  .navbar-hamburger { display: block; }
+  .navbar-brand span { display: none; }
+}
+
+/* ========================================
+   MAIN
+   ======================================== */
+main { max-width: 800px; margin: 0 auto; padding: 32px 20px 80px; }
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  text-align: center;
+  padding: 56px 28px 44px;
+  margin-bottom: 40px;
+  background: linear-gradient(180deg, rgba(60,45,30,0.6) 0%, rgba(30,20,12,0.4) 100%);
+  border: 1px solid rgba(212,168,83,0.12);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,168,83,0.3), transparent);
+}
+.hero h1 {
+  font-family: var(--heading-font);
+  color: var(--gold-light);
+  font-size: 2.3rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
-header.hero p {
+.hero p {
   color: #c4b8a5;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 300;
   margin: 4px 0;
 }
 .exam-badge {
-  display: inline-block; margin-top: 14px;
-  background: rgba(180, 60, 40, 0.8);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #fff; padding: 8px 20px;
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: rgba(180,60,40,0.2);
+  border: 1px solid rgba(180,60,40,0.3);
+  color: #ffa090;
+  padding: 8px 20px;
   border-radius: 24px; font-size: 0.8rem;
-  font-weight: 500; letter-spacing: 0.03em;
+  font-weight: 500; letter-spacing: 0.02em;
 }
 
-/* SEZIONI */
-section {
-  margin-bottom: 48px;
-  padding: 28px 24px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 168, 83, 0.1);
-  border-radius: 14px;
-  transition: border-color 0.3s;
+/* ========================================
+   SEZIONE 0: INDICE A GRIGLIA
+   ======================================== */
+.indice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+  margin-bottom: 44px;
 }
-section:hover { border-color: rgba(212, 168, 83, 0.25); }
-section:last-child { margin-bottom: 0; }
+.indice-card {
+  background: linear-gradient(135deg, rgba(45,34,24,0.7), rgba(30,22,14,0.6));
+  border: 1px solid rgba(212,168,83,0.1);
+  border-radius: 14px;
+  padding: 18px 16px;
+  transition: all 0.25s;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.indice-card:hover {
+  border-color: rgba(212,168,83,0.35);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(60,45,30,0.8), rgba(45,34,24,0.7));
+}
+.indice-card .ic-num {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 36px; text-align: center;
+}
+.indice-card .ic-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #e0d6c5;
+  line-height: 1.4;
+}
+.indice-card.coming-soon {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ========================================
+   SEZIONI CONTENUTO
+   ======================================== */
+section {
+  margin-bottom: 44px;
+  padding: 32px 28px;
+  background: linear-gradient(180deg, rgba(40,28,18,0.55), rgba(26,20,16,0.45));
+  border: 1px solid rgba(212,168,83,0.08);
+  border-radius: 16px;
+  position: relative;
+}
+section::before {
+  content: '';
+  position: absolute; top: 0; left: 28px; right: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,168,83,0.15), transparent);
+}
+section:hover { border-color: rgba(212,168,83,0.18); }
 
 h2 {
   font-family: var(--heading-font);
@@ -123,105 +258,101 @@ h2 {
   font-size: 1.55rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(212, 168, 83, 0.25);
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(212,168,83,0.18);
 }
 h3 {
   font-family: var(--heading-font);
   color: var(--gold);
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 24px 0 12px;
+  margin: 28px 0 14px;
 }
 h4 {
   font-family: var(--heading-font);
   color: #c4b08a;
   font-size: 1.05rem;
   font-weight: 500;
-  margin: 18px 0 10px;
+  margin: 20px 0 10px;
 }
-
-p { margin: 10px 0; color: #e8e0d5; }
+p { margin: 10px 0; color: #e8e0d5; line-height: 1.75; }
 ul, ol { margin: 10px 0 10px 28px; color: #e8e0d5; }
-li { margin: 5px 0; }
+li { margin: 6px 0; line-height: 1.65; }
 
 /* ASIDE */
 aside {
-  background: rgba(45, 34, 24, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: linear-gradient(135deg, rgba(45,34,24,0.5), rgba(30,22,14,0.4));
   border-left: 3px solid var(--gold);
-  padding: 12px 18px; margin: 20px 0;
+  padding: 14px 20px; margin: 22px 0;
   font-size: 0.88rem; color: #d4c5b2;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 12px 12px 0;
 }
 
 /* IMMAGINI */
 .image-container {
-  margin: 24px 0; text-align: center;
-  border-radius: 12px; overflow: hidden;
-  background: rgba(30, 22, 14, 0.6);
-  padding: 10px;
-  border: 1px solid rgba(212, 168, 83, 0.15);
+  margin: 26px 0; text-align: center;
+  border-radius: 14px; overflow: hidden;
+  background: rgba(20,14,8,0.7);
+  padding: 12px;
+  border: 1px solid rgba(212,168,83,0.1);
 }
 .image-container img {
   max-width: 100%; height: auto; cursor: pointer;
-  border-radius: 8px; transition: transform 0.25s ease;
+  border-radius: 10px; transition: transform 0.3s ease;
 }
-.image-container img:hover { transform: scale(1.015); }
+.image-container img:hover { transform: scale(1.01); }
 .image-container .caption {
-  font-size: 0.8rem; color: #a09078; margin-top: 8px;
+  font-size: 0.8rem; color: #a09078; margin-top: 10px;
   font-weight: 300; letter-spacing: 0.02em;
 }
-
 .placeholder-img {
   display: block;
-  background: rgba(45, 34, 24, 0.4);
+  background: rgba(45,34,24,0.3);
   color: var(--gold);
   text-align: center;
-  padding: 40px 24px; border-radius: 10px;
+  padding: 40px 24px; border-radius: 12px;
   font-style: italic; font-size: 0.85rem;
-  border: 2px dashed rgba(212, 168, 83, 0.25);
-  margin: 18px 0;
+  border: 2px dashed rgba(212,168,83,0.18);
+  margin: 20px 0;
 }
 
 /* LIGHTBOX */
 #lightbox {
   display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(10, 8, 5, 0.96);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1000;
+  background: rgba(8,5,2,0.97);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 5000;
   justify-content: center; align-items: center; cursor: pointer;
 }
 #lightbox.active { display: flex; }
-#lightbox img { max-width: 94%; max-height: 90vh; border-radius: 10px; cursor: default; }
+#lightbox img { max-width: 94%; max-height: 90vh; border-radius: 12px; cursor: default; }
 #lightbox .close {
   position: absolute; top: 20px; right: 30px;
   color: var(--gold-light); font-size: 2rem; cursor: pointer;
   width: 44px; height: 44px; text-align: center; line-height: 44px;
-  background: rgba(255,255,255,0.08); border-radius: 50%;
+  background: rgba(255,255,255,0.06); border-radius: 50%;
   transition: background 0.2s;
 }
-#lightbox .close:hover { background: rgba(255,255,255,0.18); }
+#lightbox .close:hover { background: rgba(255,255,255,0.15); }
 
 /* FLASH CARDS */
 .flashcards-wrapper {
-  margin-top: 28px; position: relative;
-  background: rgba(38, 28, 18, 0.5);
-  border: 1px solid rgba(212, 168, 83, 0.12);
-  border-radius: 14px;
-  padding: 24px 40px;
+  margin-top: 30px; position: relative;
+  background: rgba(38,28,18,0.4);
+  border: 1px solid rgba(212,168,83,0.1);
+  border-radius: 16px;
+  padding: 26px 44px;
 }
 .flashcards-wrapper h4 {
   font-family: var(--heading-font);
   color: var(--gold);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .carousel-container {
@@ -229,7 +360,7 @@ aside {
   min-height: 180px; display: flex; align-items: center;
 }
 .carousel-track {
-  display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  display: flex; transition: transform 0.4s cubic-bezier(0.25,0.1,0.25,1);
   gap: 14px;
 }
 .flashcard {
@@ -238,14 +369,14 @@ aside {
 }
 .flashcard-inner {
   width: 100%; height: 100%; position: relative;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
   transform-style: preserve-3d;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
 .card-front, .card-back {
   position: absolute; width: 100%; height: 100%;
-  backface-visibility: hidden; border-radius: 10px;
+  backface-visibility: hidden; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 16px;
   font-family: var(--body-font);
@@ -254,122 +385,91 @@ aside {
   line-height: 1.5;
 }
 .card-front {
-  background: var(--card-front);
-  border: 1px solid rgba(212, 168, 83, 0.3);
+  background: linear-gradient(135deg, #3d2e1c, #2d2010);
+  border: 1px solid rgba(212,168,83,0.25);
   color: #f0e8d5;
 }
 .card-back {
-  background: var(--card-back);
-  border: 1px solid rgba(212, 168, 83, 0.5);
+  background: linear-gradient(135deg, #4a3520, #3a2818);
+  border: 1px solid rgba(212,168,83,0.4);
   transform: rotateY(180deg);
   color: #e8dcc8;
 }
-
 .carousel-arrow {
   position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(60, 45, 30, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(212, 168, 83, 0.3);
-  color: var(--gold-light); font-size: 1.3rem;
-  width: 36px; height: 36px;
+  background: rgba(50,35,25,0.7);
+  border: 1px solid rgba(212,168,83,0.25);
+  color: var(--gold-light); font-size: 1.2rem;
+  width: 34px; height: 34px;
   border-radius: 50%; cursor: pointer; z-index: 5;
   display: flex; align-items: center; justify-content: center;
   transition: all 0.2s;
 }
-.carousel-arrow:hover { background: rgba(212, 168, 83, 0.2); }
-.carousel-arrow:disabled { opacity: 0.2; cursor: default; }
-.carousel-arrow.prev { left: 3px; }
-.carousel-arrow.next { right: 3px; }
-
+.carousel-arrow:hover { background: rgba(212,168,83,0.18); }
+.carousel-arrow:disabled { opacity: 0.15; cursor: default; }
+.carousel-arrow.prev { left: 2px; }
+.carousel-arrow.next { right: 2px; }
 .carousel-dots {
-  display: flex; justify-content: center; gap: 8px; margin-top: 14px;
+  display: flex; justify-content: center; gap: 8px; margin-top: 16px;
 }
 .carousel-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(200, 180, 150, 0.25); border: none; cursor: pointer;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(200,180,150,0.2); border: none; cursor: pointer;
   transition: all 0.2s;
 }
-.carousel-dot.active { background: var(--gold); transform: scale(1.2); }
+.carousel-dot.active { background: var(--gold); transform: scale(1.3); }
 
-@media (max-width: 600px) {
-  nav#indice ol { column-count: 1; }
-  nav#indice { padding: 12px 16px; }
-  main { padding: 16px 12px 48px; }
-  section { padding: 20px 16px; margin-bottom: 28px; }
-  h2 { font-size: 1.3rem; }
-  header.hero { padding: 36px 16px 28px; }
-  header.hero h1 { font-size: 1.7rem; }
-  .flashcard { min-width: 220px; max-width: 220px; height: 140px; }
-  .flashcards-wrapper { padding: 18px 32px; }
-}
-
-/* ===== DIAGRAMMI ===== */
-
-/* Timeline verticale */
+/* ========================================
+   DIAGRAMMI
+   ======================================== */
 .timeline {
-  position: relative;
-  padding: 20px 0;
-  margin: 28px 0;
+  position: relative; padding: 20px 0; margin: 28px 0;
 }
 .timeline::before {
   content: '';
   position: absolute; left: 18px; top: 0; bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--gold), rgba(212,168,83,0.2));
+  background: linear-gradient(to bottom, var(--gold), rgba(212,168,83,0.15));
 }
 .timeline-item {
   position: relative;
   padding: 10px 0 20px 50px;
-  border-left: none;
 }
 .timeline-item::before {
   content: '◆';
   position: absolute; left: 10px; top: 12px;
-  color: var(--gold);
-  font-size: 0.7rem;
-  line-height: 1;
+  color: var(--gold); font-size: 0.7rem; line-height: 1;
 }
 .timeline-item .tl-date {
   font-family: var(--heading-font);
   color: var(--gold-light);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.85rem; font-weight: 600;
   letter-spacing: 0.03em;
 }
 .timeline-item .tl-text {
-  color: #e8e0d5;
-  font-size: 0.9rem;
-  margin-top: 2px;
+  color: #e8e0d5; font-size: 0.9rem; margin-top: 2px;
 }
 
-/* Flow diagram */
 .flow-diagram {
   display: flex; flex-wrap: wrap; gap: 8px;
   align-items: center; justify-content: center;
   margin: 28px 0; padding: 20px 10px;
 }
 .flow-step {
-  background: rgba(45, 34, 24, 0.7);
-  border: 1px solid rgba(212, 168, 83, 0.3);
+  background: rgba(45,34,24,0.7);
+  border: 1px solid rgba(212,168,83,0.25);
   border-radius: 10px; padding: 12px 16px;
   text-align: center; font-size: 0.82rem;
-  color: #e8e0d5; min-width: 100px;
-  flex: 0 0 auto;
+  color: #e8e0d5; min-width: 100px; flex: 0 0 auto;
 }
-.flow-arrow {
-  color: var(--gold);
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
+.flow-arrow { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
 
-/* Branch diagram */
 .branch {
   display: flex; flex-direction: column; align-items: center;
   margin: 28px 0; gap: 6px;
 }
 .branch-root {
-  background: rgba(212, 168, 83, 0.15);
+  background: rgba(212,168,83,0.12);
   border: 1px solid var(--gold);
   border-radius: 12px; padding: 14px 24px;
   font-family: var(--heading-font);
@@ -380,8 +480,8 @@ aside {
   display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
 }
 .branch-leaf {
-  background: rgba(45, 34, 24, 0.7);
-  border: 1px solid rgba(212, 168, 83, 0.2);
+  background: rgba(45,34,24,0.7);
+  border: 1px solid rgba(212,168,83,0.18);
   border-radius: 8px; padding: 10px 18px;
   font-size: 0.85rem; color: #e8e0d5; text-align: center;
   min-width: 130px;
@@ -392,137 +492,229 @@ aside {
   background: linear-gradient(to bottom, var(--gold), transparent);
 }
 
-/* Mirror comparison */
 .mirror-compare {
   display: flex; gap: 16px; flex-wrap: wrap; margin: 24px 0;
 }
 .mirror-side {
   flex: 1; min-width: 220px;
-  background: rgba(45, 34, 24, 0.6);
-  border: 1px solid rgba(212, 168, 83, 0.15);
-  border-radius: 12px; padding: 18px;
-  text-align: center;
+  background: rgba(45,34,24,0.6);
+  border: 1px solid rgba(212,168,83,0.12);
+  border-radius: 14px; padding: 20px; text-align: center;
 }
 .mirror-side h5 {
   font-family: var(--heading-font);
-  color: var(--gold); margin-bottom: 10px; font-size: 0.95rem;
+  color: var(--gold); margin-bottom: 12px; font-size: 0.95rem;
 }
 .mirror-side ul { text-align: left; margin-left: 16px; }
 .mirror-side.continentale { border-top: 3px solid var(--gold-light); }
 .mirror-side.oceanica { border-top: 3px solid #7a6040; }
 
-/* Fault diagram */
 .fault-diagram {
-  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
   margin: 28px 0;
 }
 .fault-card {
-  flex: 1; min-width: 200px;
-  background: rgba(45, 34, 24, 0.6);
-  border-radius: 12px; padding: 18px; text-align: center;
-  border: 1px solid rgba(212, 168, 83, 0.15);
+  flex: 1; min-width: 190px;
+  background: rgba(45,34,24,0.6);
+  border-radius: 14px; padding: 20px; text-align: center;
+  border: 1px solid rgba(212,168,83,0.12);
 }
 .fault-card h5 {
   font-family: var(--heading-font);
-  color: var(--gold); margin-bottom: 8px; font-size: 0.95rem;
+  color: var(--gold); margin-bottom: 10px; font-size: 0.95rem;
 }
 .fault-arrow-block {
   display: flex; flex-direction: column;
   align-items: center; gap: 6px; margin: 10px 0;
 }
 .fault-block {
-  background: rgba(212, 168, 83, 0.15);
-  border: 1px solid rgba(212, 168, 83, 0.3);
+  background: rgba(212,168,83,0.1);
+  border: 1px solid rgba(212,168,83,0.25);
   border-radius: 6px; padding: 8px 16px;
   font-size: 0.8rem; color: #e8e0d5;
 }
 .fault-move {
   color: var(--gold-light);
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.4rem; font-weight: bold;
 }
 
-/* Metodo Tondi highlight box */
+/* Metodo Tondi */
 .metodo-tondi {
-  background: linear-gradient(135deg, rgba(212, 168, 83, 0.12), rgba(60, 45, 30, 0.7));
+  background: linear-gradient(135deg, rgba(212,168,83,0.1), rgba(50,35,25,0.7));
   border: 2px solid var(--gold);
-  border-radius: 16px;
-  padding: 28px 24px;
-  margin: 28px 0;
+  border-radius: 18px;
+  padding: 32px 28px;
+  margin: 30px 0;
   position: relative;
-  overflow: hidden;
 }
 .metodo-tondi::before {
   content: 'IL METODO TONDI';
-  position: absolute; top: -12px; left: 24px;
+  position: absolute; top: -14px; left: 28px;
   background: var(--gold);
   color: #1a1410;
   font-family: var(--heading-font);
-  font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 4px 16px; border-radius: 20px;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 5px 18px; border-radius: 20px;
 }
-.metodo-tondi h3 {
-  margin-top: 8px;
-  font-size: 1.15rem;
-}
+.metodo-tondi h3 { margin-top: 0; }
 .metodo-tondi ol {
   counter-reset: tondi-step;
-  list-style: none;
-  margin-left: 0;
+  list-style: none; margin-left: 0;
 }
 .metodo-tondi ol li {
   counter-increment: tondi-step;
   position: relative;
-  padding: 12px 0 12px 52px;
-  border-bottom: 1px solid rgba(212, 168, 83, 0.1);
+  padding: 14px 0 14px 56px;
+  border-bottom: 1px solid rgba(212,168,83,0.08);
   font-size: 0.92rem;
 }
 .metodo-tondi ol li:last-child { border-bottom: none; }
 .metodo-tondi ol li::before {
   content: counter(tondi-step);
-  position: absolute; left: 0; top: 10px;
-  width: 34px; height: 34px;
+  position: absolute; left: 0; top: 12px;
+  width: 36px; height: 36px;
   background: var(--gold);
   color: #1a1410;
   font-family: var(--heading-font);
-  font-size: 0.85rem; font-weight: 700;
+  font-size: 0.88rem; font-weight: 700;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
 
+/* ========================================
+   MOBILE
+   ======================================== */
+@media (max-width: 600px) {
+  main { padding: 20px 12px 60px; }
+  .hero { padding: 40px 16px 32px; }
+  .hero h1 { font-size: 1.7rem; }
+  section { padding: 22px 16px; margin-bottom: 32px; }
+  h2 { font-size: 1.3rem; }
+  .flashcard { min-width: 220px; max-width: 220px; height: 140px; }
+  .flashcards-wrapper { padding: 20px 32px; }
+  .indice-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .indice-card { padding: 14px 12px; }
+  .indice-card .ic-num { font-size: 1.2rem; width: 28px; }
+  .indice-card .ic-label { font-size: 0.8rem; }
+}
 </style>
 </head>
 <body>
 
-<nav id="indice">
-  <h2> Indice</h2>
-  <ol>
-    <li><a href="#fondamenti">1. Fondamenti della Geologia</a></li>
-    <li><a href="#sistema-solare">2. Sistema Solare e Pianeta Terra</a></li>
-    <li><a href="#tempo-geologico">3. Tempo Geologico</a></li>
-    <li><a href="#interno-terrestre">4. Struttura Interna della Terra</a></li>
-    <li><a href="#tettonica-placche">5. Tettonica delle Placche</a></li>
-    <li><a href="#minerali">6. Minerali</a></li>
-    <li><a href="#rocce-ignee">7. Rocce Ignee (Magmatiche)</a></li>
-    <li><a href="#rocce-sedimentarie">8. Rocce Sedimentarie</a></li>
-    <li><a href="#rocce-metamorfiche">9. Rocce Metamorfiche</a></li>
-    <li><a href="#deformazione">10. Deformazione delle Rocce: Faglie</a></li>
-    <li><a href="#vulcani-terremoti">11. Vulcani e Terremoti</a></li>
-    <li><a href="#esame">12. Guida all'Esame</a></li>
-  </ol>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="navbar-brand">
+    <div class="logo-icon">🌍</div>
+    <span>Geologia</span>
+  </a>
+  <div class="navbar-links" id="navbarLinks">
+    <a href="#indice-section">Indice</a>
+    <a href="#fondamenti">1. Fondamenti</a>
+    <a href="#sistema-solare">2. Sistema Solare</a>
+    <a href="#tempo-geologico">3. Tempo Geologico</a>
+    <a href="#interno-terrestre">4. Interno Terra</a>
+    <a href="#tettonica-placche">5. Tettonica</a>
+    <a href="#minerali">6. Minerali</a>
+    <a href="#rocce-ignee">7. Rocce Ignee</a>
+    <a href="#rocce-sedimentarie">8. Sedimentarie</a>
+    <a href="#rocce-metamorfiche">9. Metamorfiche</a>
+    <a href="#deformazione">10. Faglie</a>
+    <a href="#vulcani-terremoti">11. Vulcani</a>
+    <a href="#esame">12. Esame</a>
+    <a class="coming-soon" title="Prossimamente">📸 Foto Rocce</a>
+    <a class="coming-soon" title="Prossimamente">🏔️ Foto Geologia</a>
+    <a class="coming-soon" title="Prossimamente">⛰️ Storia Appennino</a>
+    <a class="coming-soon" title="Prossimamente">📖 Understanding Earth</a>
+  </div>
+  <div class="navbar-countdown" id="countdown">
+    <span class="cd-days" id="cd-days">3</span>g
+    <span id="cd-hours">00</span>h
+  </div>
+  <button class="navbar-hamburger" id="hamburger" aria-label="Menu">☰</button>
 </nav>
 
 <main>
 
+<!-- HERO -->
 <header class="hero">
-  <h1> Appunti di Geologia</h1>
+  <h1>Appunti di Geologia</h1>
   <p>Prof. Emanuele Tondi — Università di Camerino (UNICAM)</p>
   <p>Corso: Mineralogia e Geologia (6 CFU) — Beni Culturali</p>
-  <div class="exam-badge"> Esame orale: 28 maggio 2026, ore 12:00</div>
+  <div class="exam-badge">📅 Esame orale: 28 maggio 2026, ore 12:00</div>
 </header>
 
-<!-- ========== SEZIONE 1: FONDAMENTI ========== -->
+<!-- SEZIONE 0: INDICE -->
+<section id="indice-section">
+  <h2>0. Indice</h2>
+  <div class="indice-grid">
+    <a href="#fondamenti" class="indice-card">
+      <div class="ic-num">1</div>
+      <div class="ic-label">Fondamenti della Geologia</div>
+    </a>
+    <a href="#sistema-solare" class="indice-card">
+      <div class="ic-num">2</div>
+      <div class="ic-label">Sistema Solare e Pianeta Terra</div>
+    </a>
+    <a href="#tempo-geologico" class="indice-card">
+      <div class="ic-num">3</div>
+      <div class="ic-label">Tempo Geologico</div>
+    </a>
+    <a href="#interno-terrestre" class="indice-card">
+      <div class="ic-num">4</div>
+      <div class="ic-label">Struttura Interna della Terra</div>
+    </a>
+    <a href="#tettonica-placche" class="indice-card">
+      <div class="ic-num">5</div>
+      <div class="ic-label">Tettonica delle Placche</div>
+    </a>
+    <a href="#minerali" class="indice-card">
+      <div class="ic-num">6</div>
+      <div class="ic-label">Minerali</div>
+    </a>
+    <a href="#rocce-ignee" class="indice-card">
+      <div class="ic-num">7</div>
+      <div class="ic-label">Rocce Ignee</div>
+    </a>
+    <a href="#rocce-sedimentarie" class="indice-card">
+      <div class="ic-num">8</div>
+      <div class="ic-label">Rocce Sedimentarie</div>
+    </a>
+    <a href="#rocce-metamorfiche" class="indice-card">
+      <div class="ic-num">9</div>
+      <div class="ic-label">Rocce Metamorfiche</div>
+    </a>
+    <a href="#deformazione" class="indice-card">
+      <div class="ic-num">10</div>
+      <div class="ic-label">Deformazione: Faglie</div>
+    </a>
+    <a href="#vulcani-terremoti" class="indice-card">
+      <div class="ic-num">11</div>
+      <div class="ic-label">Vulcani e Terremoti</div>
+    </a>
+    <a href="#esame" class="indice-card">
+      <div class="ic-num">12</div>
+      <div class="ic-label">Guida all'Esame</div>
+    </a>
+    <div class="indice-card coming-soon">
+      <div class="ic-num">📸</div>
+      <div class="ic-label">Foto Rocce <em>(in arrivo)</em></div>
+    </div>
+    <div class="indice-card coming-soon">
+      <div class="ic-num">🏔️</div>
+      <div class="ic-label">Foto Geologia <em>(in arrivo)</em></div>
+    </div>
+    <div class="indice-card coming-soon">
+      <div class="ic-num">⛰️</div>
+      <div class="ic-label">Storia dell'Appennino <em>(in arrivo)</em></div>
+    </div>
+    <div class="indice-card coming-soon">
+      <div class="ic-num">📖</div>
+      <div class="ic-label">Understanding Earth <em>(in arrivo)</em></div>
+    </div>
+  </div>
+</section>
+
 <section id="fondamenti">
   <h2>1. Fondamenti della Geologia</h2>
 
@@ -552,20 +744,6 @@ aside {
     <li><strong>Teoria</strong> — è valida finché spiega tutte le osservazioni; può essere aggiornata o sostituita se emergono nuove evidenze</li>
   </ol>
 
-  <div class="flow-diagram">
-    <div class="flow-step">👁 Osservazione</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">⚗️ Esperimento</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">📏 Correlazione</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">🧠 Modello fisico</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">📐 Modello matematico</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">📖 Teoria</div>
-  </div>
-
   <aside> Einstein impiegò 20 anni per passare dal modello concettuale della gravitazione universale al modello matematico!</aside>
 
   <h3>Teoria di Gaia</h3>
@@ -581,10 +759,10 @@ aside {
   <p>I <strong>due punti deboli</strong> della sua teoria: (1) all'epoca non era dimostrabile il movimento dei continenti; (2) Wegener non aveva una spiegazione convincente su <em>chi</em> spostasse i continenti.</p>
   <p>La grande svolta arrivò dopo la Seconda Guerra Mondiale, con l'avvento della tecnologia (sonar, magnetometri, GPS), portando alla moderna <strong>tettonica delle placche</strong>.</p>
 
-  <div class="flashcards-wrapper" id="fc-fondamenti">
+  <div class="flashcards-wrapper" id="***">
     <h4> Flash Cards — Fondamenti</h4>
-    <button class="carousel-arrow prev" data-carousel="fc-fondamenti" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="fc-fondamenti">▶</button>
+    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="***">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la geologia?</div><div class="card-back">Scienza che studia composizione, struttura, storia evolutiva della Terra e i processi che l'hanno plasmata.</div></div></div>
@@ -595,7 +773,7 @@ aside {
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la teoria di Gaia?</div><div class="card-back">Teoria di James Lovelock: la Terra è un sistema integrato con proprietà simili a un organismo (omeostasi, autoregolazione).</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="fc-fondamenti"></div>
+    <div class="carousel-dots" data-carousel="***"></div>
   </div>
 </section>
 
@@ -669,26 +847,6 @@ aside {
     <li><strong>Fanerozoico</strong> — 541 Ma → oggi. Vita visibile, è suddiviso in ere: <strong>Paleozoico</strong>, <strong>Mesozoico</strong>, <strong>Cenozoico</strong></li>
   </ul>
 
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="tl-date">Adeano — 4,5 → 4,0 Ga</div>
-      <div class="tl-text">«Eone nascosto» — quasi nessuna informazione geologica</div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">Archeano — 4,0 → 2,5 Ga</div>
-      <div class="tl-text">Prime forme di vita: procarioti. Atmosfera priva di ossigeno.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">Proterozoico — 2,5 Ga → 541 Ma</div>
-      <div class="tl-text">Vita più complessa. Comparsa dell'ossigeno atmosferico.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="tl-date">Fanerozoico — 541 Ma → oggi</div>
-      <div class="tl-text">Vita visibile. Paleozoico → Mesozoico → Cenozoico</div>
-    </div>
-  </div>
-
   <h3>Principio di sovrapposizione stratigrafica</h3>
   <p>Nelle rocce sedimentarie, gli strati più in basso sono più antichi di quelli in alto (i sedimenti si depositano dall'alto). Questo principio può essere contraddetto da intrusioni magmatiche (una roccia ignea intrusiva può essere più recente delle rocce che la sovrastano).</p>
 
@@ -725,28 +883,6 @@ aside {
 <!-- ========== SEZIONE 4: INTERNO TERRESTRE ========== -->
 <section id="interno-terrestre">
   <h2>4. Struttura Interna della Terra</h2>
-
-
-  <div class="mirror-compare">
-    <div class="mirror-side continentale">
-      <h5>🌍 Crosta Continentale</h5>
-      <ul>
-        <li>Spessore: ~35 km</li>
-        <li>Ricca di Si, Al, O</li>
-        <li>Rocce chiare e leggere</li>
-        <li>Graniti, quarzo, feldspati</li>
-      </ul>
-    </div>
-    <div class="mirror-side oceanica">
-      <h5>🌊 Crosta Oceanica</h5>
-      <ul>
-        <li>Spessore: 5-10 km</li>
-        <li>Ricca di Fe, Mg</li>
-        <li>Rocce scure e pesanti</li>
-        <li>Basalti, olivina, pirosseni</li>
-      </ul>
-    </div>
-  </div>
 
   <p>L'interno del pianeta si classifica secondo <strong>due criteri</strong>: composizione chimica e comportamento reologico.</p>
 
@@ -814,33 +950,18 @@ aside {
 
   <h3>Tipi di margini di placca</h3>
   <ul>
-    <li><strong>Margini divergenti (costruttivi):</strong> le placche si allontanano. Si forma nuova crosta oceanica. Esempi: dorsali medio-oceaniche, Rift Valley africana, Islanda. Associati a <strong>faglie dirette (normali)</strong> e sforzo estensionale.</li>
-    <li><strong>Margini convergenti (distruttivi):</strong> le placche si scontrano. Subduzione della placca più densa. Si formano catene montuose (orogenesi). Esempi: Ande, Himalaya, Appennini. Associati a <strong>faglie inverse</strong> e sforzo compressivo.</li>
-    <li><strong>Margini trasformi (conservativi):</strong> le placche scorrono orizzontalmente l'una accanto all'altra. Esempio: Faglia di Sant'Andrea (California). Associati a <strong>faglie trascorrenti (strike-slip)</strong>.</li>
-  </ul>
+    <li><strong>Margini divergenti (costruttivi):</strong> le placche si allontanano. Si forma nuova crosta oceanica. Esempi: dorsali medio-oceaniche, Rift Valley africana, Islanda. Associati a <strong>faglie dirette 
 
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Tectonic_plate_boundaries.png/800px-Tectonic_plate_boundaries.png" alt="Margini di placca" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Tipi di margini di placca: divergenti (a sinistra), convergenti (centro), trasformi (destra).</p>
-  </div>
+... [OUTPUT TRUNCATED - 13736 chars omitted out of 63736 total] ...
 
-  <h3>Il motore: la litosfera sull'astenosfera</h3>
-  <p>La litosfera (rigida, fredda, leggera) «galleggia» sull'astenosfera (calda, plastica, più densa). È come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia per il movimento delle placche.</p>
-
-  <div class="flashcards-wrapper" id="fc-placche">
-    <h4> Flash Cards — Tettonica delle Placche</h4>
-    <button class="carousel-arrow prev" data-carousel="fc-placche" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="fc-placche">▶</button>
-    <div class="carousel-container">
-      <div class="carousel-track">
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini divergenti: cosa sono?</div><div class="card-back">Le placche si allontanano. Sforzo estensionale. Si forma nuova crosta oceanica. Faglie dirette.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini convergenti: cosa producono?</div><div class="card-back">Le placche si scontrano. Subduzione. Si formano catene montuose. Faglie inverse. Sforzo compressivo.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini trasformi: esempio famoso?</div><div class="card-back">Faglia di Sant'Andrea in California. Le placche scorrono orizzontalmente (faglie strike-slip).</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché la litosfera si muove?</div><div class="card-back">Galleggia sull'astenosfera plastica. I moti convettivi del mantello forniscono l'energia.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa dimostra il movimento delle placche oggi?</div><div class="card-back">Il GPS: i continenti si spostano di 4-5 cm/anno, misurabile in tempo reale.</div></div></div>
+ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e silice (SiO₂ >65%). Chiara, leggera. Es. granito (intrusivo), riolite (effusiva).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa significa "mafico"?</div><div class="card-back">Roccia ricca di Mg e Fe (magnesio + ferro). Scura, pesante. Es. basalto (effusivo), gabbro (intrusivo).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si forma il magma nei margini divergenti?</div><div class="card-back">Per decompressione: l'assottigliamento litosferico riduce la pressione → il materiale caldo fonde.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si forma il magma nelle zone di subduzione?</div><div class="card-back">L'acqua trascinata in profondità abbassa il punto di fusione del mantello → fusione → vulcani (es. Ande).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la serie di Bowen?</div><div class="card-back">Ordine di cristallizzazione: olivina per prima (alta T), quarzo per ultimo (bassa T). L'olivina è l'ultima a fondere.</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="fc-placche"></div>
+    <div class="carousel-dots" data-carousel="fc-ignee"></div>
   </div>
 </section>
 
@@ -927,23 +1048,7 @@ aside {
 
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mineraly.sk_-_kremen.jpg/800px-Mineraly.sk_-_kremen.jpg" alt="Cristallo di quarzo" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Cristallo di quarzo (SiO₂)
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/OrthoclaseBresil.jpg" alt="Feldspato ortoclasio" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Ortoclasio (K-feldspato) — caratteristico colore rosa. Tipico della crosta continentale.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Peridot_olivine_on_basalt.jpg" alt="Olivina su basalto" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Olivina (peridoto) su matrice basaltica. Verde scuro, ricchissima di Fe e Mg. Minerale del mantello.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Augite_%28USA%29.jpg" alt="Pirosseno augite" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Augite (pirosseno) — scuro, ricco di Fe e Mg. Tipico della crosta oceanica.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Albite_twinning.JPG" alt="Plagioclasio" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Plagioclasio con geminazione polisintetica visibile. Colore bianco latte.</p>
-  </div> — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
+    <p class="caption">Cristallo di quarzo (SiO₂) — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
   </div>
 
   <div class="flashcards-wrapper" id="fc-minerali">
@@ -968,23 +1073,6 @@ aside {
 <!-- ========== SEZIONE 7: ROCCE IGNEE ========== -->
 <section id="rocce-ignee">
   <h2>7. Rocce Ignee (Magmatiche)</h2>
-
-  <div class="branch">
-    <div class="branch-root">Rocce Ignee</div>
-    <div class="branch-connector"></div>
-    <div class="branch-row">
-      <div class="branch-leaf"><strong>Intrusive (plutoniche)</strong>Raffreddamento lento, cristalli grandi. Granito, diorite, gabbro.</div>
-      <div class="branch-leaf"><strong>Effusive (vulcaniche)</strong>Raffreddamento rapido, cristalli piccoli. Basalto, riolite, pomice.</div>
-    </div>
-    <div class="branch-connector" style="margin-top:12px"></div>
-    <div class="branch-row">
-      <div class="branch-leaf"><strong>Felsiche</strong>Ricche Si (>65%). Chiare, leggere. Quarzo, feldspati.</div>
-      <div class="branch-leaf"><strong>Intermedie</strong>Contenuto medio Si. Andesite, diorite.</div>
-      <div class="branch-leaf"><strong>Mafiche</strong>Povere Si, ricche Fe/Mg. Scure, pesanti. Basalto, gabbro.</div>
-      <div class="branch-leaf"><strong>Ultramafiche</strong>Massimo Fe/Mg. Peridotite (mantello).</div>
-    </div>
-  </div>
-
 
   <p>Le <strong>rocce ignee</strong> (o magmatiche) derivano dal <strong>raffreddamento e consolidamento del magma</strong>. La classificazione si basa su due criteri principali.</p>
 
@@ -1015,19 +1103,7 @@ aside {
     <li><strong>Aumento di temperatura:</strong> risalita di materiale caldo dal mantello profondo (plume, hot spot).</li>
   </ol>
 
-  <aside> La serie di Bowen spiega
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Bowen%27s_reaction_series_diagram.png" alt="Serie di Bowen" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Serie di reazione di Bowen: ordine di cristallizzazione dei minerali dal magma.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Basalt_%28GeoDIL_number_-_140%29.jpg" alt="Basalto" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Basalto: roccia effusiva mafica, scura e pesante. Tipica della crosta oceanica.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pumice_%28a_type_of_extrusive_volcanic_rock%29.jpg" alt="Pomice" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Pomice: vetro vulcanico ricco di bolle di gas. Galleggia in acqua.</p>
-  </div> l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
+  <aside> La serie di Bowen spiega l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
 
   <div class="flashcards-wrapper" id="fc-ignee">
     <h4> Flash Cards — Rocce Ignee</h4>
@@ -1046,7 +1122,6 @@ aside {
     <div class="carousel-dots" data-carousel="fc-ignee"></div>
   </div>
 </section>
-
 <!-- ========== SEZIONE 8: ROCCE SEDIMENTARIE ========== -->
 <section id="rocce-sedimentarie">
   <h2>8. Rocce Sedimentarie</h2>
@@ -1064,16 +1139,6 @@ aside {
     <li><strong>Siltite:</strong> clasti 0,0625–0,004 mm.</li>
     <li><strong>Argillite:</strong> clasti <0,004 mm. Liscia, compatta, grani NON visibili.</li>
   </ul>
-
-  
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Conglomerate_Rock.jpg" alt="Conglomerato" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Conglomerato: clasti arrotondati >2 mm. Trasporto prolungato.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Breccia.jpg" alt="Breccia" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Breccia: clasti spigolosi >2 mm. Trasporto breve.</p>
-  </div>
 
   <h4>2. Rocce Particellari Allochimiche</h4>
   <p>Formate dall'accumulo di <strong>particelle biogeniche</strong> (gusci di plancton, coralli, conchiglie) che precipitano sul fondale oceanico. I gusci sono calcarei (CaCO₃) o silicei (SiO₂). Il plancton è piccolissimo ma abbondantissimo e si accumula per decine di milioni di anni. Esempio: <strong>calcari</strong> appenninici.</p>
@@ -1099,10 +1164,10 @@ aside {
     <p class="caption">Arenaria: roccia sedimentaria epiclastica con grani visibili (sensazione ruvida).</p>
   </div>
 
-  <div class="flashcards-wrapper" id="fc-sedimentarie">
+  <div class="flashcards-wrapper" id="***">
     <h4> Flash Cards — Rocce Sedimentarie</h4>
-    <button class="carousel-arrow prev" data-carousel="fc-sedimentarie" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="fc-sedimentarie">▶</button>
+    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="***">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce sedimentarie?</div><div class="card-back">Sedimenti litificati: materiali trasportati da acqua/vento/ghiaccio e accumulati, poi trasformati in roccia. O precipitati chimicamente.</div></div></div>
@@ -1113,7 +1178,7 @@ aside {
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è una formazione in geologia?</div><div class="card-back">Unità litostratigrafica cartografabile, con un tipo di roccia specifico e una sua età (inizio e fine).</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="fc-sedimentarie"></div>
+    <div class="carousel-dots" data-carousel="***"></div>
   </div>
 </section>
 
@@ -1139,20 +1204,6 @@ aside {
     <li><strong>Filladi:</strong> grana fine, lucentezza sericea.</li>
   </ul>
 
-  
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gneiss_1_%2816310656713%29.jpg" alt="Gneiss" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Gneiss: roccia metamorfica a bande alternate chiare e scure.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Slate_Macro_1.JPG" alt="Ardesia" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Ardesia: roccia metamorfica a grana fine, si sfalda in lamine piatte.</p>
-  </div>
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Muscovite_schist_%2816735125458%29.jpg" alt="Scisto" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Scisto a muscovite: roccia metamorfica foliata con lucentezza sericea.</p>
-  </div>
-
   <h3>Tipi di metamorfismo</h3>
   <ul>
     <li><strong>Regionale:</strong> grandi aree sottoposte a pressioni e temperature elevate (orogenesi). Es: Alpi, Appennini.</li>
@@ -1164,10 +1215,10 @@ aside {
     <p class="caption">Cava di marmo a Carrara: roccia metamorfica da calcare sedimentario, usata per scultura ed edilizia.</p>
   </div>
 
-  <div class="flashcards-wrapper" id="fc-metamorfiche">
+  <div class="flashcards-wrapper" id="***">
     <h4> Flash Cards — Rocce Metamorfiche</h4>
-    <button class="carousel-arrow prev" data-carousel="fc-metamorfiche" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="fc-metamorfiche">▶</button>
+    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="***">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce metamorfiche?</div><div class="card-back">Rocce trasformate da T e P elevate, senza fusione completa. Con foliazione, scistosità, ricristallizzazione.</div></div></div>
@@ -1177,44 +1228,13 @@ aside {
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Metamorfismo regionale vs di contatto?</div><div class="card-back">Regionale: grandi aree in orogenesi. Di contatto: locale, intorno a intrusioni magmatiche (aureola).</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="fc-metamorfiche"></div>
+    <div class="carousel-dots" data-carousel="***"></div>
   </div>
 </section>
 
 <!-- ========== SEZIONE 10: DEFORMAZIONE ========== -->
 <section id="deformazione">
   <h2>10. Deformazione delle Rocce: Faglie</h2>
-
-  <div class="fault-diagram">
-    <div class="fault-card">
-      <h5>Faglia Diretta (Normale)</h5>
-      <div class="fault-arrow-block">
-        <div class="fault-block">Tetto ▼ scende</div>
-        <div class="fault-move">↕️</div>
-        <div class="fault-block">Letto ▲</div>
-      </div>
-      <p style="font-size:0.8rem;color:#a09078">Sforzo estensionale. Margini divergenti.</p>
-    </div>
-    <div class="fault-card">
-      <h5>Faglia Inversa</h5>
-      <div class="fault-arrow-block">
-        <div class="fault-block">Tetto ▲ sale</div>
-        <div class="fault-move">↕️</div>
-        <div class="fault-block">Letto ▼</div>
-      </div>
-      <p style="font-size:0.8rem;color:#a09078">Sforzo compressivo. Margini convergenti.</p>
-    </div>
-    <div class="fault-card">
-      <h5>Faglia Trascorrente</h5>
-      <div class="fault-arrow-block">
-        <div class="fault-block">← →</div>
-        <div class="fault-move">↔️</div>
-        <div class="fault-block">→ ←</div>
-      </div>
-      <p style="font-size:0.8rem;color:#a09078">Movimento orizzontale. Margini trasformi.</p>
-    </div>
-  </div>
-
 
   <p>Quando la litosfera è sottoposta a <strong>sforzo</strong> (ai margini delle placche), le rocce si deformano. La risposta deformativa dipende dalla <strong>profondità</strong> (quindi dalla temperatura).</p>
 
@@ -1240,12 +1260,6 @@ aside {
 
   <h4>Classificazione delle faglie</h4>
 
-
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Normal_fault_diagram.gif" alt="Diagramma faglia normale" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Diagramma animato di faglia normale (diretta).</p>
-  </div>
-
   <p><strong>Faglie Dip-Slip</strong> (movimento lungo il dip/immersione):</p>
   <ul>
     <li><strong>Faglia Diretta (Normale):</strong> il tetto SCENDE rispetto al letto. Risposta a <strong>sforzo estensionale</strong>. Effetti: allungamento orizzontale + assottigliamento verticale. Associata a <strong>margini divergenti</strong> — forma bacini e oceani.</li>
@@ -1266,10 +1280,10 @@ aside {
     <p class="caption">Tipi di faglie: normale/diretta (a sinistra), inversa (centro), trascorrente/strike-slip (destra).</p>
   </div>
 
-  <div class="flashcards-wrapper" id="fc-deformazione">
+  <div class="flashcards-wrapper" id="***">
     <h4> Flash Cards — Deformazione e Faglie</h4>
-    <button class="carousel-arrow prev" data-carousel="fc-deformazione" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="fc-deformazione">▶</button>
+    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="***">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Deformazione fragile vs duttile?</div><div class="card-back">Fragile: superficiale (<15 km), rottura, faglie. Duttile: profondo (>15 km), deformazione plastica senza rottura, come il pongo.</div></div></div>
@@ -1281,7 +1295,7 @@ aside {
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Faglie strike-slip: cosa sono?</div><div class="card-back">Faglie con movimento orizzontale lungo la direzione. Tipiche dei margini trasformi. Es. Faglia di Sant'Andrea.</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="fc-deformazione"></div>
+    <div class="carousel-dots" data-carousel="***"></div>
   </div>
 </section>
 
@@ -1290,11 +1304,7 @@ aside {
   <h2>11. Vulcani e Terremoti</h2>
 
   <h3>Vulcani</h3>
-  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale<div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Stratovolcano_cross-section.svg" alt="Schema stratovulcano" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Sezione di stratovulcano con camera magmatica, condotto e crateri.</p>
-  </div>
-  <p>La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
+  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
   <ul>
     <li><strong>Margini divergenti:</strong> vulcanismo effusivo basaltico (es. Islanda sulla dorsale medio-atlantica). Magma per decompressione. Lave fluide.</li>
     <li><strong>Margini convergenti:</strong> vulcanismo esplosivo andesitico (es. Ande, Giappone). Magma per idratazione (acqua dalla placca in subduzione). Lave viscose → eruzioni esplosive.</li>
@@ -1303,11 +1313,7 @@ aside {
 
   <h3>Prodotti vulcanici</h3>
   <ul>
-    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Pillow_lava.jpg" alt="Pillow lava" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Pillow lavas (lave a cuscino): si formano quando la lava erutta sott'acqua.</p>
-  </div> (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
+    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
     <li><strong>Piroclastiti:</strong> materiale frammentario espulso (ceneri, lapilli, bombe).</li>
     <li><strong>Pomice:</strong> vetro vulcanico ricco di bolle di gas, leggerissima.</li>
     <li><strong>Scorie:</strong> simili alla pomice ma più scure e pesanti, ricche di Fe/Mg.</li>
@@ -1360,19 +1366,12 @@ aside {
 <section id="esame">
   <h2>12. Guida all'Esame</h2>
 
-  <div class="metodo-tondi">
-    <h3>Il Metodo Tondi: come sostenere l'orale</h3>
-    <p style="margin-bottom:16px;font-size:0.9rem;color:#c4b8a5">Il Prof. Tondi è un geologo strutturale. Non vuole il nome della roccia — vuole il <strong>ragionamento geologico</strong>. Segui questi 6 passi, in ordine.</p>
-    <ol>
-      <li><strong>Osservazione</strong> — Colore, peso (a parità di dimensioni), cristalli visibili, struttura, eventuale foliazione, presenza di clasti. Descrivi ciò che vedi senza interpretare.</li>
-      <li><strong>Deduzione sui minerali</strong> — Chiaro e leggero → ricco di Si (crosta continentale). Scuro e pesante → ricco di Fe e Mg (crosta oceanica).</li>
-      <li><strong>Classificazione macro-gruppo</strong> — Ignea? Sedimentaria? Metamorfica? Decidi in base a tessitura e struttura.</li>
-      <li><strong>Sotto-classificazione</strong> — Intrusiva vs effusiva. Epiclastica vs allochimica vs cristallina. Foliata vs non foliata.</li>
-      <li><strong>Processo genetico</strong> — Come si è formata questa roccia? In quale contesto geodinamico? Margine divergente, convergente, trasforme?</li>
-      <li><strong>Nome della roccia</strong> — Solo alla fine. Se non sai il nome esatto non è un errore grave, se il ragionamento è corretto.</li>
-    </ol>
-    <aside style="margin-top:20px;border-left-color:var(--gold-light);background:rgba(212,168,83,0.08)">⚠️ NON sparare subito il nome della roccia. Il nome è l'ultima cosa. L'esame valuta il percorso, non la risposta secca.</aside>
-  </div>
+  <h3>Formato</h3>
+  <ul>
+    <li>Tipo: <strong>orale</strong></li>
+    <li>Data: <strong>28 maggio 2026, ore 12:00</strong></li>
+    <li>Docente: Prof. Emanuele Tondi — Ordinario di Geologia Strutturale, Prorettore UNICAM</li>
+  </ul>
 
   <h3>Svolgimento tipico</h3>
   <ol>
@@ -1380,6 +1379,17 @@ aside {
     <li>15-20 minuti per osservare e descrivere i campioni</li>
     <li>Il candidato prende appunti scritti (può anche non scrivere nulla)</li>
     <li>L'orale parte dalla descrizione del campione</li>
+  </ol>
+
+  <h3>Cosa fare durante l'esame</h3>
+  <p><strong>NON sparare subito il nome della roccia.</strong> Il nome è l'<em>ultima</em> cosa da dare. L'esame valuta il <strong>ragionamento geologico</strong>:</p>
+  <ol>
+    <li><strong>Osservazione:</strong> colore, peso (a parità di dimensioni), presenza di cristalli visibili, struttura, eventuale foliazione, clasti</li>
+    <li><strong>Deduzione sui minerali:</strong> chiaro/leggero → ricco Si (cro-continentale); scuro/pesante → ricco Fe/Mg (cro-oceanica)</li>
+    <li><strong>Classificazione macro-gruppo:</strong> ignea? sedimentaria? metamorfica?</li>
+    <li><strong>Sotto-classificazione:</strong> intrusiva vs effusiva; epiclastica vs allochimica vs cristallina; foliata vs non foliata</li>
+    <li><strong>Processo genetico:</strong> come si è formata? In che contesto geodinamico?</li>
+    <li>Solo alla fine: dare il <strong>nome</strong> della roccia (se non si sa il nome esatto non è un errore grave, se il ragionamento è corretto)</li>
   </ol>
 
   <h3>Parametri principali di riconoscimento</h3>
@@ -1392,7 +1402,7 @@ aside {
     <li><strong>Peso:</strong> la pomice galleggia in acqua (piena di bolle di gas)</li>
   </ul>
 
-  <aside>Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
+  <aside> Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
 
   <h3>Argomenti chiave per l'orale</h3>
   <ul>
@@ -1413,7 +1423,7 @@ aside {
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si svolge l'esame di Tondi?</div><div class="card-back">Orale. 2 campioni di roccia, 15-20 min per descriverli. Si parte dalla descrizione per arrivare alla classificazione. Il nome della roccia è l'ultima cosa da dare.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione (colore, peso, cristalli) → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come distinguere roccia continentale da oceanica?</div><div class="card-back">Chiara e leggera = continentale (Si, Al). Scura e pesante = oceanica (Fe, Mg).</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Riconoscimento rocce sedimentarie?</div><div class="card-back">Clasti visibili (arenaria: ruvida). Se liscia e compatta: calcare o argillite. Se reagisce con HCl: calcite.</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Argomenti più importanti per Tondi?</div><div class="card-back">Tettonica placche, faglie (classificazione), deformazione fragile vs duttile. È un geologo strutturale: enfasi su queste cose.</div></div></div>
@@ -1426,6 +1436,8 @@ aside {
 
 </main>
 
+
+
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox(event)">
   <span class="close" onclick="closeLightbox(event)">&times;</span>
@@ -1433,6 +1445,46 @@ aside {
 </div>
 
 <script>
+// === COUNTDOWN ===
+(function updateCountdown() {
+  const examDate = new Date('2026-05-28T12:00:00+02:00');
+  const now = new Date();
+  const diff = examDate - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById('cd-days').textContent = days;
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  if (diff > 0) setTimeout(updateCountdown, 60000);
+})();
+
+// === HAMBURGER ===
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navbarLinks').classList.toggle('open');
+});
+
+// === ACTIVE NAV LINK ===
+const navLinks = document.querySelectorAll('.navbar-links a:not(.coming-soon)');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 80;
+    if (window.scrollY >= top) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// === SMOOTH SCROLL ===
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
 // === LIGHTBOX ===
 function openLightbox(src) {
   const lb = document.getElementById('lightbox');
@@ -1450,7 +1502,6 @@ function closeLightbox(e) {
 
 // === FLASH CARDS CAROUSEL ===
 document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
-  const carouselId = wrapper.querySelector('.carousel-track').parentElement.parentElement.id;
   const track = wrapper.querySelector('.carousel-track');
   const cards = track.querySelectorAll('.flashcard');
   const prevBtn = wrapper.querySelector('.carousel-arrow.prev');
@@ -1458,9 +1509,8 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
   const dotsContainer = wrapper.querySelector('.carousel-dots');
 
   let currentIndex = 0;
-  const cardWidth = cards.length > 0 ? cards[0].offsetWidth + 16 : 276;
+  const cardWidth = cards.length > 0 ? cards[0].offsetWidth + 14 : 276;
 
-  // Create dots
   cards.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -1469,7 +1519,7 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
   });
 
   function updateUI() {
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    track.style.transform = 'translateX(-' + (currentIndex * cardWidth) + 'px)';
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex >= cards.length - 1;
     dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
@@ -1485,25 +1535,14 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
   prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
   nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
 
-  // Card flip on click
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
-      // Don't flip if clicking arrow buttons
       if (e.target.closest('.carousel-arrow')) return;
       card.classList.toggle('flipped');
     });
   });
 
   updateUI();
-});
-
-// === SMOOTH SCROLL ===
-document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 });
 </script>
 
