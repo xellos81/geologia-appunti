@@ -686,6 +686,17 @@ aside {
   margin: 0;
 }
 
+
+.audio-download {
+  color: #1ed760;
+  font-size: 1.1rem;
+  margin-left: 8px;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.audio-download:hover { opacity: 1; }
+
 </style>
 </head>
 <body>
@@ -900,14 +911,11 @@ aside {
     <p class="caption">Diagramma del ciclo litogenetico (NPS): processi che collegano rocce ignee, sedimentarie e metamorfiche.</p>
   </div>
 
-  <div class="image-container">
-    <img src="img/Rock_Cycle_(32594947852).jpg" alt="Schema dettagliato del ciclo delle rocce (USGS): tutti i percorsi di trasformazione." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Schema dettagliato del ciclo delle rocce (USGS): tutti i percorsi di trasformazione.</p>
-  </div>
+  
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s01.ogg')" data-audio="audio/riassunto_s01.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:7px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:18px"></span></div>
+  <div class="waveform"><span class="bar" style="height:7px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:18px"></span></div><a class="audio-download" href="audio/riassunto_s01.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:16</span>
 </div>
 <div class="riassunto-box">
@@ -948,55 +956,8 @@ aside {
     <li>Lasciò gli <strong>elementi pesanti</strong> vicino al Sole → pianeti rocciosi terrestri (Mercurio, Venere, Terra, Marte)</li>
   </ul>
 
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Solar_system_scale.jpg/800px-Solar_system_scale.jpg" alt="Pianeti del Sistema Solare in scala" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Pianeti del Sistema Solare in scala dimensionale (  <div class="image-container">
-    <img src="img/Protoplanetary-disk.jpg" alt="Rappresentazione artistica di un disco protoplanetario: gas e polveri in rotazione attorno a una stella neonata." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Rappresentazione artistica di un disco protoplanetario: gas e polveri in rotazione attorno a una stella neonata.</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/Terrestrial_planet_size_comparisons_1.jpg" alt="Confronto delle dimensioni relative dei pianeti terrestri: Mercurio, Venere, Terra e Marte." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Confronto delle dimensioni relative dei pianeti terrestri: Mercurio, Venere, Terra e Marte.</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/The_Earth_seen_from_Apollo_17.jpg" alt="La celebre fotografia «Blue Marble» della Terra vista dall'Apollo 17 (7 dicembre 1972)." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">La celebre fotografia «Blue Marble» della Terra vista dall'Apollo 17 (7 dicembre 1972).</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/Atmosphere_layers-en.svg" alt="Diagramma dei cinque strati principali dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Diagramma dei cinque strati principali dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera.</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/Magnetosphere_rendition.jpg" alt="Rappresentazione artistica della magnetosfera terrestre: lo scudo che devia il vento solare." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Rappresentazione artistica della magnetosfera terrestre: lo scudo che devia il vento solare.</p>
-  </div>
-
-non di distanza).</p>
-  </div>
-
-    <div class="image-container">
-    <img src="img/The_Earth_seen_from_Apollo_17.jpg" alt="La celebre «Blue Marble»: Terra vista dall'Apollo 17 (7 dicembre 1972)." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">La celebre «Blue Marble»: Terra vista dall'Apollo 17 (7 dicembre 1972).</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/Protoplanetary-disk.jpg" alt="Disco protoplanetario: gas e polveri attorno a una stella neonata (NASA)." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Disco protoplanetario: gas e polveri attorno a una stella neonata (NASA).</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/Terrestrial_planet_size_comparisons_1.jpg" alt="Confronto dimensioni pianeti terrestri: Mercurio, Venere, Terra e Marte." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Confronto dimensioni pianeti terrestri: Mercurio, Venere, Terra e Marte.</p>
-  </div>
-
-  <div class="image-container">
-    <img src="img/Atmosphere_layers-en.svg" alt="I 5 strati dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">I 5 strati dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera.</p>
-  </div>
+  <h3>Dati fisici della Terra</h3>
+  
 
 <div class="card">
 <h4>Il Sole e il Sistema Solare</h4>
@@ -1024,7 +985,7 @@ non di distanza).</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s02.ogg')" data-audio="audio/riassunto_s02.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:13px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:5px"></span></div>
+  <div class="waveform"><span class="bar" style="height:13px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:5px"></span></div><a class="audio-download" href="audio/riassunto_s02.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:12</span>
 </div>
 <div class="riassunto-box">
@@ -1100,20 +1061,11 @@ non di distanza).</p>
 
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Grand_Canyon_geologic_column.jpg/800px-Grand_Canyon_geologic_column.jpg" alt="Strati del Grand Canyon" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Strati sedimentari del Grand Canyon —   <div class="image-container">
-    <img src="img/Geological_time_spiral_1.png" alt="La spirale del tempo geologico: 4,6 miliardi di anni di storia della Terra, dall'Adeano a oggi." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">La spirale del tempo geologico: 4,6 miliardi di anni di storia della Terra, dall'Adeano a oggi.</p>
-  </div>
+    <p class="caption">Strati sedimentari del Grand Canyon —   
 
-  <div class="image-container">
-    <img src="img/Ammonite-Fossil_1.jpg" alt="Fossile di ammonite: fossile guida fondamentale per la datazione relativa del Mesozoico." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Fossile di ammonite: fossile guida fondamentale per la datazione relativa del Mesozoico.</p>
-  </div>
+  
 
-  <div class="image-container">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Trilobite_fossil.jpg?width=800" alt="Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida essenziale per il Paleozoico." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida essenziale per il Paleozoico.</p>
-  </div>
+  
 
   <div class="image-container">
     <img src="img/geologic_time_scale.jpg" alt="Scala dei tempi geologici (USGS): dal Precambriano al Quaternario con eoni, ere, periodi ed epoche." onclick="openLightbox(this.src)" loading="lazy">
@@ -1123,20 +1075,11 @@ non di distanza).</p>
 esempio classico di sovrapposizione stratigrafica.</p>
   </div>
 
-    <div class="image-container">
-    <img src="img/Geological_time_spiral_1.png" alt="Spirale del tempo geologico: 4,6 miliardi di anni dall'Adeano a oggi." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Spirale del tempo geologico: 4,6 miliardi di anni dall'Adeano a oggi.</p>
-  </div>
+    
 
-  <div class="image-container">
-    <img src="img/Ammonite-Fossil_1.jpg" alt="Fossile di ammonite: guida fondamentale per la datazione del Mesozoico." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Fossile di ammonite: guida fondamentale per la datazione del Mesozoico.</p>
-  </div>
+  
 
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Trilobite_fossil.jpg" alt="Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida del Paleozoico." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida del Paleozoico.</p>
-  </div>
+  
 
 <h3>Registrazione degli eventi</h3>
   <p>Ogni strato sedimentario registra le condizioni ambientali del periodo: chimismo degli oceani, composizione dell'atmosfera, eventi catastrofici. Esempio: a 65 Ma, uno straterello su tutti gli oceani contiene <strong>sferule di vetro</strong> dall'impatto del meteorite che estinse i dinosauri.</p>
@@ -1158,7 +1101,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s03.ogg')" data-audio="audio/riassunto_s03.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:22px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:12px"></span></div>
+  <div class="waveform"><span class="bar" style="height:22px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:12px"></span></div><a class="audio-download" href="audio/riassunto_s03.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:05</span>
 </div>
 <div class="riassunto-box">
@@ -1267,16 +1210,13 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li><strong>Nucleo interno</strong>: solido.</li>
   </ul>
 
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Earth-crust-cutaway-english.svg/800px-Earth-crust-cutaway-english.svg" alt="Struttura interna della Terra" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Struttura interna della Terra: crosta, mantello, nucleo esterno (liquido), nucleo interno (solido).</p>
-  </div>
+  
 
   <aside> La crosta inferiore continentale ha composizione simile alla crosta oceanica. Per la classificazione reologica, nucleo esterno e nucleo interno mantengono gli stessi nomi della classificazione chimica perché il passaggio solido→liquido è già una differenza reologica.</aside>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s04.ogg')" data-audio="audio/riassunto_s04.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:7px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:16px"></span></div>
+  <div class="waveform"><span class="bar" style="height:7px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:16px"></span></div><a class="audio-download" href="audio/riassunto_s04.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:05</span>
 </div>
 <div class="riassunto-box">
@@ -1341,7 +1281,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s05.ogg')" data-audio="audio/riassunto_s05.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:16px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:13px"></span></div>
+  <div class="waveform"><span class="bar" style="height:16px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:13px"></span></div><a class="audio-download" href="audio/riassunto_s05.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:08</span>
 </div>
 <div class="riassunto-box">
@@ -1510,7 +1450,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s06.ogg')" data-audio="audio/riassunto_s06.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:15px"></span></div>
+  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:15px"></span></div><a class="audio-download" href="audio/riassunto_s06.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:09</span>
 </div>
 <div class="riassunto-box">
@@ -1662,7 +1602,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s07.ogg')" data-audio="audio/riassunto_s07.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:9px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:15px"></span></div>
+  <div class="waveform"><span class="bar" style="height:9px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:15px"></span></div><a class="audio-download" href="audio/riassunto_s07.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:10</span>
 </div>
 <div class="riassunto-box">
@@ -1812,7 +1752,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s08.ogg')" data-audio="audio/riassunto_s08.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:12px"></span></div>
+  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:12px"></span></div><a class="audio-download" href="audio/riassunto_s08.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:11</span>
 </div>
 <div class="riassunto-box">
@@ -1885,30 +1825,18 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Scisto a muscovite: roccia metamorfica foliata con lucentezza sericea.</p>
   </div>
 
-    <div class="image-container">
-    <img src="img/Metamorphic_facies_EN_1.svg" alt="Diagramma P-T delle facies metamorfiche: ogni facies rappresenta un campo di pressione e temperatura specifico." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Diagramma P-T delle facies metamorfiche: ogni facies rappresenta un campo di pressione e temperatura specifico.</p>
-  </div>
+    
 
   <div class="image-container">
     <img src="img/Phyllite_(rock).jpg" alt="Fillade: roccia metamorfica di basso grado con lucentezza sericea, intermedia tra ardesia e scisto." onclick="openLightbox(this.src)" loading="lazy">
     <p class="caption">Fillade: roccia metamorfica di basso grado con lucentezza sericea, intermedia tra ardesia e scisto.</p>
   </div>
 
-  <div class="image-container">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Serpentinite_1.jpg?width=800" alt="Serpentinite: roccia metamorfica verdastra derivante dall'alterazione di peridotiti del mantello terrestre." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Serpentinite: roccia metamorfica verdastra derivante dall'alterazione di peridotiti del mantello terrestre.</p>
-  </div>
+  
 
-  <div class="image-container">
-    <img src="img/Metamorphic_facies_EN_1.svg" alt="Diagramma P-T delle facies metamorfiche: ogni facies = campo specifico di pressione-temperatura." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Diagramma P-T delle facies metamorfiche: ogni facies = campo specifico di pressione-temperatura.</p>
-  </div>
+  
 
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Serpentinite_1.jpg" alt="Serpentinite: roccia metamorfica verdastra da alterazione di peridotiti del mantello." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Serpentinite: roccia metamorfica verdastra da alterazione di peridotiti del mantello.</p>
-  </div>
+  
 
 <h3>Tipi di metamorfismo</h3>
   <ul>
@@ -1923,7 +1851,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s09.ogg')" data-audio="audio/riassunto_s09.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:11px"></span></div>
+  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:18px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:11px"></span></div><a class="audio-download" href="audio/riassunto_s09.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:03</span>
 </div>
 <div class="riassunto-box">
@@ -2062,7 +1990,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s10.ogg')" data-audio="audio/riassunto_s10.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:9px"></span></div>
+  <div class="waveform"><span class="bar" style="height:4px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:19px"></span><span class="bar" style="height:9px"></span></div><a class="audio-download" href="audio/riassunto_s10.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:19</span>
 </div>
 <div class="riassunto-box">
@@ -2105,15 +2033,9 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li><strong>Hot spot (punti caldi):</strong> intraplacca. Risalita di materiale dal mantello profondo (plume). Es. Hawaii, Yellowstone.</li>
   </ul>
 
-    <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Stromboli_Eruption.jpg" alt="Eruzione stromboliana: esplosioni ritmiche di lava incandescente, tipica dello Stromboli." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Eruzione stromboliana: esplosioni ritmiche di lava incandescente, tipica dello Stromboli.</p>
-  </div>
+    
 
-  <div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Vesuvius_volcano_2016_(1).jpg" alt="Cratere del Vesuvio oggi: uno dei vulcani più monitorati al mondo." onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Cratere del Vesuvio oggi: uno dei vulcani più monitorati al mondo.</p>
-  </div>
+  
 
 <h3>Prodotti vulcanici</h3>
   <ul>
@@ -2158,11 +2080,11 @@ esempio classico di sovrapposizione stratigrafica.</p>
   <h3>Sismicità in Italia e nel Mediterraneo</h3>
   <p>Il Mediterraneo è una <strong>zona sismicamente attiva</strong> per la convergenza tra placca africana ed euroasiatica. L'Appennino è una catena in compressione, con faglie inverse e dirette (queste ultime nei bacini intramontani). I beni culturali italiani sono particolarmente esposti al rischio sismico.</p>
 
-  <div class="placeholder-img">[IMMAGINE: Schema di eruzione vulcanica con camera magmatica, condotto, cratere e prodotti vulcanici]</div>
+  
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s11.ogg')" data-audio="audio/riassunto_s11.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:22px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:6px"></span></div>
+  <div class="waveform"><span class="bar" style="height:22px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:12px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:16px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:6px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:6px"></span></div><a class="audio-download" href="audio/riassunto_s11.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:15</span>
 </div>
 <div class="riassunto-box">
@@ -2256,7 +2178,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <div class="audio-player" onclick="toggleAudio(this, 'audio/riassunto_s12.ogg')" data-audio="audio/riassunto_s12.ogg">
   <button class="play-btn">▶</button>
-  <div class="waveform"><span class="bar" style="height:18px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:17px"></span></div>
+  <div class="waveform"><span class="bar" style="height:18px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:4px"></span><span class="bar" style="height:10px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:15px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:22px"></span><span class="bar" style="height:21px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:14px"></span><span class="bar" style="height:5px"></span><span class="bar" style="height:11px"></span><span class="bar" style="height:17px"></span><span class="bar" style="height:13px"></span><span class="bar" style="height:20px"></span><span class="bar" style="height:8px"></span><span class="bar" style="height:9px"></span><span class="bar" style="height:7px"></span><span class="bar" style="height:17px"></span></div><a class="audio-download" href="audio/riassunto_s12.ogg" download title="Scarica audio">⬇</a>
   <span class="audio-duration">1:15</span>
 </div>
 <div class="riassunto-box">
