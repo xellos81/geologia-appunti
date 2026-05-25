@@ -303,6 +303,194 @@ aside {
   .flashcard { min-width: 220px; max-width: 220px; height: 140px; }
   .flashcards-wrapper { padding: 18px 32px; }
 }
+
+/* ===== DIAGRAMMI ===== */
+
+/* Timeline verticale */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+  margin: 28px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 18px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(212,168,83,0.2));
+}
+.timeline-item {
+  position: relative;
+  padding: 10px 0 20px 50px;
+  border-left: none;
+}
+.timeline-item::before {
+  content: '◆';
+  position: absolute; left: 10px; top: 12px;
+  color: var(--gold);
+  font-size: 0.7rem;
+  line-height: 1;
+}
+.timeline-item .tl-date {
+  font-family: var(--heading-font);
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.timeline-item .tl-text {
+  color: #e8e0d5;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+/* Flow diagram */
+.flow-diagram {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; justify-content: center;
+  margin: 28px 0; padding: 20px 10px;
+}
+.flow-step {
+  background: rgba(45, 34, 24, 0.7);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 10px; padding: 12px 16px;
+  text-align: center; font-size: 0.82rem;
+  color: #e8e0d5; min-width: 100px;
+  flex: 0 0 auto;
+}
+.flow-arrow {
+  color: var(--gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Branch diagram */
+.branch {
+  display: flex; flex-direction: column; align-items: center;
+  margin: 28px 0; gap: 6px;
+}
+.branch-root {
+  background: rgba(212, 168, 83, 0.15);
+  border: 1px solid var(--gold);
+  border-radius: 12px; padding: 14px 24px;
+  font-family: var(--heading-font);
+  color: var(--gold-light); font-size: 1rem; font-weight: 600;
+  text-align: center;
+}
+.branch-row {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+}
+.branch-leaf {
+  background: rgba(45, 34, 24, 0.7);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  border-radius: 8px; padding: 10px 18px;
+  font-size: 0.85rem; color: #e8e0d5; text-align: center;
+  min-width: 130px;
+}
+.branch-leaf strong { display: block; margin-bottom: 4px; }
+.branch-connector {
+  width: 2px; height: 16px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+
+/* Mirror comparison */
+.mirror-compare {
+  display: flex; gap: 16px; flex-wrap: wrap; margin: 24px 0;
+}
+.mirror-side {
+  flex: 1; min-width: 220px;
+  background: rgba(45, 34, 24, 0.6);
+  border: 1px solid rgba(212, 168, 83, 0.15);
+  border-radius: 12px; padding: 18px;
+  text-align: center;
+}
+.mirror-side h5 {
+  font-family: var(--heading-font);
+  color: var(--gold); margin-bottom: 10px; font-size: 0.95rem;
+}
+.mirror-side ul { text-align: left; margin-left: 16px; }
+.mirror-side.continentale { border-top: 3px solid var(--gold-light); }
+.mirror-side.oceanica { border-top: 3px solid #7a6040; }
+
+/* Fault diagram */
+.fault-diagram {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  margin: 28px 0;
+}
+.fault-card {
+  flex: 1; min-width: 200px;
+  background: rgba(45, 34, 24, 0.6);
+  border-radius: 12px; padding: 18px; text-align: center;
+  border: 1px solid rgba(212, 168, 83, 0.15);
+}
+.fault-card h5 {
+  font-family: var(--heading-font);
+  color: var(--gold); margin-bottom: 8px; font-size: 0.95rem;
+}
+.fault-arrow-block {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px; margin: 10px 0;
+}
+.fault-block {
+  background: rgba(212, 168, 83, 0.15);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 6px; padding: 8px 16px;
+  font-size: 0.8rem; color: #e8e0d5;
+}
+.fault-move {
+  color: var(--gold-light);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Metodo Tondi highlight box */
+.metodo-tondi {
+  background: linear-gradient(135deg, rgba(212, 168, 83, 0.12), rgba(60, 45, 30, 0.7));
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin: 28px 0;
+  position: relative;
+  overflow: hidden;
+}
+.metodo-tondi::before {
+  content: 'IL METODO TONDI';
+  position: absolute; top: -12px; left: 24px;
+  background: var(--gold);
+  color: #1a1410;
+  font-family: var(--heading-font);
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 16px; border-radius: 20px;
+}
+.metodo-tondi h3 {
+  margin-top: 8px;
+  font-size: 1.15rem;
+}
+.metodo-tondi ol {
+  counter-reset: tondi-step;
+  list-style: none;
+  margin-left: 0;
+}
+.metodo-tondi ol li {
+  counter-increment: tondi-step;
+  position: relative;
+  padding: 12px 0 12px 52px;
+  border-bottom: 1px solid rgba(212, 168, 83, 0.1);
+  font-size: 0.92rem;
+}
+.metodo-tondi ol li:last-child { border-bottom: none; }
+.metodo-tondi ol li::before {
+  content: counter(tondi-step);
+  position: absolute; left: 0; top: 10px;
+  width: 34px; height: 34px;
+  background: var(--gold);
+  color: #1a1410;
+  font-family: var(--heading-font);
+  font-size: 0.85rem; font-weight: 700;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
 </style>
 </head>
 <body>
@@ -363,6 +551,20 @@ aside {
     <li><strong>Modello matematico</strong> — la formula che riproduce il fenomeno. Senza questa la teoria non è accettata</li>
     <li><strong>Teoria</strong> — è valida finché spiega tutte le osservazioni; può essere aggiornata o sostituita se emergono nuove evidenze</li>
   </ol>
+
+  <div class="flow-diagram">
+    <div class="flow-step">👁 Osservazione</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">⚗️ Esperimento</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">📏 Correlazione</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">🧠 Modello fisico</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">📐 Modello matematico</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">📖 Teoria</div>
+  </div>
 
   <aside> Einstein impiegò 20 anni per passare dal modello concettuale della gravitazione universale al modello matematico!</aside>
 
@@ -467,6 +669,26 @@ aside {
     <li><strong>Fanerozoico</strong> — 541 Ma → oggi. Vita visibile, è suddiviso in ere: <strong>Paleozoico</strong>, <strong>Mesozoico</strong>, <strong>Cenozoico</strong></li>
   </ul>
 
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-date">Adeano — 4,5 → 4,0 Ga</div>
+      <div class="tl-text">«Eone nascosto» — quasi nessuna informazione geologica</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Archeano — 4,0 → 2,5 Ga</div>
+      <div class="tl-text">Prime forme di vita: procarioti. Atmosfera priva di ossigeno.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Proterozoico — 2,5 Ga → 541 Ma</div>
+      <div class="tl-text">Vita più complessa. Comparsa dell'ossigeno atmosferico.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Fanerozoico — 541 Ma → oggi</div>
+      <div class="tl-text">Vita visibile. Paleozoico → Mesozoico → Cenozoico</div>
+    </div>
+  </div>
+
   <h3>Principio di sovrapposizione stratigrafica</h3>
   <p>Nelle rocce sedimentarie, gli strati più in basso sono più antichi di quelli in alto (i sedimenti si depositano dall'alto). Questo principio può essere contraddetto da intrusioni magmatiche (una roccia ignea intrusiva può essere più recente delle rocce che la sovrastano).</p>
 
@@ -503,6 +725,28 @@ aside {
 <!-- ========== SEZIONE 4: INTERNO TERRESTRE ========== -->
 <section id="interno-terrestre">
   <h2>4. Struttura Interna della Terra</h2>
+
+
+  <div class="mirror-compare">
+    <div class="mirror-side continentale">
+      <h5>🌍 Crosta Continentale</h5>
+      <ul>
+        <li>Spessore: ~35 km</li>
+        <li>Ricca di Si, Al, O</li>
+        <li>Rocce chiare e leggere</li>
+        <li>Graniti, quarzo, feldspati</li>
+      </ul>
+    </div>
+    <div class="mirror-side oceanica">
+      <h5>🌊 Crosta Oceanica</h5>
+      <ul>
+        <li>Spessore: 5-10 km</li>
+        <li>Ricca di Fe, Mg</li>
+        <li>Rocce scure e pesanti</li>
+        <li>Basalti, olivina, pirosseni</li>
+      </ul>
+    </div>
+  </div>
 
   <p>L'interno del pianeta si classifica secondo <strong>due criteri</strong>: composizione chimica e comportamento reologico.</p>
 
@@ -683,7 +927,23 @@ aside {
 
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mineraly.sk_-_kremen.jpg/800px-Mineraly.sk_-_kremen.jpg" alt="Cristallo di quarzo" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Cristallo di quarzo (SiO₂) — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
+    <p class="caption">Cristallo di quarzo (SiO₂)
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/OrthoclaseBresil.jpg" alt="Feldspato ortoclasio" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Ortoclasio (K-feldspato) — caratteristico colore rosa. Tipico della crosta continentale.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Peridot_olivine_on_basalt.jpg" alt="Olivina su basalto" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Olivina (peridoto) su matrice basaltica. Verde scuro, ricchissima di Fe e Mg. Minerale del mantello.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Augite_%28USA%29.jpg" alt="Pirosseno augite" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Augite (pirosseno) — scuro, ricco di Fe e Mg. Tipico della crosta oceanica.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Albite_twinning.JPG" alt="Plagioclasio" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Plagioclasio con geminazione polisintetica visibile. Colore bianco latte.</p>
+  </div> — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
   </div>
 
   <div class="flashcards-wrapper" id="fc-minerali">
@@ -708,6 +968,23 @@ aside {
 <!-- ========== SEZIONE 7: ROCCE IGNEE ========== -->
 <section id="rocce-ignee">
   <h2>7. Rocce Ignee (Magmatiche)</h2>
+
+  <div class="branch">
+    <div class="branch-root">Rocce Ignee</div>
+    <div class="branch-connector"></div>
+    <div class="branch-row">
+      <div class="branch-leaf"><strong>Intrusive (plutoniche)</strong>Raffreddamento lento, cristalli grandi. Granito, diorite, gabbro.</div>
+      <div class="branch-leaf"><strong>Effusive (vulcaniche)</strong>Raffreddamento rapido, cristalli piccoli. Basalto, riolite, pomice.</div>
+    </div>
+    <div class="branch-connector" style="margin-top:12px"></div>
+    <div class="branch-row">
+      <div class="branch-leaf"><strong>Felsiche</strong>Ricche Si (>65%). Chiare, leggere. Quarzo, feldspati.</div>
+      <div class="branch-leaf"><strong>Intermedie</strong>Contenuto medio Si. Andesite, diorite.</div>
+      <div class="branch-leaf"><strong>Mafiche</strong>Povere Si, ricche Fe/Mg. Scure, pesanti. Basalto, gabbro.</div>
+      <div class="branch-leaf"><strong>Ultramafiche</strong>Massimo Fe/Mg. Peridotite (mantello).</div>
+    </div>
+  </div>
+
 
   <p>Le <strong>rocce ignee</strong> (o magmatiche) derivano dal <strong>raffreddamento e consolidamento del magma</strong>. La classificazione si basa su due criteri principali.</p>
 
@@ -738,7 +1015,19 @@ aside {
     <li><strong>Aumento di temperatura:</strong> risalita di materiale caldo dal mantello profondo (plume, hot spot).</li>
   </ol>
 
-  <aside> La serie di Bowen spiega l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
+  <aside> La serie di Bowen spiega
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Bowen%27s_reaction_series_diagram.png" alt="Serie di Bowen" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Serie di reazione di Bowen: ordine di cristallizzazione dei minerali dal magma.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Basalt_%28GeoDIL_number_-_140%29.jpg" alt="Basalto" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Basalto: roccia effusiva mafica, scura e pesante. Tipica della crosta oceanica.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pumice_%28a_type_of_extrusive_volcanic_rock%29.jpg" alt="Pomice" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Pomice: vetro vulcanico ricco di bolle di gas. Galleggia in acqua.</p>
+  </div> l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
 
   <div class="flashcards-wrapper" id="fc-ignee">
     <h4> Flash Cards — Rocce Ignee</h4>
@@ -775,6 +1064,16 @@ aside {
     <li><strong>Siltite:</strong> clasti 0,0625–0,004 mm.</li>
     <li><strong>Argillite:</strong> clasti <0,004 mm. Liscia, compatta, grani NON visibili.</li>
   </ul>
+
+  
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Conglomerate_Rock.jpg" alt="Conglomerato" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Conglomerato: clasti arrotondati >2 mm. Trasporto prolungato.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Breccia.jpg" alt="Breccia" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Breccia: clasti spigolosi >2 mm. Trasporto breve.</p>
+  </div>
 
   <h4>2. Rocce Particellari Allochimiche</h4>
   <p>Formate dall'accumulo di <strong>particelle biogeniche</strong> (gusci di plancton, coralli, conchiglie) che precipitano sul fondale oceanico. I gusci sono calcarei (CaCO₃) o silicei (SiO₂). Il plancton è piccolissimo ma abbondantissimo e si accumula per decine di milioni di anni. Esempio: <strong>calcari</strong> appenninici.</p>
@@ -840,6 +1139,20 @@ aside {
     <li><strong>Filladi:</strong> grana fine, lucentezza sericea.</li>
   </ul>
 
+  
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gneiss_1_%2816310656713%29.jpg" alt="Gneiss" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Gneiss: roccia metamorfica a bande alternate chiare e scure.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Slate_Macro_1.JPG" alt="Ardesia" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Ardesia: roccia metamorfica a grana fine, si sfalda in lamine piatte.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Muscovite_schist_%2816735125458%29.jpg" alt="Scisto" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Scisto a muscovite: roccia metamorfica foliata con lucentezza sericea.</p>
+  </div>
+
   <h3>Tipi di metamorfismo</h3>
   <ul>
     <li><strong>Regionale:</strong> grandi aree sottoposte a pressioni e temperature elevate (orogenesi). Es: Alpi, Appennini.</li>
@@ -872,6 +1185,37 @@ aside {
 <section id="deformazione">
   <h2>10. Deformazione delle Rocce: Faglie</h2>
 
+  <div class="fault-diagram">
+    <div class="fault-card">
+      <h5>Faglia Diretta (Normale)</h5>
+      <div class="fault-arrow-block">
+        <div class="fault-block">Tetto ▼ scende</div>
+        <div class="fault-move">↕️</div>
+        <div class="fault-block">Letto ▲</div>
+      </div>
+      <p style="font-size:0.8rem;color:#a09078">Sforzo estensionale. Margini divergenti.</p>
+    </div>
+    <div class="fault-card">
+      <h5>Faglia Inversa</h5>
+      <div class="fault-arrow-block">
+        <div class="fault-block">Tetto ▲ sale</div>
+        <div class="fault-move">↕️</div>
+        <div class="fault-block">Letto ▼</div>
+      </div>
+      <p style="font-size:0.8rem;color:#a09078">Sforzo compressivo. Margini convergenti.</p>
+    </div>
+    <div class="fault-card">
+      <h5>Faglia Trascorrente</h5>
+      <div class="fault-arrow-block">
+        <div class="fault-block">← →</div>
+        <div class="fault-move">↔️</div>
+        <div class="fault-block">→ ←</div>
+      </div>
+      <p style="font-size:0.8rem;color:#a09078">Movimento orizzontale. Margini trasformi.</p>
+    </div>
+  </div>
+
+
   <p>Quando la litosfera è sottoposta a <strong>sforzo</strong> (ai margini delle placche), le rocce si deformano. La risposta deformativa dipende dalla <strong>profondità</strong> (quindi dalla temperatura).</p>
 
   <h3>Deformazione fragile vs duttile</h3>
@@ -895,6 +1239,12 @@ aside {
   </ul>
 
   <h4>Classificazione delle faglie</h4>
+
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Normal_fault_diagram.gif" alt="Diagramma faglia normale" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Diagramma animato di faglia normale (diretta).</p>
+  </div>
 
   <p><strong>Faglie Dip-Slip</strong> (movimento lungo il dip/immersione):</p>
   <ul>
@@ -940,7 +1290,11 @@ aside {
   <h2>11. Vulcani e Terremoti</h2>
 
   <h3>Vulcani</h3>
-  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
+  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale<div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Stratovolcano_cross-section.svg" alt="Schema stratovulcano" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Sezione di stratovulcano con camera magmatica, condotto e crateri.</p>
+  </div>
+  <p>La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
   <ul>
     <li><strong>Margini divergenti:</strong> vulcanismo effusivo basaltico (es. Islanda sulla dorsale medio-atlantica). Magma per decompressione. Lave fluide.</li>
     <li><strong>Margini convergenti:</strong> vulcanismo esplosivo andesitico (es. Ande, Giappone). Magma per idratazione (acqua dalla placca in subduzione). Lave viscose → eruzioni esplosive.</li>
@@ -949,7 +1303,11 @@ aside {
 
   <h3>Prodotti vulcanici</h3>
   <ul>
-    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
+    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Pillow_lava.jpg" alt="Pillow lava" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Pillow lavas (lave a cuscino): si formano quando la lava erutta sott'acqua.</p>
+  </div> (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
     <li><strong>Piroclastiti:</strong> materiale frammentario espulso (ceneri, lapilli, bombe).</li>
     <li><strong>Pomice:</strong> vetro vulcanico ricco di bolle di gas, leggerissima.</li>
     <li><strong>Scorie:</strong> simili alla pomice ma più scure e pesanti, ricche di Fe/Mg.</li>
@@ -1002,12 +1360,19 @@ aside {
 <section id="esame">
   <h2>12. Guida all'Esame</h2>
 
-  <h3>Formato</h3>
-  <ul>
-    <li>Tipo: <strong>orale</strong></li>
-    <li>Data: <strong>28 maggio 2026, ore 12:00</strong></li>
-    <li>Docente: Prof. Emanuele Tondi — Ordinario di Geologia Strutturale, Prorettore UNICAM</li>
-  </ul>
+  <div class="metodo-tondi">
+    <h3>Il Metodo Tondi: come sostenere l'orale</h3>
+    <p style="margin-bottom:16px;font-size:0.9rem;color:#c4b8a5">Il Prof. Tondi è un geologo strutturale. Non vuole il nome della roccia — vuole il <strong>ragionamento geologico</strong>. Segui questi 6 passi, in ordine.</p>
+    <ol>
+      <li><strong>Osservazione</strong> — Colore, peso (a parità di dimensioni), cristalli visibili, struttura, eventuale foliazione, presenza di clasti. Descrivi ciò che vedi senza interpretare.</li>
+      <li><strong>Deduzione sui minerali</strong> — Chiaro e leggero → ricco di Si (crosta continentale). Scuro e pesante → ricco di Fe e Mg (crosta oceanica).</li>
+      <li><strong>Classificazione macro-gruppo</strong> — Ignea? Sedimentaria? Metamorfica? Decidi in base a tessitura e struttura.</li>
+      <li><strong>Sotto-classificazione</strong> — Intrusiva vs effusiva. Epiclastica vs allochimica vs cristallina. Foliata vs non foliata.</li>
+      <li><strong>Processo genetico</strong> — Come si è formata questa roccia? In quale contesto geodinamico? Margine divergente, convergente, trasforme?</li>
+      <li><strong>Nome della roccia</strong> — Solo alla fine. Se non sai il nome esatto non è un errore grave, se il ragionamento è corretto.</li>
+    </ol>
+    <aside style="margin-top:20px;border-left-color:var(--gold-light);background:rgba(212,168,83,0.08)">⚠️ NON sparare subito il nome della roccia. Il nome è l'ultima cosa. L'esame valuta il percorso, non la risposta secca.</aside>
+  </div>
 
   <h3>Svolgimento tipico</h3>
   <ol>
@@ -1015,17 +1380,6 @@ aside {
     <li>15-20 minuti per osservare e descrivere i campioni</li>
     <li>Il candidato prende appunti scritti (può anche non scrivere nulla)</li>
     <li>L'orale parte dalla descrizione del campione</li>
-  </ol>
-
-  <h3>Cosa fare durante l'esame</h3>
-  <p><strong>NON sparare subito il nome della roccia.</strong> Il nome è l'<em>ultima</em> cosa da dare. L'esame valuta il <strong>ragionamento geologico</strong>:</p>
-  <ol>
-    <li><strong>Osservazione:</strong> colore, peso (a parità di dimensioni), presenza di cristalli visibili, struttura, eventuale foliazione, clasti</li>
-    <li><strong>Deduzione sui minerali:</strong> chiaro/leggero → ricco Si (cro-continentale); scuro/pesante → ricco Fe/Mg (cro-oceanica)</li>
-    <li><strong>Classificazione macro-gruppo:</strong> ignea? sedimentaria? metamorfica?</li>
-    <li><strong>Sotto-classificazione:</strong> intrusiva vs effusiva; epiclastica vs allochimica vs cristallina; foliata vs non foliata</li>
-    <li><strong>Processo genetico:</strong> come si è formata? In che contesto geodinamico?</li>
-    <li>Solo alla fine: dare il <strong>nome</strong> della roccia (se non si sa il nome esatto non è un errore grave, se il ragionamento è corretto)</li>
   </ol>
 
   <h3>Parametri principali di riconoscimento</h3>
@@ -1038,7 +1392,7 @@ aside {
     <li><strong>Peso:</strong> la pomice galleggia in acqua (piena di bolle di gas)</li>
   </ul>
 
-  <aside> Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
+  <aside>Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
 
   <h3>Argomenti chiave per l'orale</h3>
   <ul>
@@ -1059,7 +1413,7 @@ aside {
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si svolge l'esame di Tondi?</div><div class="card-back">Orale. 2 campioni di roccia, 15-20 min per descriverli. Si parte dalla descrizione per arrivare alla classificazione. Il nome della roccia è l'ultima cosa da dare.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione (colore, peso, cristalli) → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come distinguere roccia continentale da oceanica?</div><div class="card-back">Chiara e leggera = continentale (Si, Al). Scura e pesante = oceanica (Fe, Mg).</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Riconoscimento rocce sedimentarie?</div><div class="card-back">Clasti visibili (arenaria: ruvida). Se liscia e compatta: calcare o argillite. Se reagisce con HCl: calcite.</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Argomenti più importanti per Tondi?</div><div class="card-back">Tettonica placche, faglie (classificazione), deformazione fragile vs duttile. È un geologo strutturale: enfasi su queste cose.</div></div></div>
