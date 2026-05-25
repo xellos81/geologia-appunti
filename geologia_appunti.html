@@ -697,6 +697,106 @@ aside {
 }
 .audio-download:hover { opacity: 1; }
 
+
+/* === GLOBAL AUDIO PLAYER === */
+#global-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1410;
+  border-top: 2px solid var(--gold);
+  padding: 10px 16px;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+}
+#global-player.active { display: flex; }
+
+.gp-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gp-chapter-title {
+  font-size: 0.8rem;
+  color: #c4b8a5;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.gp-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.gp-btn {
+  background: none;
+  border: none;
+  color: var(--gold-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+.gp-btn:hover { color: #fff; background: rgba(212,168,83,0.15); }
+.gp-btn:disabled { opacity: 0.3; cursor: default; }
+.gp-btn-play {
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+.gp-close {
+  color: #a09078;
+  font-size: 1rem;
+}
+
+.gp-seek-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gp-time {
+  font-size: 0.7rem;
+  color: #a09078;
+  min-width: 36px;
+  text-align: center;
+}
+.gp-seek-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(212,168,83,0.15);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+.gp-seek-progress {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  position: relative;
+}
+.gp-seek-progress::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.gp-seek-bar:hover .gp-seek-progress::after { opacity: 1; }
+
 </style>
 </head>
 <body>
@@ -2320,43 +2420,170 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
 
 <script>
 
-// === AUDIO PLAYER ===
-let currentAudio = null;
-let currentPlayer = null;
 
-function toggleAudio(player, audioFile) {
-  if (currentPlayer && currentPlayer !== player) {
-    // Stop previous
-    if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
-    currentPlayer.classList.remove('playing');
-    currentPlayer.querySelector('.play-btn').textContent = '▶';
-  }
-  
-  if (currentAudio && currentPlayer === player) {
-    // Pause this one
-    currentAudio.pause();
-    player.classList.remove('playing');
-    player.querySelector('.play-btn').textContent = '▶';
-    currentAudio = null;
-    currentPlayer = null;
+// === GLOBAL AUDIO PLAYER ===
+const chapters = [
+  { num: 1, title: 'Fondamenti della Geologia', file: 'audio/riassunto_s01.ogg' },
+  { num: 2, title: 'Sistema Solare e Pianeta Terra', file: 'audio/riassunto_s02.ogg' },
+  { num: 3, title: 'Tempo Geologico', file: 'audio/riassunto_s03.ogg' },
+  { num: 4, title: 'Struttura Interna della Terra', file: 'audio/riassunto_s04.ogg' },
+  { num: 5, title: 'Tettonica delle Placche', file: 'audio/riassunto_s05.ogg' },
+  { num: 6, title: 'Minerali', file: 'audio/riassunto_s06.ogg' },
+  { num: 7, title: 'Rocce Ignee', file: 'audio/riassunto_s07.ogg' },
+  { num: 8, title: 'Rocce Sedimentarie', file: 'audio/riassunto_s08.ogg' },
+  { num: 9, title: 'Rocce Metamorfiche', file: 'audio/riassunto_s09.ogg' },
+  { num: 10, title: 'Deformazione e Faglie', file: 'audio/riassunto_s10.ogg' },
+  { num: 11, title: 'Vulcani e Terremoti', file: 'audio/riassunto_s11.ogg' },
+  { num: 12, title: 'Guida all\'Esame', file: 'audio/riassunto_s12.ogg' }
+];
+
+let gpAudio = null;
+let gpCurrent = -1;
+let gpPlaying = false;
+let gpSeekUpdate = null;
+
+const gpEl = document.getElementById('global-player');
+const gpTitle = document.getElementById('gp-title');
+const gpPlayBtn = document.getElementById('gp-play');
+const gpPrev = document.getElementById('gp-prev');
+const gpNext = document.getElementById('gp-next');
+const gpClose = document.getElementById('gp-close');
+const gpSeek = document.getElementById('gp-seek');
+const gpProgress = document.getElementById('gp-progress');
+const gpCurrentTime = document.getElementById('gp-current');
+const gpTotalTime = document.getElementById('gp-total');
+
+function fmtTime(secs) {
+  if (isNaN(secs) || secs < 0) return '0:00';
+  const m = Math.floor(secs / 60);
+  const s = Math.floor(secs % 60);
+  return m + ':' + String(s).padStart(2, '0');
+}
+
+// Override the old toggleAudio to use global player
+window.toggleAudio = function(playerEl, audioFile) {
+  // Find which chapter matches this audio file
+  const idx = chapters.findIndex(c => c.file === audioFile);
+  if (idx < 0) return;
+  if (gpCurrent === idx && gpPlaying) {
+    pauseChapter();
+    playerEl.classList.remove('playing');
+    const btn = playerEl.querySelector('.play-btn');
+    if (btn) btn.textContent = '▶';
   } else {
-    // Play
-    if (!currentAudio || currentPlayer !== player) {
-      currentAudio = new Audio(audioFile);
+    // Remove playing state from previous player
+    document.querySelectorAll('.audio-player.playing').forEach(el => {
+      el.classList.remove('playing');
+      const b = el.querySelector('.play-btn');
+      if (b) b.textContent = '▶';
+    });
+    loadChapter(idx);
+    playChapter();
+    playerEl.classList.add('playing');
+    const btn = playerEl.querySelector('.play-btn');
+    if (btn) btn.textContent = '⏸';
+  }
+  // Scroll to the global player
+  gpEl.scrollIntoView({ behavior: 'smooth' });
+};
+
+// Sync individual player UI when chapter changes
+function syncPlayers() {
+  document.querySelectorAll('.audio-player').forEach(el => {
+    el.classList.remove('playing');
+    const btn = el.querySelector('.play-btn');
+    if (btn) btn.textContent = '▶';
+  });
+  if (gpCurrent >= 0) {
+    const ch = chapters[gpCurrent];
+    const activePlayer = document.querySelector(`.audio-player[data-audio="${ch.file}"]`);
+    if (activePlayer && gpPlaying) {
+      activePlayer.classList.add('playing');
+      const btn = activePlayer.querySelector('.play-btn');
+      if (btn) btn.textContent = '⏸';
     }
-    currentPlayer = player;
-    player.classList.add('playing');
-    player.querySelector('.play-btn').textContent = '⏸';
-    currentAudio.play();
-    currentAudio.onended = () => {
-      player.classList.remove('playing');
-      player.querySelector('.play-btn').textContent = '▶';
-      currentAudio = null;
-      currentPlayer = null;
-    };
   }
 }
 
-</script>
+function loadChapter(idx) {
+  if (idx < 0 || idx >= chapters.length) return;
+  if (gpAudio) { gpAudio.pause(); gpAudio = null; }
+  gpCurrent = idx;
+  const ch = chapters[idx];
+  gpTitle.textContent = '📎 Capitolo ' + ch.num + ' — ' + ch.title;
+  gpPrev.disabled = (idx === 0);
+  gpNext.disabled = (idx === 11);
+  gpProgress.style.width = '0%';
+  gpCurrentTime.textContent = '0:00';
+  gpTotalTime.textContent = '...';
+  gpAudio = new Audio(ch.file);
+  gpAudio.addEventListener('loadedmetadata', () => {
+    gpTotalTime.textContent = fmtTime(gpAudio.duration);
+  });
+  gpAudio.addEventListener('timeupdate', () => {
+    if (gpAudio.duration) {
+      const pct = (gpAudio.currentTime / gpAudio.duration) * 100;
+      gpProgress.style.width = pct + '%';
+      gpCurrentTime.textContent = fmtTime(gpAudio.currentTime);
+    }
+  });
+  gpAudio.addEventListener('ended', () => {
+    if (gpCurrent < chapters.length - 1) {
+      loadChapter(gpCurrent + 1);
+      playChapter();
+      syncPlayers();
+    } else {
+      stopChapter();
+      syncPlayers();
+    }
+  });
+  gpAudio.addEventListener('error', () => {
+    stopChapter();
+    syncPlayers();
+  });
+  syncPlayers();
+}
+
+// Seek bar
+gpSeek.addEventListener('click', (e) => {
+  if (!gpAudio || !gpAudio.duration) return;
+  const rect = gpSeek.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  gpAudio.currentTime = pct * gpAudio.duration;
+});
+
+// Buttons
+gpPlayBtn.addEventListener('click', togglePlay);
+gpPrev.addEventListener('click', () => { loadChapter(gpCurrent - 1); playChapter(); });
+gpNext.addEventListener('click', () => { loadChapter(gpCurrent + 1); playChapter(); });
+gpClose.addEventListener('click', stopChapter);
+
+// Sync individual player buttons with global state
+document.querySelectorAll('.audio-player').forEach(ap => {
+  ap.addEventListener('click', function(e) {
+    // Already handled by toggleAudio via onclick
+  });
+});
+
+
+<div id="global-player">
+  <div class="gp-top">
+    <span class="gp-chapter-title" id="gp-title">📎 Capitolo 1 — Fondamenti</span>
+    <div class="gp-controls">
+      <button class="gp-btn" id="gp-prev" title="Capitolo precedente">⏮</button>
+      <button class="gp-btn gp-btn-play" id="gp-play" title="Play/Pausa">▶</button>
+      <button class="gp-btn" id="gp-next" title="Capitolo successivo">⏭</button>
+      <button class="gp-btn gp-close" id="gp-close" title="Chiudi player">✕</button>
+    </div>
+  </div>
+  <div class="gp-seek-row">
+    <span class="gp-time" id="gp-current">0:00</span>
+    <div class="gp-seek-bar" id="gp-seek">
+      <div class="gp-seek-progress" id="gp-progress" style="width:0%"></div>
+    </div>
+    <span class="gp-time" id="gp-total">0:00</span>
+  </div>
+</div>
+
 </body>
 </html>
