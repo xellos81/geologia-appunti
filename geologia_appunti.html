@@ -715,6 +715,7 @@ aside {
   </div>
 </section>
 
+
 <section id="fondamenti">
   <h2>1. Fondamenti della Geologia</h2>
 
@@ -744,6 +745,20 @@ aside {
     <li><strong>Teoria</strong> — è valida finché spiega tutte le osservazioni; può essere aggiornata o sostituita se emergono nuove evidenze</li>
   </ol>
 
+  <div class="flow-diagram">
+    <div class="flow-step">👁 Osservazione</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">⚗️ Esperimento</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">📏 Correlazione</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">🧠 Modello fisico</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">📐 Modello matematico</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">📖 Teoria</div>
+  </div>
+
   <aside> Einstein impiegò 20 anni per passare dal modello concettuale della gravitazione universale al modello matematico!</aside>
 
   <h3>Teoria di Gaia</h3>
@@ -759,10 +774,10 @@ aside {
   <p>I <strong>due punti deboli</strong> della sua teoria: (1) all'epoca non era dimostrabile il movimento dei continenti; (2) Wegener non aveva una spiegazione convincente su <em>chi</em> spostasse i continenti.</p>
   <p>La grande svolta arrivò dopo la Seconda Guerra Mondiale, con l'avvento della tecnologia (sonar, magnetometri, GPS), portando alla moderna <strong>tettonica delle placche</strong>.</p>
 
-  <div class="flashcards-wrapper" id="***">
+  <div class="flashcards-wrapper" id="fc-fondamenti">
     <h4> Flash Cards — Fondamenti</h4>
-    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="***">▶</button>
+    <button class="carousel-arrow prev" data-carousel="fc-fondamenti" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-fondamenti">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la geologia?</div><div class="card-back">Scienza che studia composizione, struttura, storia evolutiva della Terra e i processi che l'hanno plasmata.</div></div></div>
@@ -773,7 +788,7 @@ aside {
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la teoria di Gaia?</div><div class="card-back">Teoria di James Lovelock: la Terra è un sistema integrato con proprietà simili a un organismo (omeostasi, autoregolazione).</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="***"></div>
+    <div class="carousel-dots" data-carousel="fc-fondamenti"></div>
   </div>
 </section>
 
@@ -847,6 +862,26 @@ aside {
     <li><strong>Fanerozoico</strong> — 541 Ma → oggi. Vita visibile, è suddiviso in ere: <strong>Paleozoico</strong>, <strong>Mesozoico</strong>, <strong>Cenozoico</strong></li>
   </ul>
 
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-date">Adeano — 4,5 → 4,0 Ga</div>
+      <div class="tl-text">«Eone nascosto» — quasi nessuna informazione geologica</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Archeano — 4,0 → 2,5 Ga</div>
+      <div class="tl-text">Prime forme di vita: procarioti. Atmosfera priva di ossigeno.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Proterozoico — 2,5 Ga → 541 Ma</div>
+      <div class="tl-text">Vita più complessa. Comparsa dell'ossigeno atmosferico.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Fanerozoico — 541 Ma → oggi</div>
+      <div class="tl-text">Vita visibile. Paleozoico → Mesozoico → Cenozoico</div>
+    </div>
+  </div>
+
   <h3>Principio di sovrapposizione stratigrafica</h3>
   <p>Nelle rocce sedimentarie, gli strati più in basso sono più antichi di quelli in alto (i sedimenti si depositano dall'alto). Questo principio può essere contraddetto da intrusioni magmatiche (una roccia ignea intrusiva può essere più recente delle rocce che la sovrastano).</p>
 
@@ -883,6 +918,28 @@ aside {
 <!-- ========== SEZIONE 4: INTERNO TERRESTRE ========== -->
 <section id="interno-terrestre">
   <h2>4. Struttura Interna della Terra</h2>
+
+
+  <div class="mirror-compare">
+    <div class="mirror-side continentale">
+      <h5>🌍 Crosta Continentale</h5>
+      <ul>
+        <li>Spessore: ~35 km</li>
+        <li>Ricca di Si, Al, O</li>
+        <li>Rocce chiare e leggere</li>
+        <li>Graniti, quarzo, feldspati</li>
+      </ul>
+    </div>
+    <div class="mirror-side oceanica">
+      <h5>🌊 Crosta Oceanica</h5>
+      <ul>
+        <li>Spessore: 5-10 km</li>
+        <li>Ricca di Fe, Mg</li>
+        <li>Rocce scure e pesanti</li>
+        <li>Basalti, olivina, pirosseni</li>
+      </ul>
+    </div>
+  </div>
 
   <p>L'interno del pianeta si classifica secondo <strong>due criteri</strong>: composizione chimica e comportamento reologico.</p>
 
@@ -950,18 +1007,33 @@ aside {
 
   <h3>Tipi di margini di placca</h3>
   <ul>
-    <li><strong>Margini divergenti (costruttivi):</strong> le placche si allontanano. Si forma nuova crosta oceanica. Esempi: dorsali medio-oceaniche, Rift Valley africana, Islanda. Associati a <strong>faglie dirette 
+    <li><strong>Margini divergenti (costruttivi):</strong> le placche si allontanano. Si forma nuova crosta oceanica. Esempi: dorsali medio-oceaniche, Rift Valley africana, Islanda. Associati a <strong>faglie dirette (normali)</strong> e sforzo estensionale.</li>
+    <li><strong>Margini convergenti (distruttivi):</strong> le placche si scontrano. Subduzione della placca più densa. Si formano catene montuose (orogenesi). Esempi: Ande, Himalaya, Appennini. Associati a <strong>faglie inverse</strong> e sforzo compressivo.</li>
+    <li><strong>Margini trasformi (conservativi):</strong> le placche scorrono orizzontalmente l'una accanto all'altra. Esempio: Faglia di Sant'Andrea (California). Associati a <strong>faglie trascorrenti (strike-slip)</strong>.</li>
+  </ul>
 
-... [OUTPUT TRUNCATED - 13736 chars omitted out of 63736 total] ...
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Tectonic_plate_boundaries.png/800px-Tectonic_plate_boundaries.png" alt="Margini di placca" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Tipi di margini di placca: divergenti (a sinistra), convergenti (centro), trasformi (destra).</p>
+  </div>
 
-ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e silice (SiO₂ >65%). Chiara, leggera. Es. granito (intrusivo), riolite (effusiva).</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa significa "mafico"?</div><div class="card-back">Roccia ricca di Mg e Fe (magnesio + ferro). Scura, pesante. Es. basalto (effusivo), gabbro (intrusivo).</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si forma il magma nei margini divergenti?</div><div class="card-back">Per decompressione: l'assottigliamento litosferico riduce la pressione → il materiale caldo fonde.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si forma il magma nelle zone di subduzione?</div><div class="card-back">L'acqua trascinata in profondità abbassa il punto di fusione del mantello → fusione → vulcani (es. Ande).</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è la serie di Bowen?</div><div class="card-back">Ordine di cristallizzazione: olivina per prima (alta T), quarzo per ultimo (bassa T). L'olivina è l'ultima a fondere.</div></div></div>
+  <h3>Il motore: la litosfera sull'astenosfera</h3>
+  <p>La litosfera (rigida, fredda, leggera) «galleggia» sull'astenosfera (calda, plastica, più densa). È come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia per il movimento delle placche.</p>
+
+  <div class="flashcards-wrapper" id="fc-placche">
+    <h4> Flash Cards — Tettonica delle Placche</h4>
+    <button class="carousel-arrow prev" data-carousel="fc-placche" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-placche">▶</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini divergenti: cosa sono?</div><div class="card-back">Le placche si allontanano. Sforzo estensionale. Si forma nuova crosta oceanica. Faglie dirette.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini convergenti: cosa producono?</div><div class="card-back">Le placche si scontrano. Subduzione. Si formano catene montuose. Faglie inverse. Sforzo compressivo.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Margini trasformi: esempio famoso?</div><div class="card-back">Faglia di Sant'Andrea in California. Le placche scorrono orizzontalmente (faglie strike-slip).</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Perché la litosfera si muove?</div><div class="card-back">Galleggia sull'astenosfera plastica. I moti convettivi del mantello forniscono l'energia.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa dimostra il movimento delle placche oggi?</div><div class="card-back">Il GPS: i continenti si spostano di 4-5 cm/anno, misurabile in tempo reale.</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="fc-ignee"></div>
+    <div class="carousel-dots" data-carousel="fc-placche"></div>
   </div>
 </section>
 
@@ -1048,7 +1120,23 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
 
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mineraly.sk_-_kremen.jpg/800px-Mineraly.sk_-_kremen.jpg" alt="Cristallo di quarzo" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Cristallo di quarzo (SiO₂) — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
+    <p class="caption">Cristallo di quarzo (SiO₂)
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/OrthoclaseBresil.jpg" alt="Feldspato ortoclasio" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Ortoclasio (K-feldspato) — caratteristico colore rosa. Tipico della crosta continentale.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Peridot_olivine_on_basalt.jpg" alt="Olivina su basalto" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Olivina (peridoto) su matrice basaltica. Verde scuro, ricchissima di Fe e Mg. Minerale del mantello.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Augite_%28USA%29.jpg" alt="Pirosseno augite" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Augite (pirosseno) — scuro, ricco di Fe e Mg. Tipico della crosta oceanica.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Albite_twinning.JPG" alt="Plagioclasio" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Plagioclasio con geminazione polisintetica visibile. Colore bianco latte.</p>
+  </div> — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
   </div>
 
   <div class="flashcards-wrapper" id="fc-minerali">
@@ -1073,6 +1161,23 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
 <!-- ========== SEZIONE 7: ROCCE IGNEE ========== -->
 <section id="rocce-ignee">
   <h2>7. Rocce Ignee (Magmatiche)</h2>
+
+  <div class="branch">
+    <div class="branch-root">Rocce Ignee</div>
+    <div class="branch-connector"></div>
+    <div class="branch-row">
+      <div class="branch-leaf"><strong>Intrusive (plutoniche)</strong>Raffreddamento lento, cristalli grandi. Granito, diorite, gabbro.</div>
+      <div class="branch-leaf"><strong>Effusive (vulcaniche)</strong>Raffreddamento rapido, cristalli piccoli. Basalto, riolite, pomice.</div>
+    </div>
+    <div class="branch-connector" style="margin-top:12px"></div>
+    <div class="branch-row">
+      <div class="branch-leaf"><strong>Felsiche</strong>Ricche Si (>65%). Chiare, leggere. Quarzo, feldspati.</div>
+      <div class="branch-leaf"><strong>Intermedie</strong>Contenuto medio Si. Andesite, diorite.</div>
+      <div class="branch-leaf"><strong>Mafiche</strong>Povere Si, ricche Fe/Mg. Scure, pesanti. Basalto, gabbro.</div>
+      <div class="branch-leaf"><strong>Ultramafiche</strong>Massimo Fe/Mg. Peridotite (mantello).</div>
+    </div>
+  </div>
+
 
   <p>Le <strong>rocce ignee</strong> (o magmatiche) derivano dal <strong>raffreddamento e consolidamento del magma</strong>. La classificazione si basa su due criteri principali.</p>
 
@@ -1103,7 +1208,19 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <li><strong>Aumento di temperatura:</strong> risalita di materiale caldo dal mantello profondo (plume, hot spot).</li>
   </ol>
 
-  <aside> La serie di Bowen spiega l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
+  <aside> La serie di Bowen spiega
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Bowen%27s_reaction_series_diagram.png" alt="Serie di Bowen" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Serie di reazione di Bowen: ordine di cristallizzazione dei minerali dal magma.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Basalt_%28GeoDIL_number_-_140%29.jpg" alt="Basalto" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Basalto: roccia effusiva mafica, scura e pesante. Tipica della crosta oceanica.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pumice_%28a_type_of_extrusive_volcanic_rock%29.jpg" alt="Pomice" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Pomice: vetro vulcanico ricco di bolle di gas. Galleggia in acqua.</p>
+  </div> l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
 
   <div class="flashcards-wrapper" id="fc-ignee">
     <h4> Flash Cards — Rocce Ignee</h4>
@@ -1122,6 +1239,7 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <div class="carousel-dots" data-carousel="fc-ignee"></div>
   </div>
 </section>
+
 <!-- ========== SEZIONE 8: ROCCE SEDIMENTARIE ========== -->
 <section id="rocce-sedimentarie">
   <h2>8. Rocce Sedimentarie</h2>
@@ -1139,6 +1257,16 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <li><strong>Siltite:</strong> clasti 0,0625–0,004 mm.</li>
     <li><strong>Argillite:</strong> clasti <0,004 mm. Liscia, compatta, grani NON visibili.</li>
   </ul>
+
+  
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Conglomerate_Rock.jpg" alt="Conglomerato" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Conglomerato: clasti arrotondati >2 mm. Trasporto prolungato.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Breccia.jpg" alt="Breccia" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Breccia: clasti spigolosi >2 mm. Trasporto breve.</p>
+  </div>
 
   <h4>2. Rocce Particellari Allochimiche</h4>
   <p>Formate dall'accumulo di <strong>particelle biogeniche</strong> (gusci di plancton, coralli, conchiglie) che precipitano sul fondale oceanico. I gusci sono calcarei (CaCO₃) o silicei (SiO₂). Il plancton è piccolissimo ma abbondantissimo e si accumula per decine di milioni di anni. Esempio: <strong>calcari</strong> appenninici.</p>
@@ -1164,10 +1292,10 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <p class="caption">Arenaria: roccia sedimentaria epiclastica con grani visibili (sensazione ruvida).</p>
   </div>
 
-  <div class="flashcards-wrapper" id="***">
+  <div class="flashcards-wrapper" id="fc-sedimentarie">
     <h4> Flash Cards — Rocce Sedimentarie</h4>
-    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="***">▶</button>
+    <button class="carousel-arrow prev" data-carousel="fc-sedimentarie" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-sedimentarie">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce sedimentarie?</div><div class="card-back">Sedimenti litificati: materiali trasportati da acqua/vento/ghiaccio e accumulati, poi trasformati in roccia. O precipitati chimicamente.</div></div></div>
@@ -1178,7 +1306,7 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cos'è una formazione in geologia?</div><div class="card-back">Unità litostratigrafica cartografabile, con un tipo di roccia specifico e una sua età (inizio e fine).</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="***"></div>
+    <div class="carousel-dots" data-carousel="fc-sedimentarie"></div>
   </div>
 </section>
 
@@ -1204,6 +1332,20 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <li><strong>Filladi:</strong> grana fine, lucentezza sericea.</li>
   </ul>
 
+  
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gneiss_1_%2816310656713%29.jpg" alt="Gneiss" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Gneiss: roccia metamorfica a bande alternate chiare e scure.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Slate_Macro_1.JPG" alt="Ardesia" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Ardesia: roccia metamorfica a grana fine, si sfalda in lamine piatte.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Muscovite_schist_%2816735125458%29.jpg" alt="Scisto" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Scisto a muscovite: roccia metamorfica foliata con lucentezza sericea.</p>
+  </div>
+
   <h3>Tipi di metamorfismo</h3>
   <ul>
     <li><strong>Regionale:</strong> grandi aree sottoposte a pressioni e temperature elevate (orogenesi). Es: Alpi, Appennini.</li>
@@ -1215,10 +1357,10 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <p class="caption">Cava di marmo a Carrara: roccia metamorfica da calcare sedimentario, usata per scultura ed edilizia.</p>
   </div>
 
-  <div class="flashcards-wrapper" id="***">
+  <div class="flashcards-wrapper" id="fc-metamorfiche">
     <h4> Flash Cards — Rocce Metamorfiche</h4>
-    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="***">▶</button>
+    <button class="carousel-arrow prev" data-carousel="fc-metamorfiche" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-metamorfiche">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Cosa sono le rocce metamorfiche?</div><div class="card-back">Rocce trasformate da T e P elevate, senza fusione completa. Con foliazione, scistosità, ricristallizzazione.</div></div></div>
@@ -1228,13 +1370,44 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Metamorfismo regionale vs di contatto?</div><div class="card-back">Regionale: grandi aree in orogenesi. Di contatto: locale, intorno a intrusioni magmatiche (aureola).</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="***"></div>
+    <div class="carousel-dots" data-carousel="fc-metamorfiche"></div>
   </div>
 </section>
 
 <!-- ========== SEZIONE 10: DEFORMAZIONE ========== -->
 <section id="deformazione">
   <h2>10. Deformazione delle Rocce: Faglie</h2>
+
+  <div class="fault-diagram">
+    <div class="fault-card">
+      <h5>Faglia Diretta (Normale)</h5>
+      <div class="fault-arrow-block">
+        <div class="fault-block">Tetto ▼ scende</div>
+        <div class="fault-move">↕️</div>
+        <div class="fault-block">Letto ▲</div>
+      </div>
+      <p style="font-size:0.8rem;color:#a09078">Sforzo estensionale. Margini divergenti.</p>
+    </div>
+    <div class="fault-card">
+      <h5>Faglia Inversa</h5>
+      <div class="fault-arrow-block">
+        <div class="fault-block">Tetto ▲ sale</div>
+        <div class="fault-move">↕️</div>
+        <div class="fault-block">Letto ▼</div>
+      </div>
+      <p style="font-size:0.8rem;color:#a09078">Sforzo compressivo. Margini convergenti.</p>
+    </div>
+    <div class="fault-card">
+      <h5>Faglia Trascorrente</h5>
+      <div class="fault-arrow-block">
+        <div class="fault-block">← →</div>
+        <div class="fault-move">↔️</div>
+        <div class="fault-block">→ ←</div>
+      </div>
+      <p style="font-size:0.8rem;color:#a09078">Movimento orizzontale. Margini trasformi.</p>
+    </div>
+  </div>
+
 
   <p>Quando la litosfera è sottoposta a <strong>sforzo</strong> (ai margini delle placche), le rocce si deformano. La risposta deformativa dipende dalla <strong>profondità</strong> (quindi dalla temperatura).</p>
 
@@ -1260,6 +1433,12 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
 
   <h4>Classificazione delle faglie</h4>
 
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Normal_fault_diagram.gif" alt="Diagramma faglia normale" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Diagramma animato di faglia normale (diretta).</p>
+  </div>
+
   <p><strong>Faglie Dip-Slip</strong> (movimento lungo il dip/immersione):</p>
   <ul>
     <li><strong>Faglia Diretta (Normale):</strong> il tetto SCENDE rispetto al letto. Risposta a <strong>sforzo estensionale</strong>. Effetti: allungamento orizzontale + assottigliamento verticale. Associata a <strong>margini divergenti</strong> — forma bacini e oceani.</li>
@@ -1280,10 +1459,10 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <p class="caption">Tipi di faglie: normale/diretta (a sinistra), inversa (centro), trascorrente/strike-slip (destra).</p>
   </div>
 
-  <div class="flashcards-wrapper" id="***">
+  <div class="flashcards-wrapper" id="fc-deformazione">
     <h4> Flash Cards — Deformazione e Faglie</h4>
-    <button class="carousel-arrow prev" data-carousel="***" disabled>◀</button>
-    <button class="carousel-arrow next" data-carousel="***">▶</button>
+    <button class="carousel-arrow prev" data-carousel="fc-deformazione" disabled>◀</button>
+    <button class="carousel-arrow next" data-carousel="fc-deformazione">▶</button>
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Deformazione fragile vs duttile?</div><div class="card-back">Fragile: superficiale (<15 km), rottura, faglie. Duttile: profondo (>15 km), deformazione plastica senza rottura, come il pongo.</div></div></div>
@@ -1295,7 +1474,7 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Faglie strike-slip: cosa sono?</div><div class="card-back">Faglie con movimento orizzontale lungo la direzione. Tipiche dei margini trasformi. Es. Faglia di Sant'Andrea.</div></div></div>
       </div>
     </div>
-    <div class="carousel-dots" data-carousel="***"></div>
+    <div class="carousel-dots" data-carousel="fc-deformazione"></div>
   </div>
 </section>
 
@@ -1304,7 +1483,11 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
   <h2>11. Vulcani e Terremoti</h2>
 
   <h3>Vulcani</h3>
-  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
+  <p>I vulcani sono manifestazioni superficiali della <strong>risalita di magma</strong>. La loro distribuzione non è casuale<div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Stratovolcano_cross-section.svg" alt="Schema stratovulcano" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Sezione di stratovulcano con camera magmatica, condotto e crateri.</p>
+  </div>
+  <p>La loro distribuzione non è casuale ma segue i <strong>margini delle placche</strong>:</p>
   <ul>
     <li><strong>Margini divergenti:</strong> vulcanismo effusivo basaltico (es. Islanda sulla dorsale medio-atlantica). Magma per decompressione. Lave fluide.</li>
     <li><strong>Margini convergenti:</strong> vulcanismo esplosivo andesitico (es. Ande, Giappone). Magma per idratazione (acqua dalla placca in subduzione). Lave viscose → eruzioni esplosive.</li>
@@ -1313,7 +1496,11 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
 
   <h3>Prodotti vulcanici</h3>
   <ul>
-    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
+    <li><strong>Lave:</strong> basaltiche (fluide, scure), andesitiche, riolitiche (viscose, chiare). <strong>Pillow lavas
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Pillow_lava.jpg" alt="Pillow lava" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Pillow lavas (lave a cuscino): si formano quando la lava erutta sott'acqua.</p>
+  </div> (lave a cuscino):</strong> si formano quando la lava erutta sott'acqua.</li>
     <li><strong>Piroclastiti:</strong> materiale frammentario espulso (ceneri, lapilli, bombe).</li>
     <li><strong>Pomice:</strong> vetro vulcanico ricco di bolle di gas, leggerissima.</li>
     <li><strong>Scorie:</strong> simili alla pomice ma più scure e pesanti, ricche di Fe/Mg.</li>
@@ -1366,12 +1553,19 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
 <section id="esame">
   <h2>12. Guida all'Esame</h2>
 
-  <h3>Formato</h3>
-  <ul>
-    <li>Tipo: <strong>orale</strong></li>
-    <li>Data: <strong>28 maggio 2026, ore 12:00</strong></li>
-    <li>Docente: Prof. Emanuele Tondi — Ordinario di Geologia Strutturale, Prorettore UNICAM</li>
-  </ul>
+  <div class="metodo-tondi">
+    <h3>Il Metodo Tondi: come sostenere l'orale</h3>
+    <p style="margin-bottom:16px;font-size:0.9rem;color:#c4b8a5">Il Prof. Tondi è un geologo strutturale. Non vuole il nome della roccia — vuole il <strong>ragionamento geologico</strong>. Segui questi 6 passi, in ordine.</p>
+    <ol>
+      <li><strong>Osservazione</strong> — Colore, peso (a parità di dimensioni), cristalli visibili, struttura, eventuale foliazione, presenza di clasti. Descrivi ciò che vedi senza interpretare.</li>
+      <li><strong>Deduzione sui minerali</strong> — Chiaro e leggero → ricco di Si (crosta continentale). Scuro e pesante → ricco di Fe e Mg (crosta oceanica).</li>
+      <li><strong>Classificazione macro-gruppo</strong> — Ignea? Sedimentaria? Metamorfica? Decidi in base a tessitura e struttura.</li>
+      <li><strong>Sotto-classificazione</strong> — Intrusiva vs effusiva. Epiclastica vs allochimica vs cristallina. Foliata vs non foliata.</li>
+      <li><strong>Processo genetico</strong> — Come si è formata questa roccia? In quale contesto geodinamico? Margine divergente, convergente, trasforme?</li>
+      <li><strong>Nome della roccia</strong> — Solo alla fine. Se non sai il nome esatto non è un errore grave, se il ragionamento è corretto.</li>
+    </ol>
+    <aside style="margin-top:20px;border-left-color:var(--gold-light);background:rgba(212,168,83,0.08)">⚠️ NON sparare subito il nome della roccia. Il nome è l'ultima cosa. L'esame valuta il percorso, non la risposta secca.</aside>
+  </div>
 
   <h3>Svolgimento tipico</h3>
   <ol>
@@ -1379,17 +1573,6 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <li>15-20 minuti per osservare e descrivere i campioni</li>
     <li>Il candidato prende appunti scritti (può anche non scrivere nulla)</li>
     <li>L'orale parte dalla descrizione del campione</li>
-  </ol>
-
-  <h3>Cosa fare durante l'esame</h3>
-  <p><strong>NON sparare subito il nome della roccia.</strong> Il nome è l'<em>ultima</em> cosa da dare. L'esame valuta il <strong>ragionamento geologico</strong>:</p>
-  <ol>
-    <li><strong>Osservazione:</strong> colore, peso (a parità di dimensioni), presenza di cristalli visibili, struttura, eventuale foliazione, clasti</li>
-    <li><strong>Deduzione sui minerali:</strong> chiaro/leggero → ricco Si (cro-continentale); scuro/pesante → ricco Fe/Mg (cro-oceanica)</li>
-    <li><strong>Classificazione macro-gruppo:</strong> ignea? sedimentaria? metamorfica?</li>
-    <li><strong>Sotto-classificazione:</strong> intrusiva vs effusiva; epiclastica vs allochimica vs cristallina; foliata vs non foliata</li>
-    <li><strong>Processo genetico:</strong> come si è formata? In che contesto geodinamico?</li>
-    <li>Solo alla fine: dare il <strong>nome</strong> della roccia (se non si sa il nome esatto non è un errore grave, se il ragionamento è corretto)</li>
   </ol>
 
   <h3>Parametri principali di riconoscimento</h3>
@@ -1402,7 +1585,7 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <li><strong>Peso:</strong> la pomice galleggia in acqua (piena di bolle di gas)</li>
   </ul>
 
-  <aside> Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
+  <aside>Il prof. Tondi è un geologo strutturale: darà enfasi alla tettonica delle placche, alla deformazione delle rocce e alla classificazione delle faglie. Queste sono le domande chiave.</aside>
 
   <h3>Argomenti chiave per l'orale</h3>
   <ul>
@@ -1423,7 +1606,7 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
     <div class="carousel-container">
       <div class="carousel-track">
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come si svolge l'esame di Tondi?</div><div class="card-back">Orale. 2 campioni di roccia, 15-20 min per descriverli. Si parte dalla descrizione per arrivare alla classificazione. Il nome della roccia è l'ultima cosa da dare.</div></div></div>
-        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione (colore, peso, cristalli) → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
+        <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Ordine del ragionamento sui campioni?</div><div class="card-back">1) Osservazione → 2) Minerali → 3) Macro-gruppo → 4) Sotto-classificazione → 5) Processo genetico → 6) Nome.</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Come distinguere roccia continentale da oceanica?</div><div class="card-back">Chiara e leggera = continentale (Si, Al). Scura e pesante = oceanica (Fe, Mg).</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Riconoscimento rocce sedimentarie?</div><div class="card-back">Clasti visibili (arenaria: ruvida). Se liscia e compatta: calcare o argillite. Se reagisce con HCl: calcite.</div></div></div>
         <div class="flashcard"><div class="flashcard-inner"><div class="card-front">Argomenti più importanti per Tondi?</div><div class="card-back">Tettonica placche, faglie (classificazione), deformazione fragile vs duttile. È un geologo strutturale: enfasi su queste cose.</div></div></div>
@@ -1435,6 +1618,8 @@ ignifica "felsico"?</div><div class="card-back">Roccia ricca di feldspati e sili
 </section>
 
 </main>
+
+
 
 
 
