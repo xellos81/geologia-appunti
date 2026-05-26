@@ -599,63 +599,36 @@ aside {
   .indice-card .ic-label { font-size: 0.8rem; }
 }
 
+.fake-player{display:flex;align-items:center;gap:10px;background:rgba(30,215,96,0.07);border:1px solid rgba(30,215,96,0.18);border-radius:14px;padding:8px 12px;margin:0 0 12px 0;max-width:380px;cursor:pointer;transition:background 0.2s}
+.fake-player:hover{background:rgba(30,215,96,0.14)}
+.fake-player.active{background:rgba(30,215,96,0.16);border-color:rgba(30,215,96,0.4)}
+.fp-play{width:32px;height:32px;border-radius:50%;border:none;background:#1ed760;color:#1a1410;font-size:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.fp-waveform{display:flex;align-items:center;gap:2px;height:24px;flex:1}
+.fp-bar{width:2px;background:#1ed760;border-radius:1px;opacity:0.4}
+.fake-player.active .fp-bar{opacity:0.8;animation:fp-wave 0.7s ease-in-out infinite}
+.fake-player.active .fp-bar:nth-child(2n){animation-delay:0.1s}
+.fake-player.active .fp-bar:nth-child(3n){animation-delay:0.2s}
+.fake-player.active .fp-bar:nth-child(5n){animation-delay:0.3s}
+@keyframes fp-wave{0%,100%{height:4px}50%{height:16px}}
+.fp-dur{font-size:0.72rem;color:#a09078;flex-shrink:0}
+#sticky-player{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1410;border-top:2px solid #d4a853;padding:10px 14px;display:none;flex-direction:column;gap:6px;box-shadow:0 -4px 20px rgba(0,0,0,0.5);padding-bottom:max(10px,env(safe-area-inset-bottom))}
+#sticky-player.on{display:flex}
+.sp-top{display:flex;align-items:center;gap:8px}
+.sp-title{font-size:0.78rem;color:#c4b8a5;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sp-ctrl{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.sp-btn{background:none;border:none;color:#e8cd8a;font-size:1.1rem;cursor:pointer;padding:2px 4px;border-radius:4px}
+.sp-btn:hover{color:#fff;background:rgba(212,168,83,0.1)}
+.sp-btn:disabled{opacity:0.25;cursor:default}
+.sp-btn-play{font-size:1.3rem}
+.sp-close{color:#a09078;font-size:0.9rem}
+.sp-seek-row{display:flex;align-items:center;gap:6px}
+.sp-time{font-size:0.65rem;color:#a09078;min-width:30px;text-align:center}
+.sp-seek{flex:1;height:4px;background:rgba(212,168,83,0.12);border-radius:2px;cursor:pointer}
+.sp-seek-fill{height:100%;background:#d4a853;border-radius:2px;width:0%}
+.riassunto-box{background:rgba(212,168,83,0.03);border:1px solid rgba(212,168,83,0.08);border-radius:16px;padding:20px 24px;margin:32px 0 20px 0}
+.riassunto-box h4{color:#d4a853;font-size:1rem;margin:0 0 14px 0}
+.riassunto-box p{font-size:0.92rem;line-height:1.72;color:#c4b8a5;margin-bottom:10px}
 
-/* === FAKE PLAYER === */
-.fake-player {
-  display: flex; align-items: center; gap: 10px;
-  background: rgba(30,215,96,0.07);
-  border: 1px solid rgba(30,215,96,0.18);
-  border-radius: 14px; padding: 8px 12px;
-  margin: 0 0 12px 0; max-width: 380px;
-  cursor: pointer; transition: background 0.2s;
-}
-.fake-player:hover { background: rgba(30,215,96,0.14); }
-.fake-player.active { background: rgba(30,215,96,0.16); border-color: rgba(30,215,96,0.4); }
-.fp-play {
-  width: 32px; height: 32px; border-radius: 50%; border: none;
-  background: #1ed760; color: #1a1410; font-size: 14px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.fp-waveform {
-  display: flex; align-items: center; gap: 2px; height: 24px; flex: 1;
-}
-.fp-bar {
-  width: 2px; background: #1ed760; border-radius: 1px; opacity: 0.4;
-}
-.fake-player.active .fp-bar { opacity: 0.8; animation: fp-wave 0.7s ease-in-out infinite; }
-.fake-player.active .fp-bar:nth-child(2n) { animation-delay: 0.1s; }
-.fake-player.active .fp-bar:nth-child(3n) { animation-delay: 0.2s; }
-.fake-player.active .fp-bar:nth-child(5n) { animation-delay: 0.3s; }
-@keyframes fp-wave { 0%,100% { height: 4px; } 50% { height: 16px; } }
-.fp-dur { font-size: 0.72rem; color: #a09078; flex-shrink: 0; }
-
-/* === STICKY FOOTER === */
-#sticky-player {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
-  background: #1a1410; border-top: 2px solid #d4a853;
-  padding: 10px 14px; display: none; flex-direction: column; gap: 6px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
-  padding-bottom: max(10px, env(safe-area-inset-bottom));
-}
-#sticky-player.on { display: flex; }
-.sp-top { display: flex; align-items: center; gap: 8px; }
-.sp-title {
-  font-size: 0.78rem; color: #c4b8a5; flex: 1;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
-}
-.sp-ctrl { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.sp-btn {
-  background: none; border: none; color: #e8cd8a; font-size: 1.1rem;
-  cursor: pointer; padding: 2px 4px; border-radius: 4px;
-}
-.sp-btn:hover { color: #fff; background: rgba(212,168,83,0.1); }
-.sp-btn:disabled { opacity: 0.25; cursor: default; }
-.sp-btn-play { font-size: 1.3rem; }
-.sp-close { color: #a09078; font-size: 0.9rem; }
-.sp-seek-row { display: flex; align-items: center; gap: 6px; }
-.sp-time { font-size: 0.65rem; color: #a09078; min-width: 30px; text-align: center; }
-.sp-seek { flex: 1; height: 4px; background: rgba(212,168,83,0.12); border-radius: 2px; cursor: pointer; }
-.sp-seek-fill { height: 100%; background: #d4a853; border-radius: 2px; width: 0%; }
 </style>
 </head>
 <body>
@@ -870,22 +843,12 @@ aside {
     <p class="caption">Diagramma del ciclo litogenetico (NPS): processi che collegano rocce ignee, sedimentarie e metamorfiche.</p>
   </div>
 
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="1" data-audio="audio/riassunto_s01.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:18px"></span></div>
-  <span class="fp-dur">1:16</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Guida all'Esame: il Metodo Tondi, parametri di riconoscimento e argomenti chiave</p>
-<p>Questa è la sezione che interessa più da vicino ogni studente: come si affronta l'esame orale del Prof. Tondi. Il professore è un geologo strutturale e non cerca risposte da quiz. Non vuole sentirti sparare il nome della roccia appena la vedi: vuole il ragionamento geologico. Il nome è l'ultima cosa da dire, e se lo sbagli ma il percorso logico è corretto, non è un errore grave. L'esame valuta il percorso, non la risposta secca.</p>
-<p>Il Metodo Tondi si articola in sei passi, da seguire rigorosamente in ordine. Passo 1 — Osservazione: descrivi colore, peso (a parità di dimensioni), cristalli visibili, struttura, eventuale foliazione e presenza di clasti. Descrivi ciò che vedi, senza ancora interpretare. Passo 2 — Deduzione sui minerali: chiaro e leggero indica ricchezza di silicio (crosta continentale); scuro e pesante indica ricchezza di ferro e magnesio (crosta oceanica). Passo 3 — Classificazione nel macro-gruppo: stabilisci se la roccia è ignea, sedimentaria o metamorfica, basandoti su tessitura e struttura. Passo 4 — Sotto-classificazione: intrusiva o effusiva? Epiclastica, allochimica o cristallina? Foliata o non foliata? Passo 5 — Processo genetico: spiega come si è formata questa roccia e in quale contesto geodinamico (margine divergente, convergente, trasforme?). Passo 6 — Nome della roccia: solo alla fine e con sicurezza. Se non ricordi il nome esatto, ma hai costruito un ragionamento solido, sei comunque in buona posizione.</p>
-<p>Lo svolgimento tipico dell'esame è semplice: ricevi due campioni di rocce (già visti durante le esercitazioni), hai 15–20 minuti per osservarli e prendere appunti, poi l'orale parte proprio dalla descrizione dei campioni.</p>
-<p>I parametri di riconoscimento da padroneggiare sono otto. La tessitura: grana grossa indica origine intrusiva, grana fine o assente indica origine effusiva, la presenza di clasti indica roccia sedimentaria, la foliazione indica roccia metamorfica. Il colore e il peso: a parità di dimensioni, più la roccia è scura e pesante, più è ricca di ferro e magnesio. La lucentezza: alcuni minerali come le miche riflettono la luce in modo caratteristico. La sfaldatura: nelle miche la struttura lamellare è visibile a occhio nudo — si sfogliano in lamine sottili. La durezza: il quarzo riga il vetro, la calcite no. Riferimenti pratici: unghia = 2, vetro ≈ 5, martello ≈ 5-6. La reazione all'HCl: la calcite effervesce a freddo, la dolomite no. La rugosità: ruvida come carta vetro indica arenaria; liscia e compatta indica argillite o calcare. Il peso specifico: la pomice, piena di bolle di gas, galleggia in acqua.</p>
-<p>Tondi apprezza i collegamenti interdisciplinari: le proprietà fisiche delle rocce e il loro uso nei Beni Culturali, la coerenza geologica dei materiali lapidei nei centri storici. Per le rocce metamorfiche, chiede sempre qual era il protolite, cioè la roccia di partenza. Gli argomenti su cui insiste di più sono la tettonica delle placche, la classificazione delle faglie, la deformazione fragile contro duttile e il ruolo di temperatura e pressione. Preparati bene su questi pilastri e avrai fatto il grosso del lavoro. Non è un quiz: è una conversazione scientifica.</p>
-</div>
+  <div class="image-container">
+    <img src="img/Rock_Cycle_(32594947852).jpg" alt="Schema dettagliato del ciclo delle rocce (USGS): tutti i percorsi di trasformazione." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Schema dettagliato del ciclo delle rocce (USGS): tutti i percorsi di trasformazione.</p>
+  </div>
 
-<div class="flashcards-wrapper" id="fc-fondamenti">
+  <div class="flashcards-wrapper" id="fc-fondamenti">
     <h4> Flash Cards — Fondamenti</h4>
     <button class="carousel-arrow prev" data-carousel="fc-fondamenti" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-fondamenti">▶</button>
@@ -901,6 +864,20 @@ aside {
     </div>
     <div class="carousel-dots" data-carousel="fc-fondamenti"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="1" data-audio="audio/riassunto_s01.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:4px"></span></div>
+  <span class="fp-dur">4:07</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>In questo capitolo affronterai i fondamenti della geologia, a partire dalla definizione: scienza che studia composizione, struttura e storia evolutiva degli strati interni ed esterni della Terra, e i processi che l'hanno plasmata. La geologia non descrive soltanto: spiega il perché e il processo genetico dietro ogni osservazione. Il termine fu usato per la prima volta da Ulisse Aldrovandi nel 1603, ma il padre della geologia moderna è James Hutton con la sua Teoria della Terra. Hutton introdusse il plutonismo, le rocce si formano per consolidamento del magma, da Plutone, opponendosi al nettunismo che attribuiva origine divina alla formazione delle rocce.</p>
+  <p>Il principio cardine è l'attualismo o uniformitarismo: i processi geologici che osserviamo oggi — erosione, sedimentazione, terremoti, vulcanismo — sono gli stessi che hanno operato nel passato. Il presente è la chiave del passato: possiamo usare le velocità attuali per ricostruire la storia geologica. L'attualismo si oppone al catastrofismo e al creazionismo. Questo principio generò un acceso dibattito sull'età della Terra: la Chiesa sosteneva circa seimila anni, insufficienti per qualsiasi processo geologico; i fisici, guidati da Lord Kelvin, stimavano un'età basata sul raffreddamento per conduzione, superiore ai seimila anni ma ancora troppo bassa; i geologi, con l'attualismo, deducevano un'età enormemente maggiore. La diatriba si risolse con la scoperta della radioattività, fonte di calore interna che Kelvin non poteva conoscere.</p>
+  <p>Il metodo scientifico galileiano o induttivo si articola in sei step: Osservazione del fenomeno, Esperimento dove si perturba il sistema per riprodurre l'osservazione, Correlazione delle misure dove si quantificano pressione, umidità, temperatura, Modello fisico concettuale dove si capisce il meccanismo, Modello matematico, la formula che riproduce il fenomeno — senza questa la teoria non è accettata —, Teoria, valida finché spiega tutte le osservazioni ma sempre aggiornabile. Il metodo richiede oggettività, affidabilità, verificabilità, con esperimenti ripetibili: eseguito a Camerino o in Giappone, deve produrre lo stesso risultato. La linea storica: Aristotele, Tommaso d'Aquino, Leonardo da Vinci, Kant, Galileo Galilei, Einstein, che impiegò venti anni per passare dal modello concettuale della gravitazione universale al modello matematico.</p>
+  <p>Un esempio applicativo: il travertino, carbonato di calcio, materiale lapideo usato in architettura, sviluppa una patina scura per ossidazione. L'alterazione dipende da tre fattori interagenti: minerale per ossidazione naturale, animale per inquinamento antropico, vegetale per muschi e licheni. È l'interazione tra le tre componenti del sistema Gaia applicata ai Beni Culturali. La Teoria di Gaia, proposta da James Lovelock, considera la Terra come un unico sistema integrato in cui le tre componenti interagiscono, mostrando omeostasi, autoregolazione e retroazione. Infine, la Teoria della Deriva dei Continenti di Alfred Wegener raccolse tre evidenze: similitudine delle linee di costa, stessi fossili su continenti oggi separati, evidenze mineralogiche e composizionali. Due punti deboli: non era dimostrabile il movimento dei continenti, e Wegener non spiegava chi li spostasse. La svolta arrivò dopo la Seconda Guerra Mondiale con sonar, magnetometri e GPS, portando alla moderna tettonica delle placche.</p>
+  <p>Ricorda: primo, l'attualismo è il principio fondante: i processi di oggi spiegano il passato geologico. Secondo, senza modello matematico la teoria non è accettata. Terzo, Wegener aveva ragione sui fatti ma mancava il meccanismo; la tettonica delle placche lo ha fornito.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 2: SISTEMA SOLARE ========== -->
@@ -918,8 +895,55 @@ aside {
     <li>Lasciò gli <strong>elementi pesanti</strong> vicino al Sole → pianeti rocciosi terrestri (Mercurio, Venere, Terra, Marte)</li>
   </ul>
 
-  <h3>Dati fisici della Terra</h3>
-  
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Solar_system_scale.jpg/800px-Solar_system_scale.jpg" alt="Pianeti del Sistema Solare in scala" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Pianeti del Sistema Solare in scala dimensionale (  <div class="image-container">
+    <img src="img/Protoplanetary-disk.jpg" alt="Rappresentazione artistica di un disco protoplanetario: gas e polveri in rotazione attorno a una stella neonata." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Rappresentazione artistica di un disco protoplanetario: gas e polveri in rotazione attorno a una stella neonata.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Terrestrial_planet_size_comparisons_1.jpg" alt="Confronto delle dimensioni relative dei pianeti terrestri: Mercurio, Venere, Terra e Marte." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Confronto delle dimensioni relative dei pianeti terrestri: Mercurio, Venere, Terra e Marte.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/The_Earth_seen_from_Apollo_17.jpg" alt="La celebre fotografia «Blue Marble» della Terra vista dall'Apollo 17 (7 dicembre 1972)." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">La celebre fotografia «Blue Marble» della Terra vista dall'Apollo 17 (7 dicembre 1972).</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Atmosphere_layers-en.svg" alt="Diagramma dei cinque strati principali dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Diagramma dei cinque strati principali dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Magnetosphere_rendition.jpg" alt="Rappresentazione artistica della magnetosfera terrestre: lo scudo che devia il vento solare." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Rappresentazione artistica della magnetosfera terrestre: lo scudo che devia il vento solare.</p>
+  </div>
+
+non di distanza).</p>
+  </div>
+
+    <div class="image-container">
+    <img src="img/The_Earth_seen_from_Apollo_17.jpg" alt="La celebre «Blue Marble»: Terra vista dall'Apollo 17 (7 dicembre 1972)." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">La celebre «Blue Marble»: Terra vista dall'Apollo 17 (7 dicembre 1972).</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Protoplanetary-disk.jpg" alt="Disco protoplanetario: gas e polveri attorno a una stella neonata (NASA)." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Disco protoplanetario: gas e polveri attorno a una stella neonata (NASA).</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Terrestrial_planet_size_comparisons_1.jpg" alt="Confronto dimensioni pianeti terrestri: Mercurio, Venere, Terra e Marte." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Confronto dimensioni pianeti terrestri: Mercurio, Venere, Terra e Marte.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Atmosphere_layers-en.svg" alt="I 5 strati dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">I 5 strati dell'atmosfera terrestre: troposfera, stratosfera, mesosfera, termosfera, esosfera.</p>
+  </div>
 
 <div class="card">
 <h4>Il Sole e il Sistema Solare</h4>
@@ -945,18 +969,7 @@ aside {
 
   <aside> La Terra non è grande come sembra: il diametro è solo 12 volte la lunghezza dell'Italia! Le perturbazioni umane hanno un impatto reale su un pianeta finito.</aside>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="2" data-audio="audio/riassunto_s02.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:5px"></span></div>
-  <span class="fp-dur">1:12</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Il Sistema Solare si è formato circa 4,6 miliardi di anni fa da una nebulosa di gas interstellari in contrazione. Il concetto chiave da portarti a casa è che il Sole è una stella di seconda generazione, popolazione I: deriva dall'esplosione di una stella precedente e quindi contiene elementi pesanti. Se fosse stato di prima generazione, semplicemente non esisterebbero pianeti rocciosi come la Terra. Attenzione alla nomenclatura controintuitiva: Popolazione I uguale recente e ricca di metalli; Popolazione II uguale antica e povera di metalli.</p><p>L'accensione del Sole avvenne quando nella parte centrale della nebulosa l'aumento di densità innescò le reazioni termonucleari di fusione. L'onda d'urto risultante spostò gli elementi leggeri verso l'esterno formando i pianeti gassosi e lasciò gli elementi pesanti vicino al Sole, dando origine ai pianeti rocciosi terrestri. L'intero processo di formazione fu rapidissimo: pochi milioni di anni contro i 4,6 miliardi di età attuale.</p><p>Il capitolo ti fornisce anche dati fondamentali sulla Terra: il diametro equatoriale è di circa 12.756 km, l'accelerazione di gravità è 9,8 metri al secondo quadrato. Un dato che cambia la prospettiva: il diametro terrestre è solo 12 volte la lunghezza dell'Italia. Infine, impara i confini del Sistema Solare: la fascia degli asteroidi tra Marte e Giove e l'eliopausa, il confine dell'eliosfera che ci protegge dai raggi cosmici.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-sistema">
+  <div class="flashcards-wrapper" id="fc-sistema">
     <h4> Flash Cards — Sistema Solare</h4>
     <button class="carousel-arrow prev" data-carousel="fc-sistema" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-sistema">▶</button>
@@ -971,6 +984,20 @@ aside {
     </div>
     <div class="carousel-dots" data-carousel="fc-sistema"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="2" data-audio="audio/riassunto_s02.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:5px"></span></div>
+  <span class="fp-dur">3:36</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Qui affrontiamo le origini del Sistema Solare e i dati fisici del pianeta Terra. Il Sistema Solare si è formato circa quattro virgola sei miliardi di anni fa da una nebulosa di gas interstellari in contrazione, con temperatura iniziale molto bassa e abbondanza di idrogeno ed elio. Il Sole è una stella di seconda generazione, popolazione uno: deriva dall'esplosione di una stella precedente, quindi contiene più elementi pesanti. Se fosse stato di prima generazione, popolazione due, più antica e povera di metalli, non esisterebbero pianeti rocciosi.</p>
+  <p>Nella parte centrale della nebulosa, l'aumento di densità innescò le reazioni termonucleari, fusione idrogeno in elio, accendendo la stella. L'onda d'urto risultante differenziò il materiale circumstellare: gli elementi leggeri furono spinti verso l'esterno, formando i pianeti gassosi come Giove e Saturno; gli elementi pesanti rimasero vicino al Sole, originando i pianeti rocciosi terrestri: Mercurio, Venere, Terra, Marte. Il Sole rappresenta il novanta per cento della massa dell'intero Sistema Solare. La formazione fu rapida: pochi milioni di anni contro i quattro virgola sei miliardi di età attuale.</p>
+  <p>La fascia degli asteroidi tra Marte e Giove ha due possibili spiegazioni: distruzione di un pianeta preesistente o massa insufficiente per aggregarsi. L'eliopausa è il confine dell'eliosfera generata dal vento solare, che protegge il sistema dai raggi cosmici. Venendo alla Terra, ecco i dati fisici fondamentali per l'esame. Diametro equatoriale: circa dodicimilasettecentocinquantasei chilometri. Diametro polare: circa dodicimilasettecentoquattordici chilometri. Lo schiacciamento polare è di soli quarantadue chilometri, praticamente impercettibile: la Terra è una sfera quasi perfetta. Raggio medio: seimilatrecentosettantuno chilometri. Accelerazione di gravità: nove virgola otto metri al secondo quadrato. Velocità di fuga: circa undicimila metri al secondo, necessaria per vincere la gravità terrestre e andare in orbita. Età: circa quattro virgola cinquantaquattro miliardi di anni.</p>
+  <p>Una considerazione importante: la Terra non è grande come sembra. Il diametro è solo circa dodici volte la lunghezza dell'Italia. Il pianeta è un sistema finito: le perturbazioni umane hanno un impatto reale e misurabile, non diluibile in uno spazio infinito. La nomenclatura delle popolazioni stellari è controintuitiva: Popolazione uno uguale stelle recenti, ricche di metalli, come il Sole; Popolazione due uguale stelle antiche, povere di metalli. La presenza di elementi pesanti nella nebulosa progenitrice, provenienti da una supernova precedente, è la condizione necessaria per la formazione di pianeti rocciosi.</p>
+  <p>Ricorda: primo, la differenziazione planetaria è guidata dall'onda d'urto dell'accensione solare: elementi pesanti vicini, leggeri lontani. Secondo, il Sole è popolazione uno, di seconda generazione: senza elementi pesanti niente pianeti rocciosi. Terzo, la Terra è una sfera quasi perfetta con accelerazione di gravità nove virgola otto metri al secondo quadrato, velocità di fuga circa undicimila metri al secondo ed età quattro virgola cinquantaquattro miliardi di anni.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 3: TEMPO GEOLOGICO ========== -->
@@ -1024,7 +1051,20 @@ aside {
 
   <div class="image-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Grand_Canyon_geologic_column.jpg/800px-Grand_Canyon_geologic_column.jpg" alt="Strati del Grand Canyon" onclick="openLightbox(this.src)" loading="lazy">
-    <p class="caption">Strati sedimentari del Grand Canyon —   
+    <p class="caption">Strati sedimentari del Grand Canyon —   <div class="image-container">
+    <img src="img/Geological_time_spiral_1.png" alt="La spirale del tempo geologico: 4,6 miliardi di anni di storia della Terra, dall'Adeano a oggi." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">La spirale del tempo geologico: 4,6 miliardi di anni di storia della Terra, dall'Adeano a oggi.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Ammonite-Fossil_1.jpg" alt="Fossile di ammonite: fossile guida fondamentale per la datazione relativa del Mesozoico." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Fossile di ammonite: fossile guida fondamentale per la datazione relativa del Mesozoico.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Trilobite_fossil.jpg?width=800" alt="Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida essenziale per il Paleozoico." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida essenziale per il Paleozoico.</p>
+  </div>
 
   <div class="image-container">
     <img src="img/geologic_time_scale.jpg" alt="Scala dei tempi geologici (USGS): dal Precambriano al Quaternario con eoni, ere, periodi ed epoche." onclick="openLightbox(this.src)" loading="lazy">
@@ -1032,6 +1072,21 @@ aside {
   </div>
 
 esempio classico di sovrapposizione stratigrafica.</p>
+  </div>
+
+    <div class="image-container">
+    <img src="img/Geological_time_spiral_1.png" alt="Spirale del tempo geologico: 4,6 miliardi di anni dall'Adeano a oggi." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Spirale del tempo geologico: 4,6 miliardi di anni dall'Adeano a oggi.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Ammonite-Fossil_1.jpg" alt="Fossile di ammonite: guida fondamentale per la datazione del Mesozoico." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Fossile di ammonite: guida fondamentale per la datazione del Mesozoico.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Trilobite_fossil.jpg" alt="Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida del Paleozoico." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Fossile di trilobite (Phacops rana): artropode marino estinto, fossile guida del Paleozoico.</p>
   </div>
 
 <h3>Registrazione degli eventi</h3>
@@ -1052,18 +1107,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 
   <aside>Attenzione: «Era giurassica» è SBAGLIATO. Giurassico è un PERIODO dell'era Mesozoica. Jurassic Park dovrebbe chiamarsi «Periodo Giurassico»!</aside>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="3" data-audio="audio/riassunto_s03.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:17px"></span></div>
-  <span class="fp-dur">1:05</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Il tempo geologico è il calendario del passato. La Terra ha 4,54 miliardi di anni, e le rocce che ci permettono di datare questa immensa storia sono principalmente le rocce sedimentarie, che si depositano a strati e catturano informazioni sull'ambiente di formazione. La gerarchia da memorizzare è: Eoni, Ere, Periodi, Epoche, Età, dal più lungo al più corto.</p><p>I quattro eoni raccontano l'intera storia del pianeta. L'Adeano è l'eone nascosto, senza quasi informazioni. L'Archeano vede le prime forme di vita procariote. Il Proterozoico porta vita più complessa e l'ossigeno atmosferico. Il Fanerozoico è l'eone della vita visibile, suddiviso in Paleozoico, Mesozoico e Cenozoico.</p><p>Il principio fondamentale è quello di sovrapposizione stratigrafica: nelle rocce sedimentarie gli strati più in basso sono più antichi di quelli in alto. Attenzione: questo principio non vale per le intrusioni magmatiche! Il concetto chiave: la carta cronostratigrafica internazionale ha tre colonne su quattro dedicate agli ultimi 500 milioni di anni non perché nel passato non sia successo nulla, ma per un bias di completezza dei dati. Attenzione all'esame: Giurassico è un PERIODO, non un'era. L'era è il Mesozoico. Dire era giurassica è come chiamare anno febbraio: si sbaglia categoria.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-tempo">
+  <div class="flashcards-wrapper" id="fc-tempo">
     <h4> Flash Cards — Tempo Geologico</h4>
     <button class="carousel-arrow prev" data-carousel="fc-tempo" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-tempo">▶</button>
@@ -1078,6 +1122,20 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-tempo"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="3" data-audio="audio/riassunto_s03.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:18px"></span></div>
+  <span class="fp-dur">3:17</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>In questo capitolo affrontiamo il tempo geologico, il calendario del passato che registra gli eventi della storia terrestre. La Terra ha quattro virgola cinquantaquattro miliardi di anni. Le rocce che permettono questa datazione sono principalmente le rocce sedimentarie, che si depositano a strati e catturano informazioni sull'ambiente di formazione: ogni strato è una pagina del libro della storia del pianeta.</p>
+  <p>La gerarchia del tempo geologico va dal più lungo al più corto: Eoni, Ere, Periodi, Epoche, Età. Ogni unità contiene quelle inferiori; più si scende, maggiore è la risoluzione temporale. I quattro Eoni sono: Adeano, da quattro virgola cinque a quattro virgola zero miliardi di anni, detto eone nascosto perché non abbiamo quasi nessuna informazione geologica; Archeano, da quattro a due virgola cinque miliardi di anni, con le prime forme di vita procariote e atmosfera priva di ossigeno; Proterozoico, da due virgola cinque miliardi di anni a cinquecentoquarantuno milioni di anni fa, con vita primordiale più complessa e comparsa dell'ossigeno atmosferico; Fanerozoico, da cinquecentoquarantuno milioni di anni fa a oggi, l'eone della vita visibile, suddiviso in tre ere: Paleozoico, Mesozoico, Cenozoico.</p>
+  <p>Il principio di sovrapposizione stratigrafica è fondamentale: nelle rocce sedimentarie, gli strati più in basso sono più antichi di quelli in alto. Attenzione all'eccezione: questo principio non vale per le rocce ignee intrusive. Un plutone risale dal basso e si inserisce in rocce preesistenti: la roccia più recente, l'intrusione magmatica, si trova sotto rocce più antiche, le incassanti, violando apparentemente il principio. Ogni strato sedimentario registra le condizioni ambientali del periodo di formazione. Un esempio lampante: a sessantacinque milioni di anni fa, al limite Cretacico-Paleogene, fine del Mesozoico, su tutti gli oceani del mondo si trova uno straterello contenente sferule di vetro, firma dell'impatto del meteorite che causò l'estinzione dei dinosauri.</p>
+  <p>La Carta Cronostratigrafica Internazionale dedica tre colonne su quattro agli ultimi cinquecento milioni di anni, il Fanerozoico. È un bias di completezza dei dati: più ci avviciniamo al presente, più informazioni abbiamo. Attenzione all'esame: Giurassico è un PERIODO, non un'era. L'era è il Mesozoico, che comprende Triassico, Giurassico e Cretacico. Dire era giurassica è come chiamare anno febbraio. È un errore che il Prof. Tondi sottolinea con forza.</p>
+  <p>Ricorda: primo, la gerarchia è Eoni, Ere, Periodi, Epoche, Età; il Fanerozoico si divide in Paleozoico, Mesozoico, Cenozoico. Secondo, il principio di sovrapposizione vale per le sedimentarie ma fallisce con le intrusioni magmatiche. Terzo, Giurassico è un PERIODO, non un'era; il bias di completezza dei dati spiega perché il Fanerozoico occupa tre quarti della carta cronostratigrafica.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 4: INTERNO TERRESTRE ========== -->
@@ -1164,20 +1222,14 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li><strong>Nucleo interno</strong>: solido.</li>
   </ul>
 
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Earth-crust-cutaway-english.svg/800px-Earth-crust-cutaway-english.svg" alt="Struttura interna della Terra" onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Struttura interna della Terra: crosta, mantello, nucleo esterno (liquido), nucleo interno (solido).</p>
+  </div>
+
   <aside> La crosta inferiore continentale ha composizione simile alla crosta oceanica. Per la classificazione reologica, nucleo esterno e nucleo interno mantengono gli stessi nomi della classificazione chimica perché il passaggio solido→liquido è già una differenza reologica.</aside>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="4" data-audio="audio/riassunto_s04.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:9px"></span></div>
-  <span class="fp-dur">1:05</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>La struttura interna della Terra si classifica secondo due criteri distinti che devi assolutamente tenere separati. Il primo è il criterio composizionale, chimico: dall'esterno verso l'interno trovi la crosta, da zero a 35-70 km, il mantello fino a 2.900 km, composto quasi esclusivamente da olivina, il nucleo esterno liquido da 2.900 a 5.155 km, e il nucleo interno solido fino a 6.371 km. Le discontinuità che separano questi strati hanno nomi precisi: Mohorovičić tra crosta e mantello, Gutenberg tra mantello e nucleo, Lehmann tra nucleo esterno e interno.</p><p>Il secondo criterio, quello reologico, descrive come si comportano i materiali: la litosfera, da zero a 100-150 km, è lo strato rigido e freddo, frammentato in placche tettoniche. Sotto di essa l'astenosfera è calda, plastica e parzialmente fusa: è il cuscinetto su cui la litosfera galleggia. Il concetto chiave da portarti a casa: litosfera e astenosfera sono classificazioni reologiche, non chimiche. Ricorda: la crosta continentale è spessa circa 35 km, ricca di silicio e alluminio, fatta di rocce chiare e leggere come i graniti. La crosta oceanica è sottile, 5-10 km, ricca di ferro e magnesio, con rocce scure e pesanti come i basalti.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-interno">
+  <div class="flashcards-wrapper" id="fc-interno">
     <h4> Flash Cards — Interno Terrestre</h4>
     <button class="carousel-arrow prev" data-carousel="fc-interno" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-interno">▶</button>
@@ -1193,6 +1245,19 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-interno"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="4" data-audio="audio/riassunto_s04.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span></div>
+  <span class="fp-dur">3:32</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>La Terra non è una sfera omogenea: il suo interno si classifica secondo due criteri distinti, composizione chimica e comportamento reologico, che NON coincidono. Padroneggia entrambi perché all'esame il Prof. Tondi chiede di non confonderli.</p>
+  <p>Partiamo dalla classificazione composizionale. La crosta è l'involucro più esterno: quella continentale ha spessore medio di trentacinque chilometri, è ricca di silicio, alluminio e ossigeno, elementi leggeri, e contiene rocce come graniti, quarzo e feldspati; quella oceanica misura solo cinque-dieci chilometri, è più ricca di ferro e magnesio, elementi pesanti, e ospita basalti, olivina e pirosseni. La discontinuità di Mohorovicic, Moho, a circa trentacinque chilometri segna il confine crosta-mantello. Sotto troviamo il mantello, che si estende fino a duemilanovecento chilometri ed è composto quasi esclusivamente da olivina, con ferro e magnesio che aumentano progressivamente rispetto a silicio e alluminio. La discontinuità di Gutenberg a duemilanovecento chilometri separa il mantello dal nucleo. Il nucleo esterno, da duemilanovecento a cinquemilacentocinquantacinque chilometri, è liquido, formato da ferro con elementi leggeri come zolfo e nichel; il nucleo interno, da cinquemilacentocinquantacinque a seimilatrecentosettantuno chilometri, è invece solido, costituito quasi esclusivamente da ferro puro, perché la pressione è talmente elevata da impedire la formazione di minerali. A cinquemilacentocinquantacinque chilometri si trova la discontinuità di Lehmann.</p>
+  <p>Ora la classificazione reologica, che descrive come i materiali rispondono agli sforzi. La reologia distingue tre comportamenti: fragile, il corpo si rompe come nei terremoti superficiali; plastico, si deforma permanentemente senza rompersi come nelle pieghe in profondità; fluido o viscoso, il materiale fluisce, con tempi geologici anche un solido può fluire. Lo stesso materiale può passare da fragile a plastico in base a temperatura e pressione. La litosfera, da zero a centocinquanta chilometri, è lo strato rigido e freddo che include crosta e parte del mantello superiore; è frammentata in placche tettoniche ed è più spessa sotto i continenti, circa centocinquanta chilometri, che sotto gli oceani. L'astenosfera, da cento a trecentocinquanta-quattrocento chilometri, è calda, plastica e parzialmente fusa: qui la litosfera galleggia. La sua maggiore temperatura è dovuta al decadimento di elementi radioattivi. La mesosfera, da quattrocento a duemilanovecento chilometri, è solida ma a temperature elevatissime. Nucleo esterno e interno mantengono gli stessi nomi della classificazione chimica. Un dettaglio importante: la crosta inferiore continentale ha composizione simile alla crosta oceanica.</p>
+  <p>Ricorda: primo, Moho a trentacinque chilometri, Gutenberg a duemilanovecento chilometri, Lehmann a cinquemilacentocinquantacinque chilometri, devi saperle collocare esattamente. Secondo, la classificazione composizionale, crosta-mantello-nucleo, NON coincide con quella reologica, litosfera-astenosfera-mesosfera. Terzo, litosfera uguale rigida e frammentata in placche; astenosfera uguale plastica e parzialmente fusa: è qui che avviene il movimento.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 5: TETTONICA DELLE PLACCHE ========== -->
@@ -1232,18 +1297,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
 <h3>Il motore: la litosfera sull'astenosfera</h3>
   <p>La litosfera (rigida, fredda, leggera) «galleggia» sull'astenosfera (calda, plastica, più densa). È come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia per il movimento delle placche.</p>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="5" data-audio="audio/riassunto_s05.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:6px"></span></div>
-  <span class="fp-dur">1:08</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>La tettonica delle placche è la teoria unificante di tutta la geologia moderna. Tutto nasce dall'intuizione di Wegener sulla deriva dei continenti, poi confermata dopo la Seconda Guerra Mondiale da evidenze schiaccianti: l'espansione dei fondali oceanici, le anomalie magnetiche, la distribuzione di terremoti e vulcani, e oggi il GPS che misura spostamenti di 4-5 cm all'anno in tempo reale.</p><p>Il pianeta è ricoperto da placche tettoniche che interagiscono tra loro in tre modi fondamentali. Ai margini divergenti le placche si allontanano: lo sforzo è estensionale, si forma nuova crosta oceanica e prevalgono le faglie dirette. Pensa alle dorsali medio-oceaniche. Ai margini convergenti le placche si scontrano: la più densa sprofonda in subduzione, lo sforzo è compressivo, dominano le faglie inverse, e si formano catene montuose come Ande, Himalaya e Appennini. Ai margini trasformi le placche scorrono orizzontalmente l'una accanto all'altra con faglie trascorrenti: l'esempio perfetto è la Faglia di Sant'Andrea in California.</p><p>Il motore di tutto questo? La litosfera rigida e fredda galleggia sull'astenosfera plastica e più densa, come una tavoletta di legno sull'acqua. I movimenti convettivi del mantello forniscono l'energia che spinge le placche. Ricorda: ogni tipo di margine è associato a un regime tettonico specifico e a un tipo di faglia caratteristico. Padroneggiare questa tripartizione è la chiave per capire terremoti, vulcani e orogenesi.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-placche">
+  <div class="flashcards-wrapper" id="fc-placche">
     <h4> Flash Cards — Tettonica delle Placche</h4>
     <button class="carousel-arrow prev" data-carousel="fc-placche" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-placche">▶</button>
@@ -1258,6 +1312,22 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-placche"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="5" data-audio="audio/riassunto_s05.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:16px"></span></div>
+  <span class="fp-dur">3:21</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>La tettonica delle placche è la teoria unificante della geologia moderna. Nasce dall'intuizione di Wegener sulla deriva dei continenti, ma si consolida dopo la Seconda Guerra Mondiale grazie a quattro evidenze: l'espansione dei fondali oceanici, le anomalie magnetiche registrate nei basalti, la distribuzione globale di terremoti e vulcani, e, prova definitiva, le misurazioni GPS che dimostrano spostamenti misurabili di quattro-cinque centimetri all'anno. I continenti si muovono, e lo fanno mentre parliamo.</p>
+  <p>Il modello si fonda sul galleggiamento della litosfera, rigida, fredda e leggera, sull'astenosfera, calda, plastica e più densa: è come una tavoletta di legno che galleggia sull'acqua. I moti convettivi del mantello forniscono l'energia che alimenta questo movimento. Le placche interagiscono lungo tre tipi di margini, ciascuno associato a un regime deformativo specifico.</p>
+  <p>I margini divergenti, costruttivi, si verificano dove le placche si allontanano. Qui si forma nuova crosta oceanica per risalita di magma dal mantello. Il regime è estensionale e le strutture associate sono faglie dirette o normali. Esempi chiave: le dorsali medio-oceaniche, immense catene sottomarine; la Rift Valley africana, dove un continente si sta spaccando in due; l'Islanda, unico punto emerso della dorsale medio-atlantica.</p>
+  <p>I margini convergenti, distruttivi, si verificano dove le placche si scontrano. La placca più densa, sempre quella oceanica, subduce sotto l'altra, sprofondando nel mantello dove fonde generando vulcanismo. Il regime è compressivo e le strutture associate sono faglie inverse. Si formano catene montuose per orogenesi: le Ande, subduzione della placca di Nazca sotto la Sudamericana; l'Himalaya, collisione India-Eurasia; gli Appennini, subduzione della placca Adriatica.</p>
+  <p>I margini trasformi, conservativi, si verificano dove le placche scorrono orizzontalmente l'una accanto all'altra: non si crea né si distrugge litosfera. Il regime è trascorrente e le strutture associate sono faglie strike-slip. L'esempio classico è la Faglia di Sant'Andrea in California, dove la placca Pacifica scorre accanto alla Nordamericana.</p>
+  <p>La Pangea, il supercontinente da cui derivano tutti i continenti attuali, si è frammentata proprio per questi meccanismi. I nomi delle placche principali da conoscere: Nordamericana, Sudamericana, Pacifica, Euroasiatica, Africana, Indo-Australiana, Antartica, di Nazca.</p>
+  <p>Ricorda: primo, a ogni margine corrisponde un regime deformativo specifico: divergente uguale faglie dirette più sforzo estensionale; convergente uguale faglie inverse più sforzo compressivo; trasforme uguale faglie trascorrenti. Secondo, la subduzione coinvolge sempre la placca oceanica, più densa di quella continentale. Terzo, il GPS misura quattro-cinque centimetri all'anno di spostamento: la tettonica non è una teoria astratta, è un fenomeno in atto.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 6: MINERALI ========== -->
@@ -1402,18 +1472,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
   </div> — durezza 7, trasparente/grigiastro. Tipico della crosta continentale.</p>
   </div>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="6" data-audio="audio/riassunto_s06.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:4px"></span></div>
-  <span class="fp-dur">1:09</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>I minerali sono i mattoni fondamentali del pianeta. Partiamo dalla gerarchia: un elemento chimico è un atomo con un preciso numero di protoni, neutroni ed elettroni. Un minerale è un solido cristallino naturale, inorganico, con composizione chimica definita e reticolo cristallino ordinato. Una roccia è un aggregato naturale di minerali.</p><p>Il dato da memorizzare subito: i silicati rappresentano il novantuno per cento di tutti i minerali della crosta terrestre. Di questi, i feldspati da soli fanno il cinquantuno per cento, seguiti da quarzo, pirosseni, anfiboli, miche, argille e olivina. Impara a riconoscerli: il quarzo ha durezza sette e riga vetro e ferro. L'olivina è il suo opposto: verde scuro, ricchissima di ferro e magnesio, compone quasi interamente il mantello. Le miche si riconoscono dall'abito lamellare, si sfogliano: biotite scura con ferro e magnesio, muscovite chiara.</p><p>Tra i non silicati, la calcite è fondamentale: durezza tre, non riga il vetro, ma reagisce con HCl producendo effervescenza. La dolomite invece no. La regola pratica per il campo: roccia chiara e leggera uguale ricca di silicio, crosta continentale. Roccia scura e pesante uguale ricca di ferro e magnesio, crosta oceanica. Colore, peso, test di durezza e HCl: con questi quattro strumenti sei già in grado di classificare la maggior parte dei campioni.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-minerali">
+  <div class="flashcards-wrapper" id="fc-minerali">
     <h4> Flash Cards — Minerali</h4>
     <button class="carousel-arrow prev" data-carousel="fc-minerali" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-minerali">▶</button>
@@ -1430,6 +1489,20 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-minerali"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="6" data-audio="audio/riassunto_s06.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:20px"></span></div>
+  <span class="fp-dur">4:51</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Partiamo dalla gerarchia fondamentale: elemento, minerale, roccia. L'elemento chimico è un atomo con un preciso numero di protoni, neutroni ed elettroni, per esempio silicio, ossigeno, ferro. Il minerale è un solido cristallino naturale, inorganico, con composizione chimica definita e reticolo cristallino ordinato. Attenzione: il sale disciolto in acqua NON è un minerale; lo diventa solo quando cristallizza. La roccia è un aggregato naturale di minerali. Esistono circa cento elementi chimici e migliaia di minerali possibili, ma nella crosta terrestre bastano sette minerali a rappresentare il novantuno per cento del totale, un dato che dovete assolutamente memorizzare.</p>
+  <p>I silicati dominano la crosta con il novantuno per cento. La loro distribuzione interna: feldspati cinquantuno per cento, di cui ortoclasio e plagioclasio; quarzo dodici per cento; pirosseni undici per cento; anfiboli cinque per cento; miche cinque per cento; argille quattro per cento; olivina tre per cento. Tutti gli altri minerali — magnetite, calcite, dolomite e migliaia di specie — insieme fanno solo il cinque virgola cinque per cento.</p>
+  <p>Scendiamo nei dettagli diagnostici. Ortoclasio, feldspato potassico: silicato di potassio e alluminio, colore rosa caratteristico. Il Monte Rosa è un batolite granitico ricco di ortoclasio. Plagioclasio: silicato di sodio calcio e alluminio, colore bianco latte. Il Monte Bianco deve il nome proprio all'abbondanza di plagioclasio. Entrambi sono minerali leggeri, senza ferro né magnesio, tipici della crosta continentale. Quarzo: diossido di silicio, durezza sette sulla scala di Mohs, riga sia il vetro, circa cinque, sia il ferro del martello da geologo, circa cinque-sei. Tende al trasparente o grigiastro, mai bianco latte. NON contiene ferro né magnesio: è il minerale-simbolo della crosta continentale e NON si trova nel mantello. Pirosseno: scuro o nero, ricco di ferro e magnesio, formula complessa, tipico della crosta oceanica. Anfibolo: meno scuro, a volte verdognolo, contiene ferro, magnesio più calcio, silicio, ossigeno e idrogeno. Miche: abito lamellare inconfondibile, si sfogliano, sono piatte, riflettono la luce. Biotite uguale scura, contiene ferro e magnesio, più pesante, crosta oceanica. Muscovite uguale chiara e trasparente, senza ferro né magnesio, crosta continentale. Olivina: silicato di magnesio e ferro, verde scuro, è il minerale più ricco di ferro e magnesio in assoluto, il quarzo al contrario. Tipica della crosta oceanica e soprattutto del mantello, che ne è quasi esclusivamente composto. Argille: silicati idrati che contengono acqua, microscopiche, derivano dall'alterazione di silicati preesistenti: un feldspato che acquista acqua diventa argilla.</p>
+  <p>Tra i non silicati: magnetite, pesante e scura; calcite, carbonato di calcio, durezza tre, NON riga il vetro, reagisce con acido cloridrico producendo effervescenza, i calcari appenninici ne sono fatti; dolomite, carbonato doppio di calcio e magnesio, NON reagisce con acido cloridrico a freddo, le Dolomiti sono ricche di dolomite, spesso derivata da trasformazione della calcite. La dimensione dei cristalli dipende dalla velocità di cristallizzazione: evaporazione lenta produce cristalli grandi; rapida produce cristalli minuscoli. Stesso principio per le rocce ignee: raffreddamento lento produce cristalli grandi nelle intrusive, rapido produce cristalli minuscoli o assenti nelle effusive. Regola pratica: roccia chiara e leggera uguale ricca di silicio, crosta continentale; roccia scura e pesante uguale ricca di ferro e magnesio, crosta oceanica.</p>
+  <p>Ricorda: primo, silicati novantuno per cento, feldspati cinquantuno per cento dei silicati: la crosta è un mondo di feldspati. Secondo, quarzo durezza sette, riga vetro e ferro, contro calcite durezza tre, reagisce con acido cloridrico: distinguerli è una domanda d'esame classica. Terzo, olivina uguale massimo ferro e magnesio, minerale del mantello; quarzo uguale zero ferro e magnesio, solo crosta continentale: sono opposti e complementari.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 7: ROCCE IGNEE ========== -->
@@ -1555,18 +1628,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Pomice: vetro vulcanico ricco di bolle di gas. Galleggia in acqua.</p>
   </div> l'ordine di cristallizzazione dei minerali dal magma. L'olivina è la prima a cristallizzare (alta T), il quarzo l'ultimo (bassa T).</aside>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="7" data-audio="audio/riassunto_s07.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span></div>
-  <span class="fp-dur">1:10</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Le rocce ignee nascono dal raffreddamento e consolidamento del magma. Il concetto chiave da portarti a casa è che le classifichiamo con due criteri: la tessitura e la composizione. La tessitura ti dice dove il magma si è raffreddato: se il raffreddamento è lento, in profondità, ottieni rocce intrusive come il granito, con cristalli grandi e ben visibili. Se è rapido, in superficie dopo un'eruzione, ottieni rocce effusive come il basalto, a grana fine. Esiste anche la tessitura porfirica, con fenocristalli immersi in una massa di fondo, che rivela un raffreddamento in due fasi.</p><p>Il secondo criterio è la composizione, che dipende dal contenuto di silice: andiamo dalle rocce felsiche, chiare e ricche di silice, passando per le intermedie, fino alle mafiche, scure e ricche di ferro e magnesio, e alle ultramafiche come la peridotite del mantello. Ricorda la regola fondamentale: quarzo e olivina sono incompatibili, non possono coesistere nella stessa roccia. La sequenza delle intrusive va dal granito alla peridotite. Importante anche la distinzione tra magma, fuso nella crosta, e lava, dopo l'eruzione. I graniti che vediamo oggi in montagna sono affiorati per sollevamento tettonico ed erosione, non per eruzione. Infine, la serie di Bowen ti spiega l'ordine di cristallizzazione: l'olivina è la prima a cristallizzare ad alta temperatura, il quarzo l'ultimo.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-ignee">
+  <div class="flashcards-wrapper" id="fc-ignee">
     <h4> Flash Cards — Rocce Ignee</h4>
     <button class="carousel-arrow prev" data-carousel="fc-ignee" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-ignee">▶</button>
@@ -1582,6 +1644,21 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-ignee"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="7" data-audio="audio/riassunto_s07.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:16px"></span></div>
+  <span class="fp-dur">3:41</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Le rocce ignee, o magmatiche, nascono dal raffreddamento e consolidamento del magma: sono le uniche rocce primarie del pianeta, sedimentarie e metamorfiche sono invece derivate. La loro classificazione si fonda su due criteri: la tessitura, che dipende dall'ambiente di raffreddamento, e la composizione, che dipende dal contenuto in silice.</p>
+  <p>Primo criterio: la tessitura. Le rocce intrusive, o plutoniche, si formano quando il magma raffredda lentamente in profondità, permettendo la crescita di cristalli grandi e ben visibili a occhio nudo, grana superiore al millimetro, tessitura olocristallina. Il granito ne è l'esempio principe. Le rocce effusive, o vulcaniche, raffreddano invece rapidamente in superficie, producendo cristalli piccoli o addirittura assenti, con grana fine afanitica: basalto e pomice sono gli esempi classici; la pomice è un vetro vulcanico così ricco di bolle di gas da galleggiare in acqua. Esiste una via intermedia: la tessitura porfirica, con fenocristalli, cristalli grandi immersi in una massa di fondo microcristallina o vetrosa. Indica raffreddamento in due fasi: prima lento in profondità, poi rapido in superficie.</p>
+  <p>Secondo criterio: la composizione. Le rocce felsiche o acide sono ricche di silice oltre il sessantacinque per cento, contengono quarzo e feldspati, sono chiare e leggere; il granito è l'esempio intrusivo, la riolite quello effusivo. Le intermedie hanno contenuto di silice medio: diorite intrusiva e andesite effusiva. Le mafiche o basiche sono povere di silice ma ricche di ferro e magnesio, scure e pesanti; gabbro intrusivo e basalto effusivo. Le ultramafiche sono estremamente povere di silice: la peridotite, roccia del mantello, ne è l'esempio. Regola ferrea: quarzo e olivina sono incompatibili e non possono coesistere nella stessa roccia. La terminologia italiana distingue sialiche, da silicio più alluminio, e femiche, da ferro più magnesio.</p>
+  <p>La sequenza completa delle rocce intrusive, dalla più acida alla più basica: granito, granodiorite, diorite, gabbro, peridotite. I corrispettivi effusivi: granito a riolite, diorite ad andesite, gabbro a basalto. Il magma si forma per tre meccanismi: decompressione nei margini divergenti, aggiunta di acqua nelle zone di subduzione, e aumento di temperatura per risalita di materiale caldo dal mantello profondo, i plume. La serie di Bowen descrive l'ordine di cristallizzazione: l'olivina è la prima a cristallizzare ad alta temperatura, il quarzo l'ultimo a bassa temperatura.</p>
+  <p>Distinguete magma da lava: il magma è il fuso roccioso all'interno della crosta, la lava è lo stesso materiale dopo l'eruzione in superficie. Se oggi vediamo i graniti affiorare in superficie, come Monte Bianco, Monte Rosa, Corsica, è per sollevamento tettonico ed erosione delle rocce sovrastanti: non c'è mai stata un'eruzione di granito.</p>
+  <p>Ricorda: primo, le rocce ignee si classificano per tessitura, intrusiva o effusiva, e per composizione, felsica, intermedia, mafica o ultramafica. Secondo, quarzo e olivina non coesistono mai; la serie di Bowen spiega l'ordine di cristallizzazione. Terzo, il magma si forma per decompressione, aggiunta d'acqua o aumento termico.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 8: ROCCE SEDIMENTARIE ========== -->
@@ -1706,18 +1783,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Arenaria: roccia sedimentaria epiclastica con grani visibili (sensazione ruvida).</p>
   </div>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="8" data-audio="audio/riassunto_s08.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:12px"></span></div>
-  <span class="fp-dur">1:11</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Le rocce sedimentarie sono il vero libro della storia della Terra. Nascono da sedimenti che, dopo essere stati trasportati, si accumulano e si trasformano in roccia attraverso la diagenesi, che si articola in due fasi: prima la compattazione, il peso degli strati sovrastanti schiaccia i sedimenti espellendo l'acqua, poi la cementazione, i sali disciolti precipitano e legano le particelle. Il concetto chiave è che una roccia sedimentaria ha sempre due componenti chimicamente distinte: le particelle e il cemento. Nella tessitura riconosciamo scheletro, matrice e cemento.</p><p>Le rocce sedimentarie si dividono in quattro grandi famiglie. Le più diffuse sono le epiclastiche, che derivano dalla degradazione di rocce preesistenti e si classificano per granulometria: conglomerati, arenarie, siltiti e argilliti. Poi ci sono le allochimiche, formate dall'accumulo lentissimo di gusci di plancton sui fondali oceanici. Le chimiche da precipitazione diretta come evaporiti e travertino. Infine le organogene come carbone e torba.</p><p>Un'altra idea fondamentale è il gradiente oceano-continente: in mare aperto si depositano solo allochimiche, avvicinandosi al continente compaiono marne, vicino alla costa dominano le epiclastiche. I tempi di accumulo cambiano radicalmente: cento metri di roccia allochimica possono rappresentare cinquanta milioni di anni, cento metri di arenaria si depositano in pochi anni. Ricorda anche la maturità delle arenarie: quelle immature, scure e ricche di minerali femici, si dilatano col calore e si fessurano facilmente.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-sedimentarie">
+  <div class="flashcards-wrapper" id="fc-sedimentarie">
     <h4> Flash Cards — Rocce Sedimentarie</h4>
     <button class="carousel-arrow prev" data-carousel="fc-sedimentarie" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-sedimentarie">▶</button>
@@ -1733,6 +1799,21 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-sedimentarie"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="8" data-audio="audio/riassunto_s08.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:7px"></span></div>
+  <span class="fp-dur">3:18</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Le rocce sedimentarie sono sedimenti litificati: materiali sciolti che hanno subito un processo di trasformazione in roccia compatta. La loro caratteristica distintiva è la fase intermedia del sedimento: roccia originaria, degradazione, sedimento sciolto, accumulo, litificazione. Sabbia è un sedimento, non una roccia; diventa arenaria solo quando cementata.</p>
+  <p>Il processo che trasforma il sedimento in roccia si chiama diagenesi e si articola in due fasi. La compattazione è la fase meccanica: il peso degli strati sovrastanti riduce i pori ed espelle l'acqua. La cementazione è la fase chimica: l'acqua residua nei pori precipita formando un cemento che lega le particelle. Ogni roccia sedimentaria ha sempre due componenti chimicamente distinte: le particelle, clasti o gusci, e il cemento. La tessitura si descrive con tre elementi: scheletro, le particelle grandi; matrice, la frazione fine che riempie gli interstizi; cemento, il precipitato chimico.</p>
+  <p>Le rocce sedimentarie si classificano in quattro categorie. Primo: le epiclastiche, che derivano dalla degradazione di rocce preesistenti con formazione di clasti. silicio classificano per granulometria: conglomerato con clasti arrotondati oltre due millimetri, breccia con clasti spigolosi oltre due millimetri, arenaria da due millimetri a un sedicesimo, siltite da un sedicesimo a un duecentocinquantaseiesimo, argillite inferiore a un duecentocinquantaseiesimo, liscia e compatta. Secondo: le allochimiche, formate dall'accumulo di particelle biogeniche, gusci di plancton, coralli, conchiglie, che precipitano sul fondale oceanico. Terzo: le chimiche o cristalline, da precipitazione di sali disciolti come salgemma, gesso, travertino. Quarto: le residuali o organogene, come carbone e torba.</p>
+  <p>Un concetto chiave è il gradiente oceano-continente. In mare aperto si depositano solo rocce allochimiche, con tempi lentissimi: cento metri di roccia rappresentano circa cinquanta milioni di anni. Vicino alla costa dominano le epiclastiche, con tempi rapidissimi: cento metri possono rappresentare pochi anni di piena fluviale. La maturità dell'arenaria ha implicazioni per i Beni Culturali: un'arenaria immatura, ricca di minerali femici scuri, si fessura rapidamente per dilatazione termica; un'arenaria matura, quasi solo quarzo, è un buon isolante.</p>
+  <p>Le rocce sedimentarie sono il libro della storia della Terra: ogni strato registra le condizioni ambientali dell'epoca. A sessantacinque milioni di anni fa, uno straterello su tutti gli oceani contiene sferule dell'impatto meteoritico che estinse i dinosauri.</p>
+  <p>Ricorda: primo, la diagenesi ha due fasi, compattazione meccanica e cementazione chimica. Secondo, i quattro tipi sono epiclastiche, allochimiche, chimiche e residuali. Terzo, le rocce sedimentarie sono il registro stratigrafico della storia terrestre.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 9: ROCCE METAMORFICHE ========== -->
@@ -1782,9 +1863,29 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Scisto a muscovite: roccia metamorfica foliata con lucentezza sericea.</p>
   </div>
 
+    <div class="image-container">
+    <img src="img/Metamorphic_facies_EN_1.svg" alt="Diagramma P-T delle facies metamorfiche: ogni facies rappresenta un campo di pressione e temperatura specifico." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Diagramma P-T delle facies metamorfiche: ogni facies rappresenta un campo di pressione e temperatura specifico.</p>
+  </div>
+
   <div class="image-container">
     <img src="img/Phyllite_(rock).jpg" alt="Fillade: roccia metamorfica di basso grado con lucentezza sericea, intermedia tra ardesia e scisto." onclick="openLightbox(this.src)" loading="lazy">
     <p class="caption">Fillade: roccia metamorfica di basso grado con lucentezza sericea, intermedia tra ardesia e scisto.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Serpentinite_1.jpg?width=800" alt="Serpentinite: roccia metamorfica verdastra derivante dall'alterazione di peridotiti del mantello terrestre." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Serpentinite: roccia metamorfica verdastra derivante dall'alterazione di peridotiti del mantello terrestre.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="img/Metamorphic_facies_EN_1.svg" alt="Diagramma P-T delle facies metamorfiche: ogni facies = campo specifico di pressione-temperatura." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Diagramma P-T delle facies metamorfiche: ogni facies = campo specifico di pressione-temperatura.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Serpentinite_1.jpg" alt="Serpentinite: roccia metamorfica verdastra da alterazione di peridotiti del mantello." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Serpentinite: roccia metamorfica verdastra da alterazione di peridotiti del mantello.</p>
   </div>
 
 <h3>Tipi di metamorfismo</h3>
@@ -1798,18 +1899,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Cava di marmo a Carrara: roccia metamorfica da calcare sedimentario, usata per scultura ed edilizia.</p>
   </div>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="9" data-audio="audio/riassunto_s09.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:19px"></span></div>
-  <span class="fp-dur">1:03</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Le rocce metamorfiche sono il risultato di una trasformazione spettacolare: rocce preesistenti che, sottoposte a temperature e pressioni elevate, cambiano aspetto e minerali senza però fondere del tutto. Se fondessero diventerebbero magmatiche, e questo è il confine da non superare. La parola chiave qui è foliazione: i minerali, sotto sforzo, si riorientano perpendicolarmente alla pressione, creando bande e strutture lamellari che sono la firma distintiva del metamorfismo.</p><p>Il grado metamorfico ti dice quanto è stata intensa la trasformazione: a basso grado prevalgono cambiamenti tessiturali, i cristalli si deformano ma la composizione chimica resta la stessa. Ad alto grado avviene una ricristallizzazione allo stato solido con formazione di minerali completamente nuovi. Il marmo deriva da calcari sedimentari cotti ad alta temperatura: è calcite cristallina. Il marmo nero deve il suo colore a inclusioni di idrocarburi fossili. Lo gneiss, con le sue caratteristiche bande alternate chiare e scure, richiede sia alta temperatura che alta pressione. L'ardesia nasce da argilliti e si sfalda in lamine perfette.</p><p>Distingui due tipi di metamorfismo: quello regionale, che interessa enormi aree durante la formazione delle catene montuose come Alpi e Appennini, e quello di contatto, più locale, che si sviluppa intorno alle intrusioni magmatiche formando un'aureola metamorfica.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-metamorfiche">
+  <div class="flashcards-wrapper" id="fc-metamorfiche">
     <h4> Flash Cards — Rocce Metamorfiche</h4>
     <button class="carousel-arrow prev" data-carousel="fc-metamorfiche" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-metamorfiche">▶</button>
@@ -1824,6 +1914,20 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-metamorfiche"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="9" data-audio="audio/riassunto_s09.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span></div>
+  <span class="fp-dur">2:42</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Le rocce metamorfiche nascono dalla trasformazione di rocce preesistenti, ignee, sedimentarie o già metamorfiche, sottoposte a variazioni di temperatura e pressione, senza mai raggiungere la fusione completa. La roccia di partenza si chiama protolite ed è il riferimento essenziale per capire cosa è avvenuto.</p>
+  <p>Il grado metamorfico esprime l'intensità della trasformazione. Il metamorfismo di basso grado produce prevalentemente variazioni tessiturali: la composizione mineralogica non cambia, ma i cristalli si deformano e si riorientano. Il metamorfismo di alto grado comporta la ricristallizzazione allo stato solido: i minerali originari si trasformano in nuovi minerali senza passare per una fase fusa. Gneiss e marmo illustrano la differenza: lo gneiss richiede alta temperatura e alta pressione; il marmo richiede essenzialmente alta temperatura, essendo un calcare cotto.</p>
+  <p>La caratteristica più distintiva è la foliazione: i minerali, soprattutto quelli lamellari come le miche, si riorientano perpendicolarmente alla direzione dello sforzo compressivo, producendo scistosità, bande o lineazioni. La sequenza delle rocce metamorfiche foliate, in ordine di grado crescente: ardesia, che deriva da argilliti, grana finissima, si sfalda in lamine piatte; filladi, con lucentezza sericea da miche orientate; scisti, con scistosità evidente; gneiss, con struttura a bande alternate chiare e scure. Il marmo è invece non foliato: deriva da calcari sedimentari, composto da calcite cristallina; il marmo nero deve il suo colore a inclusioni di idrocarburi fossili. Il marmo di Carrara è l'esempio più celebre.</p>
+  <p>Due contesti geodinamici. Il metamorfismo regionale interessa grandi aree coinvolte in processi orogenetici: Alpi e Appennini ne sono il prodotto. Il metamorfismo di contatto è locale: si sviluppa intorno alle intrusioni magmatiche, dove il calore del magma cuoce la roccia incassante formando un'aureola metamorfica concentrica; qui la pressione è trascurabile.</p>
+  <p>Ricorda: primo, il metamorfismo trasforma rocce allo stato solido, senza fusione completa; il protolite è la chiave per ricostruire la storia. Secondo, il grado metamorfico distingue trasformazioni tessiturali da ricristallizzazione completa; la foliazione è il carattere diagnostico principale. Terzo, gneiss foliato a bande richiede alta temperatura e alta pressione, marmo non foliato richiede alta temperatura da metamorfismo di contatto.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 10: DEFORMAZIONE ========== -->
@@ -1938,18 +2042,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <p class="caption">Tipi di faglie: normale/diretta (a sinistra), inversa (centro), trascorrente/strike-slip (destra).</p>
   </div>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="10" data-audio="audio/riassunto_s10.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span></div>
-  <span class="fp-dur">1:19</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>In questo capitolo affrontiamo uno dei temi centrali del corso: come e perché le rocce si deformano. Il concetto chiave da portarti a casa è che la profondità decide tutto. La temperatura aumenta di circa trenta gradi per ogni chilometro che scendi nella crosta, il gradiente geotermico, e questo cambia radicalmente il comportamento della roccia. Nei primi dieci-quindici chilometri la roccia è fragile: si rompe, generando fratture e faglie, ed è qui che nascono i terremoti. Scendendo oltre i quindici-venti chilometri, la roccia diventa duttile: si piega senza rompersi. L'analogia del pongo è perfetta: freddo si spezza, scaldato tra le mani si deforma.</p><p>Ed eccoci alle protagoniste: le faglie. Una faglia è una frattura lungo cui i due blocchi scorrono parallelamente al piano di rottura. Il tetto è il blocco sopra il piano di faglia, il letto è il blocco sotto. Nelle faglie dirette il tetto scende rispetto al letto: sono la risposta a uno sforzo estensionale e le trovi ai margini divergenti. Nelle faglie inverse il tetto sale: sforzo compressivo, margini convergenti, catene montuose. Poi ci sono le trascorrenti, con movimento orizzontale, tipiche dei margini trasformi.</p><p>Per distinguere una faglia diretta da una inversa su carta geologica, guardi quali rocce sono a contatto: se il tetto ha rocce più recenti del letto è diretta, se ha rocce più antiche è inversa. Infine, un collegamento importante: quando faglie dirette assottigliano l'intera litosfera, la pressione alla base cala e il materiale fonde per decompressione. È così che si produce magma lungo le dorsali oceaniche.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-deformazione">
+  <div class="flashcards-wrapper" id="fc-deformazione">
     <h4> Flash Cards — Deformazione e Faglie</h4>
     <button class="carousel-arrow prev" data-carousel="fc-deformazione" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-deformazione">▶</button>
@@ -1966,6 +2059,20 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-deformazione"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="10" data-audio="audio/riassunto_s10.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:12px"></span></div>
+  <span class="fp-dur">3:11</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Qui affrontiamo il comportamento meccanico delle rocce sotto sforzo: la deformazione fragile e duttile, e la classificazione delle faglie, argomento centrale per Tondi, geologo strutturale. Quando la litosfera è sottoposta a sforzo ai margini delle placche, le rocce si deformano. La risposta dipende dalla profondità, quindi dalla temperatura. Il gradiente geotermico normale è più trenta gradi centigradi ogni chilometro: a dieci chilometri siamo a circa trecento gradi, a venti chilometri a circa seicento gradi, temperatura di fusione del quarzo secondo Bowen. Tuttavia la pressione impedisce l'aumento di volume necessario alla fusione: la roccia rimane solida ma tende a fluire come un fluido viscoso.</p>
+  <p>La distinzione fondamentale: deformazione fragile, da zero a quindici chilometri, bassa temperatura, dove la roccia si rompe producendo fratture e faglie, è il dominio dei terremoti; deformazione duttile o plastica, oltre quindici-venti chilometri, alta temperatura, dove la roccia fluisce senza rompersi, è il dominio delle pieghe. Il mantello stesso è solido nonostante temperature altissime proprio perché l'enorme pressione impedisce la fusione.</p>
+  <p>Una faglia è una frattura lungo la quale si realizza movimento parallelo alla superficie di rottura. Gli elementi geometrici: piano di faglia generalmente inclinato, definito da direzione orizzontale e immersione perpendicolare; tetto, blocco sopra il piano; letto, blocco sotto il piano. Tre tipi di faglie. Faglie dip-slip con movimento lungo l'immersione: la faglia diretta o normale ha il tetto che scende rispetto al letto, risponde a sforzo estensionale, associata a margini divergenti; la faglia inversa ha il tetto che sale rispetto al letto, risponde a sforzo compressivo, associata a margini convergenti, forma catene montuose. Faglie strike-slip o trascorrenti con movimento orizzontale lungo la direzione, tipiche dei margini trasformi, esempio la Faglia di Sant'Andrea.</p>
+  <p>Per il riconoscimento su carta geologica di faglie vecchie ed erose: faglia diretta, tetto ha rocce più recenti del letto; faglia inversa, tetto ha rocce più antiche del letto. Un meccanismo chiave: quando faglie dirette interessano l'intera litosfera ai margini divergenti, l'assottigliamento riduce la pressione alla base, dove le temperature sono già sopra il punto di fusione, la decompressione innesca la fusione producendo magma lungo le dorsali.</p>
+  <p>Ricorda: primo, fragile uguale superficiale, rottura, faglie, terremoti; duttile uguale profondo, deformazione plastica senza rottura, pieghe. Secondo, faglia diretta con tetto che scende per sforzo estensionale ai margini divergenti; inversa con tetto che sale per sforzo compressivo ai margini convergenti; trascorrente con movimento orizzontale ai margini trasformi. Terzo, su carta geologica: tetto con rocce più recenti uguale diretta; tetto con rocce più antiche uguale inversa.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 11: VULCANI E TERREMOTI ========== -->
@@ -1983,6 +2090,16 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li><strong>Margini convergenti:</strong> vulcanismo esplosivo andesitico (es. Ande, Giappone). Magma per idratazione (acqua dalla placca in subduzione). Lave viscose → eruzioni esplosive.</li>
     <li><strong>Hot spot (punti caldi):</strong> intraplacca. Risalita di materiale dal mantello profondo (plume). Es. Hawaii, Yellowstone.</li>
   </ul>
+
+    <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Stromboli_Eruption.jpg" alt="Eruzione stromboliana: esplosioni ritmiche di lava incandescente, tipica dello Stromboli." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Eruzione stromboliana: esplosioni ritmiche di lava incandescente, tipica dello Stromboli.</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Vesuvius_volcano_2016_(1).jpg" alt="Cratere del Vesuvio oggi: uno dei vulcani più monitorati al mondo." onclick="openLightbox(this.src)" loading="lazy">
+    <p class="caption">Cratere del Vesuvio oggi: uno dei vulcani più monitorati al mondo.</p>
+  </div>
 
 <h3>Prodotti vulcanici</h3>
   <ul>
@@ -2027,17 +2144,9 @@ esempio classico di sovrapposizione stratigrafica.</p>
   <h3>Sismicità in Italia e nel Mediterraneo</h3>
   <p>Il Mediterraneo è una <strong>zona sismicamente attiva</strong> per la convergenza tra placca africana ed euroasiatica. L'Appennino è una catena in compressione, con faglie inverse e dirette (queste ultime nei bacini intramontani). I beni culturali italiani sono particolarmente esposti al rischio sismico.</p>
 
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="11" data-audio="audio/riassunto_s11.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:6px"></span></div>
-  <span class="fp-dur">1:15</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Vulcani e terremoti non sono fenomeni casuali: sono il linguaggio con cui la Terra rilascia energia, e seguono una grammatica precisa dettata dalla tettonica delle placche. I vulcani si concentrano in tre contesti. Ai margini divergenti, come l'Islanda, trovi vulcanismo effusivo basaltico: lave fluide e scure, magma prodotto per decompressione. Ai margini convergenti, Ande e Giappone, il vulcanismo è esplosivo andesitico: la placca in subduzione rilascia acqua che abbassa il punto di fusione del mantello. Infine gli hot spot intraplacca, come Hawaii e Yellowstone.</p><p>I prodotti vulcanici vanno dalle lave basaltiche fluide alle piroclastiti, ceneri, lapilli e bombe, passando per la leggerissima pomice. Non dimenticare le pillow lavas, le lave a cuscino che si formano quando il magma erutta sott'acqua.</p><p>Passiamo ai terremoti: una vibrazione del terreno generata dal passaggio di onde sismiche, prodotte dalla rottura improvvisa di rocce lungo una faglia. L'ipocentro è il punto di rottura in profondità, l'epicentro la sua proiezione in superficie. I terremoti non si possono prevedere. Distingui la magnitudo, energia rilasciata alla sorgente, dall'intensità, che misura gli effetti in superficie con la scala MCS. L'effetto più distruttivo è l'accelerazione orizzontale del suolo. Il Mediterraneo è sismicamente attivo per la convergenza tra placca africana ed euroasiatica. L'Appennino è una catena viva, con faglie attive che mettono a rischio anche il nostro patrimonio di Beni Culturali.</p>
-</div>
+  <div class="placeholder-img">[IMMAGINE: Schema di eruzione vulcanica con camera magmatica, condotto, cratere e prodotti vulcanici]</div>
 
-<div class="flashcards-wrapper" id="fc-vulcani">
+  <div class="flashcards-wrapper" id="fc-vulcani">
     <h4> Flash Cards — Vulcani e Terremoti</h4>
     <button class="carousel-arrow prev" data-carousel="fc-vulcani" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-vulcani">▶</button>
@@ -2054,6 +2163,20 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-vulcani"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="11" data-audio="audio/riassunto_s11.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:18px"></span></div>
+  <span class="fp-dur">3:26</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Questo capitolo ti prepara a collegare i fenomeni vulcanici e sismici alla tettonica delle placche, collegamento che Tondi pretende in sede d'esame. I vulcani sono manifestazioni superficiali della risalita di magma. La loro distribuzione segue i margini delle placche. Ai margini divergenti domina il vulcanismo effusivo basaltico, esempio Islanda sulla dorsale medio-atlantica: magma prodotto per decompressione, lave fluide e scure. Ai margini convergenti prevale il vulcanismo esplosivo andesitico, esempio Ande, Giappone: magma prodotto per idratazione, l'acqua rilasciata dalla placca in subduzione abbassa il punto di fusione del mantello, lave viscose che intrappolano gas generando eruzioni esplosive. Esiste poi il vulcanismo intraplacca da hot spot, punti caldi: risalita di materiale dal mantello profondo tramite plume, esempio Hawaii, Yellowstone.</p>
+  <p>I prodotti vulcanici si dividono in: lave basaltiche fluide e scure, andesitiche intermedie, riolitiche viscose e chiare; pillow lavas, lave a cuscino che si formano quando la lava erutta sott'acqua assumendo forme arrotondate; piroclastiti, materiale frammentario espulso come ceneri, lapilli, bombe; pomice, vetro vulcanico ricchissimo di bolle di gas, leggerissima al punto da galleggiare; scorie, simili alla pomice ma più scure e pesanti.</p>
+  <p>Un terremoto è una vibrazione del terreno dovuta al passaggio di onde sismiche, generate dalla rottura improvvisa di rocce lungo una faglia, con rilascio dell'energia accumulata dallo sforzo tettonico. Il punto di rottura in profondità è l'ipocentro; la sua proiezione in superficie è l'epicentro. I terremoti non si possono prevedere, né quando né dove esattamente. silicio può solo stimare la pericolosità sismica di un'area. La magnitudo misura l'energia rilasciata alla sorgente, scala Richter o magnitudo momento; l'intensità, scala MCS, misura gli effetti in superficie, variabile con la distanza e il tipo di terreno. L'effetto più distruttivo è l'accelerazione del suolo: la gravità, nove virgola otto metri al secondo quadrato, è sopportata da edifici progettati per carichi verticali; un terremoto produce accelerazioni orizzontali per cui le strutture non sono progettate, ecco perché crollano.</p>
+  <p>Differenza fondamentale tra faglie dirette e inverse negli effetti sismici. Le faglie dirette hanno movimento a favore di gravità: la roccia risulta più fratturata e si ha una significativa componente verticale dell'accelerazione. Le faglie inverse hanno movimento contro gravità: la compressione mantiene la roccia più compatta, con minore fratturazione. Il Mediterraneo è zona sismicamente attiva per la convergenza tra placca africana ed euroasiatica.</p>
+  <p>Ricorda: primo, margini divergenti producono vulcanismo effusivo basaltico con lave fluide; margini convergenti producono vulcanismo esplosivo andesitico con lave viscose. Secondo, magnitudo misura l'energia alla sorgente, intensità misura gli effetti in superficie; i terremoti non si prevedono. Terzo, l'accelerazione orizzontale del suolo è l'effetto più distruttivo perché gli edifici sono progettati solo per carichi verticali.</p>
+</div>
 </section>
 
 <!-- ========== SEZIONE 12: GUIDA ESAME ========== -->
@@ -2121,18 +2244,7 @@ esempio classico di sovrapposizione stratigrafica.</p>
     <li>Metodo scientifico, attualismo, tempo geologico</li>
   </ul>
 
-  
-  <div class="riassunto-box">
-  <div class="fake-player" data-chapter="12" data-audio="audio/riassunto_s12.ogg">
-  <span class="fp-play">▶</span>
-  <div class="fp-waveform"><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:10px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:7px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:5px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:20px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:7px"></span></div>
-  <span class="fp-dur">1:15</span>
-</div>
-<h4>📎 Riassunto — Il sito ti spiega</h4>
-  <p>Eccoci alla sezione che ti interessa di più: come si affronta l'esame di Tondi. Il Prof. Tondi è un geologo strutturale e non vuole sentirti sparare il nome della roccia a bruciapelo. Vuole il ragionamento geologico. Il nome è l'ultima cosa che devi dire, e se lo sbagli ma il percorso è corretto, non è un dramma. L'esame non è un quiz.</p><p>Ecco il Metodo Tondi in sei passi. Primo: osserva. Descrivi colore, peso, cristalli visibili, struttura, foliazione, clasti. Secondo: deduci la composizione mineraria. Chiaro e leggero uguale silicio, crosta continentale. Scuro e pesante uguale ferro e magnesio, crosta oceanica. Terzo: colloca la roccia in un macro-gruppo. Quarto: sotto-classifica. Quinto: spiega il processo genetico e il contesto geodinamico. Sesto: solo ora, dai il nome della roccia.</p><p>Nella pratica, ricevi due campioni, hai quindici-venti minuti per osservarli, poi l'orale parte dalla loro descrizione. I parametri da padroneggiare sono tessitura, colore e peso, lucentezza, sfaldatura, durezza, reazione all'HCl e rugosità. Tondi apprezza i collegamenti interdisciplinari. Gli argomenti su cui insisterà di più? Tettonica delle placche, classificazione delle faglie, deformazione fragile vs duttile. Preparati bene su questi tre pilastri e avrai fatto il grosso del lavoro.</p>
-</div>
-
-<div class="flashcards-wrapper" id="fc-esame">
+  <div class="flashcards-wrapper" id="fc-esame">
     <h4> Flash Cards — Guida Esame</h4>
     <button class="carousel-arrow prev" data-carousel="fc-esame" disabled>◀</button>
     <button class="carousel-arrow next" data-carousel="fc-esame">▶</button>
@@ -2148,9 +2260,27 @@ esempio classico di sovrapposizione stratigrafica.</p>
     </div>
     <div class="carousel-dots" data-carousel="fc-esame"></div>
   </div>
+
+<div class="riassunto-box">
+  <div class="fake-player" data-chapter="12" data-audio="audio/riassunto_s12.ogg">
+  <span class="fp-play">▶</span>
+  <div class="fp-waveform"><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:6px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:18px"></span><span class="fp-bar" style="height:14px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:13px"></span><span class="fp-bar" style="height:8px"></span><span class="fp-bar" style="height:15px"></span><span class="fp-bar" style="height:19px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:9px"></span><span class="fp-bar" style="height:11px"></span><span class="fp-bar" style="height:16px"></span><span class="fp-bar" style="height:17px"></span><span class="fp-bar" style="height:4px"></span><span class="fp-bar" style="height:12px"></span><span class="fp-bar" style="height:18px"></span></div>
+  <span class="fp-dur">4:06</span>
+</div>
+<h4>📎 Riassunto — Il sito ti spiega</h4>
+  <p>Questa sezione è la tua mappa tattica per l'orale. Il Prof. Tondi è un geologo strutturale: non vuole il nome della roccia sparato a bruciapelo, vuole il ragionamento geologico. Lo dice esplicitamente: non è un quiz. Il nome è l'ultima cosa. L'esame valuta il percorso, non la risposta secca. Ecco il Metodo Tondi in sei passi esatti, da seguire in ordine. Passo uno, Osservazione: colore, peso a parità di dimensioni, cristalli visibili, struttura, eventuale foliazione, presenza di clasti. Descrivi ciò che vedi, senza interpretare. Passo due, Deduzione sui minerali: chiaro e leggero indica ricco di silicio, crosta continentale; scuro e pesante indica ricco di ferro e magnesio, crosta oceanica. Passo tre, Classificazione macro-gruppo: ignea, sedimentaria o metamorfica? Decidi in base a tessitura e struttura. Passo quattro, Sotto-classificazione: intrusiva o effusiva, epiclastica, allochimica o cristallina, foliata o non foliata. Passo cinque, Processo genetico: come si è formata? In quale contesto geodinamico? Margine divergente, convergente, trasforme? Passo sei, Nome della roccia: solo alla fine. Se non sai il nome esatto non è un errore grave, purché il ragionamento sia corretto.</p>
+  <p>Lo svolgimento tipico: il professore consegna due campioni di rocce già visti durante le esercitazioni; hai quindici-venti minuti per osservare e descrivere, prendendo appunti scritti; l'orale parte dalla descrizione del campione e da lì si sviluppa.</p>
+  <p>Gli otto parametri principali di riconoscimento. Primo, Tessitura: grana grossa uguale intrusiva, fine o assente uguale effusiva, clasti uguale sedimentaria, foliazione uguale metamorfica. Secondo, Colore e peso: chiaro e leggero indica silicio, scuro e pesante indica ferro e magnesio. Terzo, Lucentezza: miche e quarzo riflettono in modo caratteristico. Quarto, Sfaldatura: le miche si sfogliano in lamine sottili visibili a occhio nudo. Quinto, Durezza: riga il vetro? Quarzo sì, calcite no. Unghia uguale due, vetro circa cinque, martello circa cinque-sei. Sesto, Reazione all'acido cloridrico: calcite effervesce, dolomite no. Settimo, Rugosità: ruvida come carta vetro uguale arenaria, liscia uguale argillite o calcare. Ottavo, Peso specifico: la pomice galleggia in acqua.</p>
+  <p>Nella discussione, Tondi apprezza i collegamenti interdisciplinari: dove si trova questa roccia, in che contesto geodinamico. Per rocce ignee: magma acido o basico? Per sedimentarie: trasporto lungo con clasti arrotondati o breve con spigolosi? Per metamorfiche: qual era il protolite? Apprezza i collegamenti con le proprietà fisiche e l'uso nei Beni Culturali. Essendo geologo strutturale, darà enfasi a: tettonica delle placche, classificazione delle faglie, deformazione fragile contro duttile, terremoti e vulcani in relazione a faglie e margini.</p>
+  <p>Ricorda: primo, il Metodo Tondi è una sequenza rigida: osserva, deduci minerali, classifica macro-gruppo, sotto-classifica, spiega genesi e contesto geodinamico, solo alla fine dai il nome. Secondo, non è un quiz: il nome sbagliato non è grave se il percorso logico è corretto. Terzo, Tondi è geologo strutturale: tettonica delle placche, faglie e deformazione fragile e duttile sono gli argomenti su cui devi essere impeccabile.</p>
+</div>
 </section>
 
 </main>
+
+
+
+
 
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox(event)">
@@ -2262,124 +2392,39 @@ document.querySelectorAll('.flashcards-wrapper').forEach(wrapper => {
 
 
 <div id="sticky-player">
-  <div class="sp-top">
-    <span class="sp-title" id="sp-title">📎 Capitolo 1 — Fondamenti</span>
-    <div class="sp-ctrl">
-      <button class="sp-btn" id="sp-prev" title="Precedente">⏮</button>
-      <button class="sp-btn sp-btn-play" id="sp-play">▶</button>
-      <button class="sp-btn" id="sp-next" title="Successivo">⏭</button>
-      <button class="sp-btn sp-close" id="sp-close" title="Chiudi">✕</button>
-    </div>
-  </div>
-  <div class="sp-seek-row">
-    <span class="sp-time" id="sp-cur">0:00</span>
-    <div class="sp-seek" id="sp-seek"><div class="sp-seek-fill" id="sp-fill"></div></div>
-    <span class="sp-time" id="sp-tot">0:00</span>
-  </div>
+  <div class="sp-top"><span class="sp-title" id="sp-title">📎 Capitolo 1 — Fondamenti</span>
+  <div class="sp-ctrl"><button class="sp-btn" id="sp-prev">⏮</button><button class="sp-btn sp-btn-play" id="sp-play">▶</button><button class="sp-btn" id="sp-next">⏭</button><button class="sp-btn sp-close" id="sp-close">✕</button></div></div>
+  <div class="sp-seek-row"><span class="sp-time" id="sp-cur">0:00</span><div class="sp-seek" id="sp-seek"><div class="sp-seek-fill" id="sp-fill"></div></div><span class="sp-time" id="sp-tot">0:00</span></div>
   <a id="sp-dl" href="#" download style="font-size:0.7rem;color:#a09078;text-decoration:none;margin-top:2px">⬇ Scarica audio</a>
 </div>
 <script>
-var chapters = [
-  {num:1,title:"Fondamenti della Geologia",file:"audio/riassunto_s01.ogg",dur:"3:45"},
-  {num:2,title:"Sistema Solare e Pianeta Terra",file:"audio/riassunto_s02.ogg",dur:"3:15"},
-  {num:3,title:"Tempo Geologico",file:"audio/riassunto_s03.ogg",dur:"2:53"},
-  {num:4,title:"Struttura Interna della Terra",file:"audio/riassunto_s04.ogg",dur:"3:00"},
-  {num:5,title:"Tettonica delle Placche",file:"audio/riassunto_s05.ogg",dur:"2:35"},
-  {num:6,title:"Minerali",file:"audio/riassunto_s06.ogg",dur:"2:51"},
-  {num:7,title:"Rocce Ignee",file:"audio/riassunto_s07.ogg",dur:"2:54"},
-  {num:8,title:"Rocce Sedimentarie",file:"audio/riassunto_s08.ogg",dur:"3:09"},
-  {num:9,title:"Rocce Metamorfiche",file:"audio/riassunto_s09.ogg",dur:"2:37"},
-  {num:10,title:"Deformazione e Faglie",file:"audio/riassunto_s10.ogg",dur:"3:02"},
-  {num:11,title:"Vulcani e Terremoti",file:"audio/riassunto_s11.ogg",dur:"3:01"},
-  {num:12,title:"Guida all'Esame",file:"audio/riassunto_s12.ogg",dur:"3:20"},
-];
+var chapters=[  {num:1,title:"Fondamenti della Geologia",file:"audio/riassunto_s01.ogg",dur:"4:07"},
+  {num:2,title:"Sistema Solare e Pianeta Terra",file:"audio/riassunto_s02.ogg",dur:"3:36"},
+  {num:3,title:"Tempo Geologico",file:"audio/riassunto_s03.ogg",dur:"3:17"},
+  {num:4,title:"Struttura Interna della Terra",file:"audio/riassunto_s04.ogg",dur:"3:32"},
+  {num:5,title:"Tettonica delle Placche",file:"audio/riassunto_s05.ogg",dur:"3:21"},
+  {num:6,title:"Minerali",file:"audio/riassunto_s06.ogg",dur:"4:51"},
+  {num:7,title:"Rocce Ignee",file:"audio/riassunto_s07.ogg",dur:"3:41"},
+  {num:8,title:"Rocce Sedimentarie",file:"audio/riassunto_s08.ogg",dur:"3:18"},
+  {num:9,title:"Rocce Metamorfiche",file:"audio/riassunto_s09.ogg",dur:"2:42"},
+  {num:10,title:"Deformazione e Faglie",file:"audio/riassunto_s10.ogg",dur:"3:11"},
+  {num:11,title:"Vulcani e Terremoti",file:"audio/riassunto_s11.ogg",dur:"3:26"},
+  {num:12,title:"Guida all'Esame",file:"audio/riassunto_s12.ogg",dur:"4:06"}];
 var spAudio=null,spIdx=-1,spPlaying=false;
-
-var spEl=document.getElementById("sticky-player");
-var spTitle=document.getElementById("sp-title");
-var spPlayBtn=document.getElementById("sp-play");
-var spPrev=document.getElementById("sp-prev");
-var spNext=document.getElementById("sp-next");
-var spClose=document.getElementById("sp-close");
-var spSeek=document.getElementById("sp-seek");
-var spFill=document.getElementById("sp-fill");
-var spCur=document.getElementById("sp-cur");
-var spTot=document.getElementById("sp-tot");
-var spDl=document.getElementById("sp-dl");
-
+var spEl=document.getElementById("sticky-player"),spTitle=document.getElementById("sp-title"),spPlayBtn=document.getElementById("sp-play"),spPrev=document.getElementById("sp-prev"),spNext=document.getElementById("sp-next"),spClose=document.getElementById("sp-close"),spSeek=document.getElementById("sp-seek"),spFill=document.getElementById("sp-fill"),spCur=document.getElementById("sp-cur"),spTot=document.getElementById("sp-tot"),spDl=document.getElementById("sp-dl");
 function fmt(s){if(isNaN(s)||s<0)return"0:00";return Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0");}
-
-function loadSp(idx){
-  if(idx<0||idx>=12)return;
-  if(spAudio){spAudio.pause();spAudio=null;}
-  spIdx=idx;
-  var ch=chapters[idx];
-  spTitle.textContent="📎 Capitolo "+ch.num+" — "+ch.title;
-  spPrev.disabled=(idx===0);
-  spNext.disabled=(idx===11);
-  spFill.style.width="0%";spCur.textContent="0:00";spTot.textContent=ch.dur;
-  spDl.href=ch.file;
-  spAudio=new Audio(ch.file);
-  spAudio.ontimeupdate=function(){
-    if(spAudio.duration){
-      spFill.style.width=(spAudio.currentTime/spAudio.duration*100)+"%";
-      spCur.textContent=fmt(spAudio.currentTime);
-    }
-  };
-  spAudio.onended=function(){
-    if(spIdx<11){loadSp(spIdx+1);playSp();syncAll();}
-    else{stopSp();}
-  };
-  spAudio.onerror=function(){stopSp();};
-  spAudio.onloadedmetadata=function(){spTot.textContent=fmt(spAudio.duration);};
-}
-
-function playSp(){
-  if(!spAudio)return;
-  spEl.classList.add("on");spAudio.play();spPlaying=true;
-  spPlayBtn.textContent="⏸";syncAll();
-}
-function pauseSp(){
-  if(!spAudio)return;
-  spAudio.pause();spPlaying=false;
-  spPlayBtn.textContent="▶";syncAll();
-}
-function stopSp(){
-  if(spAudio){spAudio.pause();spAudio=null;}
-  spPlaying=false;spIdx=-1;spPlayBtn.textContent="▶";
-  spFill.style.width="0%";spCur.textContent="0:00";
-  spEl.classList.remove("on");syncAll();
-}
-function syncAll(){
-  document.querySelectorAll(".fake-player").forEach(function(el){
-    var c=parseInt(el.dataset.chapter);
-    if(c===spIdx+1&&spPlaying){
-      el.classList.add("active");
-      el.querySelector(".fp-play").textContent="⏸";
-    }else{
-      el.classList.remove("active");
-      el.querySelector(".fp-play").textContent="▶";
-    }
-  });
-}
-
-document.querySelectorAll(".fake-player").forEach(function(el){
-  el.addEventListener("click",function(){
-    var c=parseInt(el.dataset.chapter)-1;
-    if(spIdx===c&&spPlaying){pauseSp();}
-    else{loadSp(c);playSp();}
-  });
-});
-
+function loadSp(idx){if(idx<0||idx>=12)return;if(spAudio){spAudio.pause();spAudio=null;}spIdx=idx;var ch=chapters[idx];spTitle.textContent="📎 Capitolo "+ch.num+" — "+ch.title;spPrev.disabled=(idx===0);spNext.disabled=(idx===11);spFill.style.width="0%";spCur.textContent="0:00";spTot.textContent=ch.dur;spDl.href=ch.file;spAudio=new Audio(ch.file);spAudio.ontimeupdate=function(){if(spAudio.duration){spFill.style.width=(spAudio.currentTime/spAudio.duration*100)+"%";spCur.textContent=fmt(spAudio.currentTime);}};spAudio.onended=function(){if(spIdx<11){loadSp(spIdx+1);playSp();syncAll();}else{stopSp();}};spAudio.onerror=function(){stopSp();};spAudio.onloadedmetadata=function(){spTot.textContent=fmt(spAudio.duration);};}
+function playSp(){if(!spAudio)return;spEl.classList.add("on");spAudio.play();spPlaying=true;spPlayBtn.textContent="⏸";syncAll();}
+function pauseSp(){if(!spAudio)return;spAudio.pause();spPlaying=false;spPlayBtn.textContent="▶";syncAll();}
+function stopSp(){if(spAudio){spAudio.pause();spAudio=null;}spPlaying=false;spIdx=-1;spPlayBtn.textContent="▶";spFill.style.width="0%";spCur.textContent="0:00";spEl.classList.remove("on");syncAll();}
+function syncAll(){document.querySelectorAll(".fake-player").forEach(function(el){var c=parseInt(el.dataset.chapter);if(c===spIdx+1&&spPlaying){el.classList.add("active");el.querySelector(".fp-play").textContent="⏸";}else{el.classList.remove("active");el.querySelector(".fp-play").textContent="▶";}});}
+document.querySelectorAll(".fake-player").forEach(function(el){el.addEventListener("click",function(){var c=parseInt(el.dataset.chapter)-1;if(spIdx===c&&spPlaying){pauseSp();}else{loadSp(c);playSp();}});});
 spPlayBtn.addEventListener("click",function(){if(spPlaying)pauseSp();else playSp();});
 spPrev.addEventListener("click",function(){loadSp(spIdx-1);playSp();});
 spNext.addEventListener("click",function(){loadSp(spIdx+1);playSp();});
 spClose.addEventListener("click",stopSp);
-spSeek.addEventListener("click",function(e){
-  if(!spAudio||!spAudio.duration)return;
-  var pct=(e.clientX-spSeek.getBoundingClientRect().left)/spSeek.offsetWidth;
-  spAudio.currentTime=pct*spAudio.duration;
-});
+spSeek.addEventListener("click",function(e){if(!spAudio||!spAudio.duration)return;var pct=(e.clientX-spSeek.getBoundingClientRect().left)/spSeek.offsetWidth;spAudio.currentTime=pct*spAudio.duration;});
 </script>
+
 </body>
 </html>
