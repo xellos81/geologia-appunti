@@ -1,0 +1,650 @@
+================================================================================
+DOMANDE DEL PROF. EMANUELE TONDI - LEZIONI 04, 05, 06, 07
+Estratte dalle trascrizioni delle lezioni di Geologia (UNICAM)
+================================================================================
+
+LEGENDA TIPI:
+  [DIRETTA] = Domanda rivolta a uno studente specifico o alla classe
+  [RETORICA] = Domanda usata per introdurre/spiegare un argomento
+  [ESAME] = Domanda segnalata come probabile domanda d'esame
+
+================================================================================
+TRASCRIZIONE 04 - 19 Aprile 2024 (Minerali, Rocce Ignee)
+================================================================================
+
+1. "cosa sono già? Voi lo sapete"
+   Contesto: Chiede alla classe cosa sono i minerali (ripasso).
+   Tipo: DIRETTA
+
+2. "l'elemento chimico che cos'è?"
+   Contesto: Definizione di elemento chimico come atomo.
+   Tipo: DIRETTA / ESAME
+
+3. "come un insieme?"
+   Contesto: Chiarimento su elemento chimico = atomo, non insieme.
+   Tipo: RETORICA
+
+4. "dove ci stanno?"
+   Contesto: Dove si trovano protoni, neutroni ed elettroni nell'atomo.
+   Tipo: RETORICA
+
+5. "perché?" [ferro e magnesio sono metalli pesanti]
+   Contesto: Perché ferro e magnesio sono più pesanti dell'ossigeno.
+   Tipo: RETORICA
+
+6. "vedi?"
+   Contesto: Gerarchia: elementi chimici → minerali → rocce.
+   Tipo: RETORICA
+
+7. "quante rocce avrò?"
+   Contesto: Se ci sono tanti minerali, sembrerebbero infinite rocce, ma in realtà no.
+   Tipo: RETORICA
+
+8. "silicato che significa?"
+   Contesto: Spiegazione che il 91% dei minerali sono silicati (contengono silicio).
+   Tipo: RETORICA / ESAME
+
+9. "no?" [il sodio è Na, sta ponendo il sale]
+   Contesto: Confronto formula chimica ortoclasio vs plagioclasio.
+   Tipo: RETORICA
+
+10. "secondo voi, questi minerali, i fespati, che sono tantissimi, sono più diffusi nella crosta continentale o nella crosta oceanica?"
+    Contesto: Classificazione minerali in base alla crosta.
+    Tipo: DIRETTA / ESAME
+
+11. "giusto?" [crosta oceanica più densa perché ferro e magnesio]
+    Contesto: Ripasso differenza crosta continentale vs oceanica.
+    Tipo: RETORICA
+
+12. "ferro e magnesio?"
+    Contesto: Nei feldspati non c'è ferro e magnesio, quindi sono continentali.
+    Tipo: RETORICA
+
+13. "voi siete mai chiesti perché il monte rosa si chiama monte rosa e il monte bianco si chiama monte bianco?"
+    Contesto: Legame tra nome delle montagne e minerali (ortoclasio rosa vs plagioclasio bianco).
+    Tipo: RETORICA
+
+14. "no?" [monte rosa: fiori rosa? monte bianco: neve?]
+    Contesto: Smonta la spiegazione popolare sbagliata.
+    Tipo: RETORICA
+
+15. "vuoi un caffè?"
+    Contesto: Pausa durante la lezione.
+    Tipo: DIRETTA (informale)
+
+16. "c'è il magnesio e il ferro?"
+    Contesto: Il quarzo NON ha magnesio e ferro, è tipico della crosta continentale.
+    Tipo: RETORICA
+
+17. "vero? vero Mauro, c'è tanto quarzo nel mantello"
+    Contesto: Domanda trabocchetto a Mauro — il quarzo NON sta nel mantello.
+    Tipo: DIRETTA (a Mauro) / ESAME
+
+18. "come?" [il pirosseno non sta pure nel granito?]
+    Contesto: Studente chiede se c'è pirosseno nel granito.
+    Tipo: RISPOSTA A DOMANDA STUDENTE
+
+19. "certe volte?" [nel granito non c'è pure un po' di pirosseni?]
+    Contesto: Lo studente insiste sulla presenza di pirosseni nel granito.
+    Tipo: RISPOSTA A DOMANDA STUDENTE
+
+20. "da che è fatta l'olivina?"
+    Contesto: Composizione dell'olivina (magnesio, ferro, silicio).
+    Tipo: RETORICA / ESAME
+
+21. "no?" [l'olivina è il minerale ricco di ferro e magnesio per eccellenza]
+    Contesto: L'olivina è il minerale tipico della crosta oceanica e del mantello.
+    Tipo: RETORICA
+
+22. "capito?" [il marmo è calcite ma è metamorfico]
+    Contesto: Distinzione tra calcite (minerale) e marmo (roccia metamorfica).
+    Tipo: RETORICA
+
+23. "Mauro, ci sei?"
+    Contesto: Verifica collegamento studente online.
+    Tipo: DIRETTA
+
+24. "chi c'è oltre a me?" [online]
+    Contesto: Verifica studenti collegati.
+    Tipo: DIRETTA
+
+25. "penso no?" [avete fatto mineralogia?]
+    Contesto: Chiede se hanno già studiato proprietà dei minerali.
+    Tipo: DIRETTA
+
+26. "vero?" [avete fatto proprietà minerali: densità, durezza, sfaldatura...]
+    Contesto: Conferma su proprietà minerali già studiate.
+    Tipo: DIRETTA
+
+27. "non la ricordate?" [la serie di Bowen / temperatura di fusione]
+    Contesto: Ripasso serie di Bowen (temperatura di fusione minerali).
+    Tipo: DIRETTA / ESAME
+
+28. "e i minerali più densi quali sono?"
+    Contesto: Quali minerali sono più densi (quelli con ferro e magnesio).
+    Tipo: RETORICA / ESAME
+
+29. "che colore avrà?" [una roccia ricca di ferro e magnesio]
+    Contesto: Relazione colore-composizione: rocce femiche sono scure.
+    Tipo: RETORICA / ESAME
+
+30. "la durezza? cosa posso usare io per conoscere la durezza?"
+    Contesto: Metodi pratici per testare la durezza (unghia, vetro, ferro).
+    Tipo: DIRETTA / ESAME
+
+31. "no?" [se vedo cristalli nelle rocce appenniniche sono calcite]
+    Contesto: Riconoscimento minerali in base al contesto geologico.
+    Tipo: RETORICA
+
+32. "giusto?" [se c'è roccia con silicio posso avere quarzo]
+    Contesto: Logica disponibilità elementi chimici per formazione minerali.
+    Tipo: RETORICA
+
+33. "no?" [le nostre rocce sono calcari, spesso marnosi]
+    Contesto: Composizione rocce appenniniche: calcari e marne.
+    Tipo: RETORICA
+
+34. "va bene?"
+    Contesto: Transizione dopo spiegazione sulle argille.
+    Tipo: RETORICA
+
+35. "sono tanti no?" [i minerali da ricordare]
+    Contesto: Rassicurazione: sono solo 9-12 minerali principali da sapere.
+    Tipo: RETORICA / ESAME
+
+36. "ok?"
+    Contesto: Dopo aver elencato metodi riconoscimento minerali.
+    Tipo: RETORICA
+
+37. "poi vado a chiedere: allora quali minerali principali ci saranno nella crosta oceanica?"
+    Contesto: Domanda esame annunciata sui minerali della crosta oceanica.
+    Tipo: ESAME (ANNUNCIATA ESPLICITAMENTE)
+
+38. "dove?"
+    Contesto: In quale crosta si trovano i minerali femici.
+    Tipo: RETORICA
+
+39. "non è facile no?"
+    Contesto: Ammette che ricordare i minerali della crosta oceanica non è facile.
+    Tipo: RETORICA
+
+40. "giusto?" [magma ricco in silicio → feldspati; povero in silicio → minerali femici]
+    Contesto: Relazione composizione magma e minerali formati.
+    Tipo: RETORICA
+
+41. "no?" [il magma deve raffreddare per formare rocce]
+    Contesto: Processo di formazione rocce ignee.
+    Tipo: RETORICA
+
+42. "come? hai detto arenaria Mauro?"
+    Contesto: Chiarimento terminologico su sabbia vs arenaria.
+    Tipo: DIRETTA (a Mauro)
+
+43. "che succede?" [nel metamorfismo]
+    Contesto: Cosa accade a una roccia quando va a pressioni/temperature diverse.
+    Tipo: RETORICA / ESAME
+
+44. "cosa trasformano?" [pressione e temperatura su una roccia]
+    Contesto: Effetti del metamorfismo su composizione e tessitura.
+    Tipo: RETORICA / ESAME
+
+45. "le marmitte dei giganti... quelli ai lati sono metamorfiche o sedimentari?"
+    Contesto: Domanda su classificazione rocce delle marmitte dei giganti.
+    Tipo: DIRETTA
+
+46. "come si differenziano io le rocce igne?"
+    Contesto: Criteri di classificazione rocce ignee.
+    Tipo: RETORICA / ESAME
+
+47. "giusto?" [riconoscete i minerali nel grafico]
+    Contesto: Verifica comprensione diagramma classificazione rocce ignee.
+    Tipo: DIRETTA
+
+48. "vi ricordate che ho detto che in alcuni punti affiora la moho, no?"
+    Contesto: Ripasso discontinuità di Mohorovičić.
+    Tipo: DIRETTA
+
+49. "dov'è che avviene il raffreddamento lento del magma?"
+    Contesto: Dove si formano le rocce intrusive (all'interno della crosta).
+    Tipo: RETORICA / ESAME
+
+50. "no?" [ci vuole anche l'erosione oltre al movimento tettonico]
+    Contesto: Come il granito arriva in superficie.
+    Tipo: RETORICA
+
+51. "io che tipo di roccia avrò lì?" [sulle dorsali medio-oceaniche]
+    Contesto: Rocce che si formano sulle dorsali.
+    Tipo: RETORICA / ESAME
+
+52. "che roccia sarà?" [sotto i sedimenti oceanici]
+    Contesto: Identificazione basalto come roccia del fondale oceanico.
+    Tipo: RETORICA / ESAME
+
+53. "cosa trovo?" [scendendo in profondità nella crosta oceanica]
+    Contesto: Successione basalto → gabbro → peridotite → mantello.
+    Tipo: RETORICA / ESAME
+
+54. "io cosa avrò in superficie?" [in un complesso vulcanico come Vesuvio/Etna]
+    Contesto: Rocce vulcaniche in ambiente continentale.
+    Tipo: RETORICA / ESAME
+
+
+================================================================================
+TRASCRIZIONE 05 - 3 Maggio 2024 (Rocce Sedimentarie, Rocce Metamorfiche)
+================================================================================
+
+55. "era granito? no granito è intrusiva"
+    Contesto: Confusione studente tra riolite (effusiva) e granito (intrusivo).
+    Tipo: DIRETTA / RETORICA
+
+56. "ci sono anche i sedimenti organici no?"
+    Contesto: Domanda di uno studente sui sedimenti organici.
+    Tipo: RISPOSTA A DOMANDA STUDENTE
+
+57. "dove?" [dove vanno a finire i sedimenti trasportati da fiumi, vento, ghiacciai]
+    Contesto: Destinazione sedimenti: verso il mare.
+    Tipo: RETORICA
+
+58. "Copre tutto, viene chiamata neve marina, no? Marine snow."
+    Contesto: Spiegazione pioggia di plancton negli oceani.
+    Tipo: RETORICA
+
+59. "Va bene Mauro?"
+    Contesto: Verifica comprensione studente.
+    Tipo: DIRETTA
+
+60. "come ve lo immaginate?" [un clasto, un frammento di roccia]
+    Contesto: Aspetto di un clasto appena formato (spigoli vivi).
+    Tipo: DIRETTA
+
+61. "sono uguali a quelli che stanno in montagna?" [i ciottoli in spiaggia]
+    Contesto: Effetto del trasporto: arrotondamento dei clasti.
+    Tipo: DIRETTA
+
+62. "cosa scusa? lecce?"
+    Contesto: Chiarimento su pietra di Lecce (calcare, non arenaria).
+    Tipo: DIRETTA
+
+63. "perché?" [i paesi laziali sono grigi o grigi scuri]
+    Contesto: Perché i centri storici laziali usano rocce vulcaniche scure.
+    Tipo: RETORICA
+
+64. "dove avviene?" [la sedimentazione]
+    Contesto: Ambienti di sedimentazione.
+    Tipo: RETORICA / ESAME
+
+65. "qual è la caratteristica fondamentale di un ambiente sedimentario?"
+    Contesto: Definizione ambiente sedimentario = caduta di energia.
+    Tipo: RETORICA / ESAME
+
+66. "il sedimento che fa?"
+    Contesto: Cosa fa il sedimento quando arriva in un ambiente a bassa energia (precipita).
+    Tipo: RETORICA
+
+67. "che sedimenti vado a incontrare?" [allontanandosi dal continente]
+    Contesto: Transizione da arenarie (vicino costa) ad allochimiche (oceano aperto).
+    Tipo: DIRETTA / ESAME
+
+68. "perché anche il sedimento viene classificato no?"
+    Contesto: Classificazione dei sedimenti prima della diagenesi.
+    Tipo: RETORICA
+
+69. "prima che diventi roccia eh?"
+    Contesto: Differenza temporale tra sedimento e roccia.
+    Tipo: RETORICA
+
+70. "avete mai sentito parlare di sabbia? avete mai sentito parlare di ghiaia?"
+    Contesto: Nomi comuni dei sedimenti.
+    Tipo: DIRETTA
+
+71. "ora non è facile ricordarsi i valori no?"
+    Contesto: Scala granulometrica (2mm soglia sabbia/ghiaia).
+    Tipo: RETORICA
+
+72. "come possono avvenire queste trasformazioni?" [metamorfiche]
+    Contesto: Tipi di metamorfismo: tessiturale o mineralogico.
+    Tipo: RETORICA / ESAME
+
+73. "a che diciamo avviene questo metamorfismo?"
+    Contesto: Condizioni P/T del metamorfismo: T < T fusione, T > 250°C.
+    Tipo: RETORICA / ESAME
+
+74. "come faccio ad avere io una temperatura maggiore di 250°C?"
+    Contesto: Meccanismi per portare rocce a temperature metamorfiche.
+    Tipo: RETORICA / ESAME
+
+75. "come fa una roccia ignea o una roccia sedimentaria ad andare ad una temperatura maggiore di 250°C?"
+    Contesto: Stessa domanda, riformulata.
+    Tipo: RETORICA / ESAME
+
+76. "e come ci va?" [la roccia in profondità]
+    Contesto: Meccanismi: subduzione o orogeni (catene montuose).
+    Tipo: RETORICA / ESAME
+
+
+================================================================================
+TRASCRIZIONE 06 - 17 Maggio 2024 (Esercitazione: riconoscimento rocce, Classificazione)
+================================================================================
+
+77. "Che cosa sono?" [rocce metamorfiche]
+    Contesto: Inizio test riconoscimento rocce.
+    Tipo: DIRETTA
+
+78. "Siete tutti d'accordo?"
+    Contesto: Verifica consenso classe sul riconoscimento.
+    Tipo: DIRETTA
+
+79. "Questa che diamine è?"
+    Contesto: Mostra un campione di roccia da identificare.
+    Tipo: DIRETTA
+
+80. "Cos'è?" [campione di roccia]
+    Contesto: Riconoscimento roccia (rivolto a Mauro).
+    Tipo: DIRETTA
+
+81. "Quindi?" [dopo discussione sulle proprietà]
+    Contesto: Conclusione sull'identificazione roccia.
+    Tipo: DIRETTA
+
+82. "Sedimentaria?"
+    Contesto: Proposta di classificazione.
+    Tipo: DIRETTA
+
+83. "metamorfica Mauro?"
+    Contesto: Chiede a Mauro se è metamorfica.
+    Tipo: DIRETTA
+
+84. "che cos'è quella?"
+    Contesto: Identificazione ultimo campione.
+    Tipo: DIRETTA
+
+85. "Mauro ci sei? hai ripreso il video?"
+    Contesto: Verifica collegamento studente.
+    Tipo: DIRETTA
+
+86. "ma che cos'è questa?"
+    Contesto: Identificazione scoria vulcanica.
+    Tipo: DIRETTA
+
+87. "intanto è giusto o sbagliato?" [il riconoscimento]
+    Contesto: Verifica risposta studente.
+    Tipo: DIRETTA
+
+88. "perché questa è matematica e questa è no?"
+    Contesto: Confronto due rocce: perché una è metamorfica e l'altra no.
+    Tipo: DIRETTA
+
+89. "cosa vi ha fatto pensare a questa cosa? cosa vi ha fatto pensare a questa cosa?"
+    Contesto: Chiede ragionamento agli studenti.
+    Tipo: DIRETTA
+
+90. "questa è più abbondante di minerali più scuri? questa meno?"
+    Contesto: Guida al ragionamento su composizione minerali.
+    Tipo: DIRETTA
+
+91. "e questa è la linea di grosso?"
+    Contesto: Chiarimento su grana (tessitura) della roccia.
+    Tipo: RETORICA
+
+92. "abbiamo preso solo queste metamorfiche?"
+    Contesto: Verifica quante rocce metamorfiche sono state identificate.
+    Tipo: DIRETTA
+
+93. "quindi sece è travertino o sedimentare?"
+    Contesto: Classificazione selce: sedimentaria, non metamorfica.
+    Tipo: DIRETTA
+
+94. "Un altro esempio di roccia effusiva vetrosa vi viene in mente?"
+    Contesto: Esempio classico: ossidiana.
+    Tipo: DIRETTA / ESAME
+
+95. "Che significa tessitura porfirica?"
+    Contesto: Definizione tessitura porfirica (fenocristalli in pasta di fondo).
+    Tipo: RETORICA / ESAME
+
+96. "Allora, che cosa cambia?" [da sinistra a destra nel grafico]
+    Contesto: Variazione percentuale SiO2 e minerali nelle rocce ignee.
+    Tipo: RETORICA / ESAME
+
+97. "Tra i due, qual è il marma più acido?"
+    Contesto: Confronto due graniti in base all'ortoclasio.
+    Tipo: DIRETTA / ESAME
+
+98. "Qual è il più acido, Mauro?"
+    Contesto: Domanda diretta a Mauro su quale granito è più acido.
+    Tipo: DIRETTA
+
+99. "E perché?" [è più acido]
+    Contesto: Motivazione: più rosa = più ortoclasio = più acido.
+    Tipo: DIRETTA
+
+100. "Ha un contenuto maggiore di?"
+     Contesto: Guida: quale minerale è più abbondante.
+     Tipo: DIRETTA
+
+101. "Che dicevi, scusa? Plagio classico?"
+     Contesto: Correzione: ortoclasio, non plagioclasio.
+     Tipo: DIRETTA
+
+102. "Orto classico, si è più d'accordo?"
+     Contesto: Conferma correzione terminologica.
+     Tipo: DIRETTA
+
+103. "Poi c'è il bianco, quindi la tessitura è?"
+     Contesto: Identificazione tessitura olocristallina.
+     Tipo: DIRETTA
+
+104. "La tessitura a destra è più fine e a sinistra è più rossolana?"
+     Contesto: Confronto tessitura tra due campioni.
+     Tipo: DIRETTA
+
+105. "Che cos'è questo?"
+     Contesto: Identificazione ennesimo campione di roccia.
+     Tipo: DIRETTA
+
+106. "Cioè, di nuovo, non andate, non datemi il nome, non facciamo il queser, parlatene, che vedete?"
+     Contesto: Invito a costruire un ragionamento, non sparare il nome.
+     Tipo: ESAME (INDICAZIONE METODO D'ESAME)
+
+107. "Tessitura?"
+     Contesto: Domanda sulla tessitura di un campione.
+     Tipo: DIRETTA
+
+108. "Questo è porfido?"
+     Contesto: Domanda su classificazione di una roccia.
+     Tipo: DIRETTA
+
+109. "Ma non c'è un'applicazione tipo PlantNet che riconosce i minerali al volo?"
+     Contesto: Domanda studente su app riconoscimento.
+     Tipo: RISPOSTA A DOMANDA STUDENTE
+
+110. "Dove queste si sono formate?"
+     Contesto: Provenienza rocce ignee (profondità crosta, superficie).
+     Tipo: RETORICA / ESAME
+
+111. "Che si intende per cemento?"
+     Contesto: Definizione cemento nelle rocce sedimentarie.
+     Tipo: RETORICA / ESAME
+
+112. "Più raro?" [cemento diverso dalla calcite]
+     Contesto: Tipi di cemento: calcite (comune), dolomia (più rara), quarzo.
+     Tipo: RETORICA
+
+113. "Qualche esempio base di rocce evaporitiche? Mi viene in mente qualcosa?"
+     Contesto: Esempi rocce evaporitiche.
+     Tipo: DIRETTA
+
+114. "Che succede quando bolle l'acqua?"
+     Contesto: Evaporazione e precipitazione sali.
+     Tipo: RETORICA
+
+115. "Perché la differenza qual è?" [tra roccia cristallina e particellare]
+     Contesto: Distinzione rocce cristalline vs particellari.
+     Tipo: RETORICA
+
+116. "Avete capito qual è la differenza?"
+     Contesto: Verifica comprensione clasti di gesso vs roccia evaporitica originale.
+     Tipo: DIRETTA
+
+117. "quattro c'è parecchio quattro in entrambi quindi dove siamo? granito? no perché no? non c'è l'ortografico e non c'è lo spato potassico quindi siamo un po' più verso la destra su quel grafico no?"
+     Contesto: Ragionamento guidato su classificazione roccia ignea.
+     Tipo: DIRETTA / ESAME
+
+118. "posso chiedere un'ultima domanda?"
+     Contesto: Studente chiede di fare un'ultima domanda.
+     Tipo: RISPOSTA A DOMANDA STUDENTE
+
+119. "Ci siete? Domande? Dubbi?"
+     Contesto: Verifica finale comprensione.
+     Tipo: DIRETTA
+
+120. "Quando dovrete pensare?" [alla struttura della risposta d'esame]
+     Contesto: Suggerimento su come preparare il discorso d'esame.
+     Tipo: ESAME
+
+
+================================================================================
+TRASCRIZIONE 07 - 31 Maggio 2024 (Deformazione Rocce, Faglie, Pieghe, Terremoti)
+================================================================================
+
+121. "che è una specie di grande lago no?" [il Mediterraneo durante la crisi messiniana]
+     Contesto: Crisi di salinità del Messiniano.
+     Tipo: RETORICA
+
+122. "dove stanno praticamente?" [le rocce]
+     Contesto: Le rocce stanno nella litosfera.
+     Tipo: RETORICA
+
+123. "la litosfera da che è fatta?"
+     Contesto: Composizione della litosfera.
+     Tipo: RETORICA / ESAME
+
+124. "ma sempre rocce sono, giusto?"
+     Contesto: La litosfera è fatta di rocce.
+     Tipo: RETORICA
+
+125. "la litosfera cosa fa?"
+     Contesto: Comportamento della litosfera (si deforma).
+     Tipo: RETORICA
+
+126. "sottoposte a sforzi?"
+     Contesto: Le rocce nella litosfera subiscono sforzi tettonici.
+     Tipo: RETORICA
+
+127. "ora come avviene questa deformazione?"
+     Contesto: Introduzione ai meccanismi di deformazione delle rocce.
+     Tipo: RETORICA / ESAME
+
+128. "avete usato mai il pongo o il das?"
+     Contesto: Analogia deformazione plastica con plastilina.
+     Tipo: DIRETTA / RETORICA
+
+129. "che cos'è una faglia?"
+     Contesto: Definizione di faglia.
+     Tipo: RETORICA / ESAME
+
+130. "queste faglie?" [dirette, inverse, trascorrenti]
+     Contesto: Classificazione faglie in base al movimento.
+     Tipo: RETORICA
+
+131. "avviene per quale motivo?" [la deformazione fragile]
+     Contesto: Cause della deformazione fragile (superficie, basse T).
+     Tipo: RETORICA
+
+132. "qual è lo sforzo?"
+     Contesto: Tipi di sforzo tettonico.
+     Tipo: RETORICA / ESAME
+
+133. "cioè che succede?" [con la faglia]
+     Contesto: Movimento dei blocchi lungo la faglia.
+     Tipo: RETORICA
+
+134. "che succede infatti con la faglia diretta?"
+     Contesto: Comportamento faglia diretta (distensione).
+     Tipo: RETORICA / ESAME
+
+135. "vedete?" [la faglia diretta]
+     Contesto: Mostra diagramma faglia diretta.
+     Tipo: RETORICA
+
+136. "cosa fa?" [la faglia]
+     Contesto: Effetto della faglia.
+     Tipo: RETORICA
+
+137. "e quindi che fai?" [per riconoscere la faglia]
+     Contesto: Metodo per identificare il tipo di faglia.
+     Tipo: DIRETTA
+
+138. "le associamo?"
+     Contesto: Associazione faglie a regimi tettonici.
+     Tipo: DIRETTA
+
+139. "cosa fanno?" [le faglie]
+     Contesto: Movimento relativo dei blocchi.
+     Tipo: RETORICA
+
+140. "della differenza tra terremoto e gravometro? com'è? quello che abbiamo avuto ultimamente?"
+     Contesto: Domanda studente su differenza terremoto/gravometro.
+     Tipo: RISPOSTA A DOMANDA STUDENTE
+
+141. "cosa succede?"
+     Contesto: Effetti della deformazione sulle rocce.
+     Tipo: RETORICA
+
+142. "che succede in questa zona?" [di deformazione]
+     Contesto: Cosa accade nella zona di faglia.
+     Tipo: RETORICA
+
+143. "e se diminuisce la pressione che può succedere?"
+     Contesto: Effetti della decompressione in zona di faglia.
+     Tipo: RETORICA / ESAME
+
+144. "che succede?" [con la faglia inversa]
+     Contesto: Comportamento faglia inversa (compressione).
+     Tipo: RETORICA / ESAME
+
+145. "alla roccia più recente giusto?"
+     Contesto: La faglia diretta mette rocce recenti a contatto con più antiche.
+     Tipo: RETORICA
+
+146. "vedete cosa fa la faglia diretta?"
+     Contesto: Effetto faglia diretta: omette stratigrafia.
+     Tipo: RETORICA
+
+147. "come faccio a sapere se è una faglia diretta o inversa?"
+     Contesto: Criteri per distinguere faglie dirette da inverse.
+     Tipo: RETORICA / ESAME
+
+148. "vedete cosa fa invece la faglia inversa?"
+     Contesto: Effetto faglia inversa: duplica stratigrafia.
+     Tipo: RETORICA / ESAME
+
+149. "si? studiate?"
+     Contesto: Incoraggiamento a studiare.
+     Tipo: DIRETTA
+
+150. "come risulta la faglia insieme alle rocce più recenti?"
+     Contesto: Relazione faglia inversa con rocce più recenti.
+     Tipo: RETORICA
+
+
+================================================================================
+RIEPILOGO STATISTICO
+================================================================================
+Trascrizione 04: 54 domande (minerali, rocce ignee, introduzione metamorfiche)
+Trascrizione 05: 22 domande (rocce sedimentarie, metamorfiche)
+Trascrizione 06: 44 domande (esercitazione riconoscimento rocce, classificazione)
+Trascrizione 07: 30 domande (deformazione, faglie, terremoti)
+TOTALE: ~150 domande significative
+
+DOMANDE ESAME ESPLICITAMENTE ANNUNCIATE: circa 25-30
+- Minerali principali della crosta oceanica
+- Serie di Bowen
+- Classificazione rocce ignee (composizionale + tessiturale)
+- Differenza crosta continentale vs oceanica
+- Riconoscimento minerali al macroscopico
+- Ambienti sedimentari
+- Classificazione rocce sedimentarie
+- Metamorfismo: condizioni P/T
+- Faglie: classificazione e riconoscimento
+- Costruzione del discorso d'esame (ragionamento, non nome sparato)
